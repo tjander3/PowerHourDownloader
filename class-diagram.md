@@ -2,11 +2,25 @@
 ---
 title: it Card Game
 ---
-%% The deailts of mermaid classDiagram are found here: https://mermaid.js.org/syntax/classDiagram.html
-
-%% TODO look over conections and what they are supposed to be
-
+%% The details of mermaid classDiagram are found here: https://mermaid.js.org/syntax/classDiagram.html
 classDiagram
+    class PowerHour {
+        list[Video] videos
+        list[Transition] transitions
+
+        save_power_hour()
+        upload_power_hour()
+    }
+
+    class Video {
+
+    }
+
+    class Transition {
+
+    }
+
+%%
 %%    class Game {
 %%        str game_type
 %%        Players players
