@@ -13,11 +13,25 @@ classDiagram
     }
 
     class Video {
-
+        VideoLink video_link
     }
 
     class Transition {
 
+    }
+
+    class VideoLink {
+        <<abstract>>
+        str video_link
+
+        download() -> Path
+    }
+
+    class YoutubeVideoLink {
+        str video_link
+        Path video
+
+        download() -> Path
     }
 
 %%
