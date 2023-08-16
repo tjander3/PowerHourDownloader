@@ -1,6 +1,6 @@
 ```mermaid
 ---
-title: it Card Game
+title: Power Hour Downloader
 ---
 %% The details of mermaid classDiagram are found here: https://mermaid.js.org/syntax/classDiagram.html
 classDiagram
@@ -8,6 +8,7 @@ classDiagram
         list[Video] videos
         list[Transition] transitions
 
+        create_power_hour()
         save_power_hour()
         upload_power_hour()
     }
@@ -17,21 +18,40 @@ classDiagram
     }
 
     class Transition {
+        <<abstract>>
+        Path video
+        % TODO implement
+    }
 
+    Transition <-- TransitionVideo
+    class TransitionVideo {
+        Path video
+
+        % TODO functions here
+    }
+
+    Transition <-- TransitionImage
+    class TransitionImage {
+        int length
+        Image image
+        Path video
+
+        % TODO functions here
     }
 
     class VideoLink {
         <<abstract>>
         str video_link
 
-        download() -> Path
+        download(start_time=None, end_time=None) -> Path
     }
 
+    VideoLink <-- YoutubeVideoLink
     class YoutubeVideoLink {
         str video_link
         Path video
 
-        download() -> Path
+        download(start_time=None, end_time=None) -> Path
     }
 
 %%
