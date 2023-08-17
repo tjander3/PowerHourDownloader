@@ -4,6 +4,8 @@ title: Power Hour Downloader
 ---
 %% The details of mermaid classDiagram are found here: https://mermaid.js.org/syntax/classDiagram.html
 classDiagram
+    PowerHour "1" --o "*" Video: has
+    PowerHour "1" --o "*" Transition: has
     class PowerHour {
         list[Video] videos
         list[Transition] transitions
@@ -13,41 +15,55 @@ classDiagram
         upload_power_hour()
     }
 
-    class Video {
-        VideoLink video_link
+    class TextVideoOverlay {
+        str text
+        %% TODO how will i represent color
+        Color text_color
+        %% TODO how will i represent location?
+        Location text_location
     }
 
+    %% TODO 1 to 0..1
+    Transition "1" --* "1" TextVideoOverlay : Describes
     class Transition {
         <<abstract>>
         Path video
-        % TODO implement
+        TextVideoOverlay text = None
+
+        _add_text_to_video()
     }
 
-    Transition <-- TransitionVideo
+    Transition <|-- TransitionVideo
     class TransitionVideo {
         Path video
+        TextVideoOverlay text = None
 
-        % TODO functions here
+        _add_text_to_video()
     }
 
-    Transition <-- TransitionImage
+    Transition <|-- TransitionImage
     class TransitionImage {
-        int length
-        Image image
+        int _length
+        Image _image
         Path video
+        TextVideoOverlay text = None
 
-        % TODO functions here
+        _image_to_video()
+        _add_text_to_video()
     }
 
-    class VideoLink {
+    class Video{
         <<abstract>>
+        %% TODO should str be a link class?
         str video_link
+        Path video
 
         download(start_time=None, end_time=None) -> Path
     }
 
-    VideoLink <-- YoutubeVideoLink
-    class YoutubeVideoLink {
+    Video <|-- YoutubeVideo
+    class YoutubeVideo {
+        %% TODO should str be a link class?
         str video_link
         Path video
 
