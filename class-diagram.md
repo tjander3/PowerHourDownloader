@@ -4,6 +4,13 @@ title: Power Hour Downloader
 ---
 %% The details of mermaid classDiagram are found here: https://mermaid.js.org/syntax/classDiagram.html
 classDiagram
+    PowerHourRunner -- PowerHourParser
+    class PowerHourRunner {
+        PowerHourParser parser
+
+        main()
+    }
+
     PowerHour "1" --o "*" Video: has
     PowerHour "1" --o "*" Transition: has
     class PowerHour {
@@ -15,16 +22,38 @@ classDiagram
         upload_power_hour()
     }
 
+    PowerHourParser -- PowerHour
+    class PowerHourParser {
+        <<abstract>>
+        PowerHour power_hour
+
+        _parse() -> PowerHour
+    }
+
+    PowerHourParser <|-- MyTube60Parser
+    class MyTube60Parser {
+        PowerHour power_hour
+        Path link
+
+        parse() -> PowerHour
+    }
+
+    class Location {
+        %% Coordinates for where TextOverlay will be placed
+        %% Default should be the center of the screen
+        int x = 0
+        int y = 0
+    }
+
+
+    TextVideoOverlay "1" --* "1" Location : located at
     class TextVideoOverlay {
         str text
-        %% TODO how will i represent color
         Color text_color
-        %% TODO how will i represent location?
         Location text_location
     }
 
-    %% TODO 1 to 0..1
-    Transition "1" --* "1" TextVideoOverlay : Describes
+    Transition "1" --* "0..1" TextVideoOverlay : Describes
     class Transition {
         <<abstract>>
         Path video
