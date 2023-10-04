@@ -17,6 +17,7 @@ classDiagram
         list[Video] videos
         list[Transition] transitions
 
+        %% TODO return types for all functions
         create_power_hour()
         save_power_hour()
         upload_power_hour()
