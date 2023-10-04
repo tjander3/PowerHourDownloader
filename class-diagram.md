@@ -83,8 +83,7 @@ classDiagram
 
     class Video{
         <<abstract>>
-        %% TODO should str be a link class?
-        str video_link
+        VideoLink video_link
         Path video
 
         download(start_time=None, end_time=None) -> Path
@@ -92,11 +91,17 @@ classDiagram
 
     Video <|-- YoutubeVideo
     class YoutubeVideo {
-        %% TODO should str be a link class?
-        str video_link
+        VideoLink video_link
         Path video
 
         download(start_time=None, end_time=None) -> Path
+    }
+
+    Video -- VideoLink
+    class VideoLink {
+        str video_link
+
+        verify_video_link() -> bool
     }
 
 %%
