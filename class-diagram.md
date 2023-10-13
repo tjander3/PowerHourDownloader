@@ -8,7 +8,7 @@ classDiagram
     class PowerHourRunner {
         PowerHourParser parser
 
-        main()
+        main() -> None
     }
 
     PowerHour "1" --o "*" Video: has
@@ -17,10 +17,9 @@ classDiagram
         list[Video] videos
         list[Transition] transitions
 
-        %% TODO return types for all functions
-        create_power_hour()
-        save_power_hour()
-        upload_power_hour()
+        create_power_hour() -> Path
+        save_power_hour() -> Path
+        upload_power_hour() -> None
     }
 
     PowerHourParser -- PowerHour
@@ -60,7 +59,7 @@ classDiagram
         Path video
         TextVideoOverlay text = None
 
-        _add_text_to_video()
+        _add_text_to_video() -> None
     }
 
     Transition <|-- TransitionVideo
@@ -68,7 +67,7 @@ classDiagram
         Path video
         TextVideoOverlay text = None
 
-        _add_text_to_video()
+        _add_text_to_video() -> None
     }
 
     Transition <|-- TransitionImage
@@ -78,8 +77,8 @@ classDiagram
         Path video
         TextVideoOverlay text = None
 
-        _image_to_video()
-        _add_text_to_video()
+        _image_to_video() -> None
+        _add_text_to_video() -> None
     }
 
     class Video{
