@@ -1,0 +1,2 @@
+class Video:
+    raise NotImplementedError

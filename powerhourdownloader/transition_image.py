@@ -1,0 +1,2 @@
+class TransitionImage:
+    raise NotImplementedError

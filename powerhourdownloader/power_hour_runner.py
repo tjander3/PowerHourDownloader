@@ -1,0 +1,2 @@
+class PowerHourRunner:
+    raise NotImplementedError

@@ -1,0 +1,2 @@
+class VideoLink:
+    raise NotImplementedError

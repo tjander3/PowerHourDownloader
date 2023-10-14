@@ -1,0 +1,2 @@
+class TransitionVideo:
+    raise NotImplementedError

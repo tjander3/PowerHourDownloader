@@ -1,0 +1,2 @@
+class TextVideoOverlay:
+    raise NotImplementedError
