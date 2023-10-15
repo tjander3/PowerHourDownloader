@@ -6,10 +6,11 @@ Since I am doing small incremental work on this project it would take too much t
 - [x] Make sure testing works
 - [ ] Create outline of all classes from class-diagram.md
     - [x] classes
-        - [ ] abstractions
+        - [x] abstractions
         - [ ] inheritance
-        - [ ] functions
+        - [x] functions
         - [ ] variables
+            - Lets use data class for this
 - [ ] Create outline of all classes from class-diagram.md for tests
 - [ ] Create README.md
 - [ ] Start implementing the classes (come up with order to implement first)

@@ -8,6 +8,7 @@ classDiagram
     class PowerHourRunner {
         PowerHourParser parser
 
+        run() -> None
         main() -> None
     }
 
@@ -27,7 +28,7 @@ classDiagram
         <<abstract>>
         PowerHour power_hour
 
-        _parse() -> PowerHour
+        parse() -> PowerHour
     }
 
     PowerHourParser <|-- MyTube60Parser
@@ -53,21 +54,24 @@ classDiagram
         Location text_location
     }
 
-    Transition "1" --* "0..1" TextVideoOverlay : Describes
     class Transition {
         <<abstract>>
         Path video
         TextVideoOverlay text = None
+        Audio audio = None
 
         _add_text_to_video() -> None
+        _add_audio_to_video() -> None
     }
 
     Transition <|-- TransitionVideo
     class TransitionVideo {
         Path video
         TextVideoOverlay text = None
+        Audio audio = None
 
         _add_text_to_video() -> None
+        _add_audio_to_video() -> None
     }
 
     Transition <|-- TransitionImage
@@ -76,9 +80,11 @@ classDiagram
         Image _image
         Path video
         TextVideoOverlay text = None
+        Audio audio = None
 
         _image_to_video() -> None
         _add_text_to_video() -> None
+        _add_audio_to_video() -> None
     }
 
     class Video{

@@ -1,2 +1,3 @@
 class TextVideoOverlay:
-    raise NotImplementedError
+    def __init__(self) -> None:
+        raise NotImplementedError

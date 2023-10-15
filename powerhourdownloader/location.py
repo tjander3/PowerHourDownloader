@@ -1,2 +1,3 @@
 class Location:
-    raise NotImplementedError
+    def __init__(self) -> None:
+        raise NotImplementedError
