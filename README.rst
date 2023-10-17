@@ -27,6 +27,14 @@ Python project to download powerhours in one mp4
 * Documentation: https://powerhourdownloader.readthedocs.io.
 
 
+Python environment
+--------
+
+Activate environment: `. ./env/Scripts/activate`
+
+Install packages in environment: `python -m pip install -r requirements_dev.txt`
+
+
 Features
 --------
 

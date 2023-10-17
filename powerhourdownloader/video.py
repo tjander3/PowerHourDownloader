@@ -7,5 +7,5 @@ class Video(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def download(self, start_time=None, end_time=None) -> Path
+    def download(self, start_time=None, end_time=None) -> Path:
         raise NotImplementedError

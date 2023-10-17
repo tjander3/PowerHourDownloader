@@ -1,5 +1,11 @@
+from dataclasses import dataclass
+
+from powerhourdownloader.power_hour_parser import PowerHourParser
+
+
+@dataclass
 class PowerHourRunner:
-    raise NotImplementedError
+    parser: PowerHourParser
 
     def run(self):
         raise NotImplementedError

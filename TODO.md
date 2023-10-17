@@ -11,6 +11,17 @@ Since I am doing small incremental work on this project it would take too much t
         - [x] functions
         - [ ] variables
             - Lets use data class for this
+            - [x] PowerHourRunner
+            - [x] PowerHour
+            - [x] PowerHourParser
+            - [ ] MyTube60Parser
+            - [ ] Location
+            - [ ] TextVideoOverlay
+            - [ ] Transition
+            - [ ] TransitionVideo
+            - [ ] TransitionImage
+            - [ ] YoutubeVideo
+            - [ ] VideoLink
 - [ ] Create outline of all classes from class-diagram.md for tests
 - [ ] Create README.md
 - [ ] Start implementing the classes (come up with order to implement first)
