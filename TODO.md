@@ -16,4 +16,6 @@ Since I am doing small incremental work on this project it would take too much t
     - [] YoutubeVideo
     - [] VideoLink
 - [ ] Create README.md
+- [ ] .github ci/cd once tests framework is stood up
+- [ ] Start adding tests for classes
 - [ ] Start implementing the classes (come up with order to implement first)
