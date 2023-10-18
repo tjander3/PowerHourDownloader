@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 
-from attr import dataclass
 from powerhourdownloader.power_hour import PowerHour
 
 

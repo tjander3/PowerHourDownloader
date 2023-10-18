@@ -1,6 +1,9 @@
+from dataclasses import dataclass
+
+
+@dataclass
 class VideoLink:
-    def __init__(self) -> None:
-        raise NotImplementedError
+    video_link: str
 
     def verify_video_link(self) -> bool:
         raise NotImplementedError

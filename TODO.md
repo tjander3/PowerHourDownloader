@@ -2,8 +2,6 @@
 
 Since I am doing small incremental work on this project it would take too much time to create issues for inital code develpment. Instead I will just add some tasks to this file so I can keep up to date on what I am doing / need to do.
 
-- [x] Create project, use cookiecutter
-- [x] Make sure testing works
 - [ ] Create outline of all classes from class-diagram.md
     - [x] classes
         - [x] abstractions
@@ -14,14 +12,15 @@ Since I am doing small incremental work on this project it would take too much t
             - [x] PowerHourRunner
             - [x] PowerHour
             - [x] PowerHourParser
-            - [ ] MyTube60Parser
-            - [ ] Location
-            - [ ] TextVideoOverlay
-            - [ ] Transition
-            - [ ] TransitionVideo
-            - [ ] TransitionImage
-            - [ ] YoutubeVideo
-            - [ ] VideoLink
+            - [x] MyTube60Parser
+            - [x] Location
+            - [x] TextVideoOverlay
+            - [x] Transition
+            - [x] TransitionVideo
+            - [x] TransitionImage
+            - [x] YoutubeVideo
+            - [x] VideoLink
+- [ ] Bring in my bashrc
 - [ ] Create outline of all classes from class-diagram.md for tests
 - [ ] Create README.md
 - [ ] Start implementing the classes (come up with order to implement first)
