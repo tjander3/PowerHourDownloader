@@ -2,10 +2,11 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from powerhourdownloader.text_video_overlay import TextVideoOverlay
+from powerhourdownloader.transition import Transition
 
 
 @dataclass
-class TransitionImage:
+class TransitionImage(Transition):
     _length: int
     _image: Image  # TODO image
     video: Path
