@@ -7,8 +7,6 @@ from powerhourdownloader.power_hour import PowerHour
 @dataclass
 class PowerHourParser(ABC):
     power_hour: PowerHour
-    def __init__(self) -> None:
-        raise NotImplementedError
 
     @abstractmethod
     def parse(self) -> PowerHour:

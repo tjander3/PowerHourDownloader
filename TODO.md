@@ -6,9 +6,9 @@ Since I am doing small incremental work on this project it would take too much t
 - [ ] Create outline of all classes from class-diagram.md for tests
     - [] PowerHourRunner
     - [] PowerHour
-    - [] PowerHourParser
-    - [] MyTube60Parser
-    - [] Location
+    - [x] PowerHourParser
+    - [x] MyTube60Parser
+    - [x] Location
     - [] TextVideoOverlay
     - [] Transition
     - [] TransitionVideo
