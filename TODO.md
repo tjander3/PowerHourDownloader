@@ -4,8 +4,8 @@ Since I am doing small incremental work on this project it would take too much t
 
 - [ ] Bring in my bashrc
 - [ ] Create outline of all classes from class-diagram.md for tests
-    - [] PowerHourRunner
-    - [] PowerHour
+    - [x] PowerHourRunner
+    - [x] PowerHour
     - [x] PowerHourParser
     - [x] MyTube60Parser
     - [x] Location

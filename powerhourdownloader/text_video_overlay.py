@@ -6,5 +6,3 @@ class TextVideoOverlay:
     text: str
     text_color: str # TODO make this a color Color
     text_location: Location
-    def __init__(self) -> None:
-        raise NotImplementedError
