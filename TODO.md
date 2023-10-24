@@ -9,10 +9,10 @@ Since I am doing small incremental work on this project it would take too much t
     - [x] PowerHourParser
     - [x] MyTube60Parser
     - [x] Location
-    - [] TextVideoOverlay
-    - [] Transition
-    - [] TransitionVideo
-    - [] TransitionImage
+    - [x] TextVideoOverlay
+    - [x] Transition
+    - [x] TransitionVideo
+    - [x] TransitionImage
     - [] YoutubeVideo
     - [] VideoLink
 - [ ] Create README.md
