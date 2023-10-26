@@ -16,3 +16,6 @@ black==21.7b0
 # TODO sort
 pydocstyle
 pycodestyle
+
+# Still verifying I need to use this
+opencv-python
