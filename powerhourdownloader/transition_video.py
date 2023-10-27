@@ -12,10 +12,82 @@ class TransitionVideo():#Transition):
     audio: Optional[Path] = field(default=None)
 
     def _add_text_to_video(self) -> None:
+        # TODO left off here: see this https://stackoverflow.com/questions/54607447/opencv-how-to-overlay-text-on-video
         # TODO this could be in the parent class
         # Python program to write
         # text on video
         import cv2
+        video_path = Path(__file__).parent / '..' / 'videos' / 'hello-there.mp4'
+        print(video_path.absolute())
+        print(f'video exits: {video_path.exists()}')
+        tree_video = cv2.VideoCapture(str(video_path))
+
+        print(tree_video)
+
+        fps = tree_video.get(cv2.CAP_PROP_FPS)
+        print(fps)
+        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+        out = cv2.VideoWriter('outpu2t.mp4', fourcc, 20.0, (640,480))
+        # This is from here : https://stackoverflow.com/questions/73663569/python-opencv-how-to-write-text-on-video-output-mp4-empty
+        # TODO having problems getting write out to work
+        try:
+            while(True):
+
+                # Capture frames in the video
+                ret, frame = tree_video.read()
+
+                font = cv2.FONT_HERSHEY_SIMPLEX
+
+                cv2.putText(frame,
+                            'TEXT ON VIDEO',
+                            (50, 50),
+                            font, 1,
+                            (0, 640, 480),
+                            2,
+                            cv2.LINE_4)
+                out.write(frame)
+                cv2.imshow('video', frame)
+
+                if cv2.waitKey(1) & 0xFF == ord('q'):
+                    break
+
+
+            tree_video.release()
+
+
+            cv2.destroyAllWindows()
+        except:
+            print("Video has ended.")
+        tree_video.release()
+        out.release()
+        cv2.destroyAllWindows()
+
+        return
+        frame_ = 0
+
+        while True:
+            ret, frame = tree_video.read()
+            font = cv2.FONT_HERSHEY_SIMPLEX
+
+            #on_video_text = text_update(frame_)
+            on_video_text = 'Hello There'
+            cv2.putText(frame, on_video_text, (50, 50), font, 1, (0, 255, 255), 2, cv2.LINE_4)
+
+            frame_ = frame_ + 1
+
+            cv2.imshow('poem on video', frame)
+
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
+
+            tree_video.release()
+            cv2.destroyAllWindows()
+
+            if frame_ > 1000000:
+                break
+
+
+        return
 
 
         cap = cv2.VideoCapture(Path('.') / '..' / 'videos' / 'hello-there.mp4')
