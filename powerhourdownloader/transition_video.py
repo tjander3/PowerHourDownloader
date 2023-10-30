@@ -20,14 +20,29 @@ class TransitionVideo():#Transition):
         video_path = Path(__file__).parent / '..' / 'videos' / 'hello-there.mp4'
         print(video_path.absolute())
         print(f'video exits: {video_path.exists()}')
+        from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
+
+        video = VideoFileClip(str(video_path))#.subclip(50,60)
+
+        # Make the text. Many more options are available.
+        txt_clip = ( TextClip("My Holidays 2013",fontsize=70,color='white')
+                     .set_position('center')
+                     .set_duration(10) )  # TODO duration should be whole clip
+
+        result = CompositeVideoClip([video, txt_clip]) # Overlay text on video
+        result.write_videofile("myHolidays_edited.mp4",fps=25) # Many options...
+
+        return
+        # TODO left off here please clean up this code
+
         tree_video = cv2.VideoCapture(str(video_path))
 
         print(tree_video)
 
         fps = tree_video.get(cv2.CAP_PROP_FPS)
         print(fps)
-        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-        out = cv2.VideoWriter('outpu2t.mp4', fourcc, 20.0, (640,480))
+        fourcc = cv2.VideoWriter_fourcc(*'XVID')
+        out = cv2.VideoWriter('tyler.avi', fourcc, 20.0, (640,480))
         # This is from here : https://stackoverflow.com/questions/73663569/python-opencv-how-to-write-text-on-video-output-mp4-empty
         # TODO having problems getting write out to work
         try:
@@ -46,16 +61,17 @@ class TransitionVideo():#Transition):
                             2,
                             cv2.LINE_4)
                 out.write(frame)
-                cv2.imshow('video', frame)
+                cv2.imshow('frame', frame)
 
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     break
 
 
-            tree_video.release()
+            #tree_video.release()
+            #out.release()
 
 
-            cv2.destroyAllWindows()
+            #cv2.destroyAllWindows()
         except:
             print("Video has ended.")
         tree_video.release()
