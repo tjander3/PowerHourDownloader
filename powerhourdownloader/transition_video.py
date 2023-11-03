@@ -24,14 +24,13 @@ class TransitionVideo():#Transition):
             # If there is no text to add do not do anything
             return
 
-        video_path = Path(__file__).parent / '..' / 'videos' / 'hello-there.mp4'
-        logging.debug(video_path.absolute())
-        if video_path.exists():
-            logging.debug(f'video exist: {video_path.exists()}')
+        logging.debug(self.video.absolute())
+        if self.video.exists():
+            logging.debug(f'video exist: {self.video.exists()}')
         else:
-            logging.error(f'video does not exist: {video_path.exists()}')
+            logging.error(f'video does not exist: {self.video.exists()}')
 
-        video = VideoFileClip(str(video_path))
+        video = VideoFileClip(str(self.video))
 
         # Make the text. Many more options are available.
         txt_clip = (
@@ -44,7 +43,7 @@ class TransitionVideo():#Transition):
         result = CompositeVideoClip([video, txt_clip])  # Overlay text on video
         # TODO find out original video fps?
         # TODO what name to use
-        result.write_videofile(str(video_path.parent / f'text-added-{video_path.name}'), fps=25)  # Many options...
+        result.write_videofile(str(self.video.parent / f'text-added-{self.video.name}'), fps=25)  # Many options...
 
 
     def _add_audio_to_video(self) -> None:
@@ -52,9 +51,9 @@ class TransitionVideo():#Transition):
 
 def main():
     tv = TransitionVideo(
-        video='',
+        video=Path(__file__).parent / '..' / 'videos' / 'hello-there.mp4',
         text=TextVideoOverlay(text='Hello there'),
-        audio='xxx'
+        audio=None,  # TODO this needs to be implemented still
     )
     tv._add_text_to_video()
 
