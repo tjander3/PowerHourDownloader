@@ -37,7 +37,7 @@ class TransitionVideo():#Transition):
             # TODO use text video overlay instead
             TextClip(self.text.text, fontsize=70, color='white')
                 .set_position('center')  # TODO set this myself with text_video_overlay
-                .set_duration(10)  # TODO we need to have a duration
+                .set_duration(video.duration)
         )
 
         result = CompositeVideoClip([video, txt_clip])  # Overlay text on video
