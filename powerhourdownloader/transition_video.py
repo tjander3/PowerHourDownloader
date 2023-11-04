@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Optional
 
 from moviepy.editor import CompositeVideoClip, TextClip, VideoFileClip
+from powerhourdownloader.location import Location
 
 # TODO figure out why this is not importing
 from powerhourdownloader.text_video_overlay import TextVideoOverlay
@@ -34,9 +35,8 @@ class TransitionVideo():#Transition):
 
         # Make the text. Many more options are available.
         txt_clip = (
-            # TODO use text video overlay instead
             TextClip(self.text.text, fontsize=70, color='white')
-                .set_position('center')  # TODO set this myself with text_video_overlay
+                .set_position(*self.text.text_location.location)
                 .set_duration(video.duration)
         )
 
@@ -52,7 +52,7 @@ class TransitionVideo():#Transition):
 def main():
     tv = TransitionVideo(
         video=Path(__file__).parent / '..' / 'videos' / 'hello-there.mp4',
-        text=TextVideoOverlay(text='Hello there'),
+        text=TextVideoOverlay(text='Hello there', text_location=Location(str_loc='left')),
         audio=None,  # TODO this needs to be implemented still
     )
     tv._add_text_to_video()
