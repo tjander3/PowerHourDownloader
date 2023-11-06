@@ -17,8 +17,10 @@ black==21.7b0
 pydocstyle
 pycodestyle
 
-# Still verifying I need to use this
-opencv-python
+# Still verifying I need to use the following
+#opencv-python  # TODO most likely do not need this I moved to using moviepy
+pytest-golden
+
 
 # On windows this required me to install this as well: https://imagemagick.org/script/download.php#windows.
 # See this stack overflow post: https://stackoverflow.com/questions/51928807/moviepy-cant-detect-imagemagick-binary-on-windows

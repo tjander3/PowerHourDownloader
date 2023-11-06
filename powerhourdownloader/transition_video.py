@@ -12,7 +12,7 @@ from powerhourdownloader.transition import Transition
 
 
 @dataclass
-class TransitionVideo():#Transition):
+class TransitionVideo(Transition):
     video: Path
     text: Optional[TextVideoOverlay] = None
     audio: Optional[Path] = field(default=None)
