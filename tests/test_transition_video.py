@@ -1,3 +1,4 @@
+import hashlib
 from pathlib import Path
 import pytest
 from powerhourdownloader.location import Location
@@ -15,7 +16,7 @@ class TestTransitionVideo:
                     Path(__file__).parent / 'videos' / 'test_video.mp4',
                     'Hello there',
                     Location(str_loc='top left'),
-                    Path(__file__).parent / 'videos' / 'test_video_hello_there.mp4',
+                    Path(__file__).parent / 'videos' / 'golden_test_video.mp4',
                 ),
             )
     )
@@ -28,5 +29,13 @@ class TestTransitionVideo:
     ) -> None:
         # TODO left off here
         # TODO do a golden test here with parmatrie, will ave to add video to git repo thugh
+        # TODO we need to actually write transition_video and also golden file probebly use tmp_path
         text_overlay = TextVideoOverlay(text=text, text_color=None, text_location=location)
         transition_video = TransitionVideo(video=video_path, text=text_overlay, audio=None)
+
+        transition_video_hash = open(transition_video.video, 'rb').read()
+        golden_video_hash = open(expected_result, 'rb').read()
+
+        assert (
+            hashlib.sha512(transition_video_hash).hexdigest()
+            == hashlib.sha512(golden_video_hash).hexdigest())
