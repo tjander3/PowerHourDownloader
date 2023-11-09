@@ -14,6 +14,8 @@ from powerhourdownloader.transition import Transition
 @dataclass
 class TransitionVideo(Transition):
     video: Path
+    output: Optional[Path] = None
+    updated_video: Optional[Path] = field(init=False, default=None)
     text: Optional[TextVideoOverlay] = None
     audio: Optional[Path] = field(default=None)
 
@@ -36,14 +38,19 @@ class TransitionVideo(Transition):
         # Make the text. Many more options are available.
         txt_clip = (
             TextClip(self.text.text, fontsize=70, color='white')
-                .set_position(*self.text.text_location.location)
+                .set_position(self.text.text_location.location)
                 .set_duration(video.duration)
         )
 
         result = CompositeVideoClip([video, txt_clip])  # Overlay text on video
         # TODO find out original video fps?
         # TODO what name to use
-        result.write_videofile(str(self.video.parent / f'text-added-{self.video.name}'), fps=25)  # Many options...
+        if self.output:
+            self.updated_video = self.output / f'text-added-{self.video.name}'
+        else:
+            self.updated_video = self.video.parent / f'text-added-{self.video.name}'
+
+        result.write_videofile(str(self.updated_video), fps=25)  # Many options...
 
 
     def _add_audio_to_video(self) -> None:
@@ -52,7 +59,7 @@ class TransitionVideo(Transition):
 def main():
     tv = TransitionVideo(
         video=Path(__file__).parent / '..' / 'videos' / 'hello-there.mp4',
-        text=TextVideoOverlay(text='Hello there', text_location=Location(str_loc='left')),
+        text=TextVideoOverlay(text='Hello there', text_location=Location(str_loc=('left', 'top'))),
         audio=None,  # TODO this needs to be implemented still
     )
     tv._add_text_to_video()
