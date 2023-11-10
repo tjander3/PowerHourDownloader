@@ -3,9 +3,10 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
-from moviepy.editor import CompositeVideoClip, TextClip, VideoFileClip
-from powerhourdownloader.location import Location
+from moviepy.editor import (AudioFileClip, CompositeAudioClip,
+                            CompositeVideoClip, TextClip, VideoFileClip)
 
+from powerhourdownloader.location import Location
 # TODO figure out why this is not importing
 from powerhourdownloader.text_video_overlay import TextVideoOverlay
 from powerhourdownloader.transition import Transition
@@ -15,7 +16,7 @@ from powerhourdownloader.transition import Transition
 class TransitionVideo(Transition):
     video: Path
     output: Optional[Path] = None
-    updated_video: Optional[Path] = field(init=False, default=None)
+    updated_video: Path = field(init=False)
     text: Optional[TextVideoOverlay] = None
     audio: Optional[Path] = field(default=None)
 
@@ -54,6 +55,13 @@ class TransitionVideo(Transition):
 
 
     def _add_audio_to_video(self) -> None:
+        # TODO actually implement this
+        videoclip = VideoFileClip("filename.mp4")
+        audioclip = AudioFileClip("audioname.mp3")
+
+        new_audioclip = CompositeAudioClip([audioclip])
+        videoclip.audio = new_audioclip
+        videoclip.write_videofile("new_filename.mp4")
         raise NotImplementedError
 
 def main():
