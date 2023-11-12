@@ -25,3 +25,5 @@ pytest-golden
 # On windows this required me to install this as well: https://imagemagick.org/script/download.php#windows.
 # See this stack overflow post: https://stackoverflow.com/questions/51928807/moviepy-cant-detect-imagemagick-binary-on-windows
 moviepy
+
+beautifulsoup4
