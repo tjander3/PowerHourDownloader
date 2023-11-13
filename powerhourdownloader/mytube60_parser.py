@@ -29,13 +29,27 @@ class MyTube60Parser(PowerHourParser):
         start_of_playlist = powerhour_webpage.find('$(document).ready(function(){\\n\\t\\tplayList = [];')
         end_of_playlist = powerhour_webpage.find("nav = \\\'\\\';\\n\\t\\tfor(var i = 0; i < playList.length; i++){")
 
-        #TODO left off here
-        #playList.push({ videoId : 'ap0mqwvf7H0', start : 0.0, end : 61.02097006484987, title : 'Taking Back Sunday - Cute Without the \"E\" (Cut From the Team)' });
-        # Need to regex the above string
+        # TODO left off here
+        # Added in regex now I just need to save off as a class
         # capture videoId, start, end, title
         # then add to videos!
+        import re
 
-        print(powerhour_webpage[start_of_playlist:end_of_playlist])
+        regex = r"playList.push\({\svideoId\s:\s\\\'(.+?)\\\',\sstart\s:\s(\d+\.\d+),\send\s:\s(\d+.\d+),\stitle\s:\s\\\'(.+?)\\\'\s}\);"
+
+        test_str = powerhour_webpage[start_of_playlist:end_of_playlist]
+
+        matches = re.finditer(regex, test_str)
+        print(matches)
+
+        for matchNum, match in enumerate(matches, start=1):
+
+            print ("Match {matchNum} was found at {start}-{end}: {match}".format(matchNum = matchNum, start = match.start(), end = match.end(), match = match.group()))
+
+            for groupNum in range(0, len(match.groups())):
+                groupNum = groupNum + 1
+
+                print ("Group {groupNum} found at {start}-{end}: {group}".format(groupNum = groupNum, start = match.start(groupNum), end = match.end(groupNum), group = match.group(groupNum)))
 
         raise NotImplementedError
 
