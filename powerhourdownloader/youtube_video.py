@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Optional
 from powerhourdownloader.video import Video
 
 from powerhourdownloader.video_link import VideoLink
@@ -8,7 +9,10 @@ from powerhourdownloader.video_link import VideoLink
 @dataclass
 class YoutubeVideo(Video):
     video_link: VideoLink
-    video: Path
+    name: str
+    video: Optional[Path]
+    start_time: Optional[float]
+    end_time: Optional[float]
 
-    def download(self, start_time=None, end_time=None) -> Path:
+    def download(self) -> Path:
         raise NotImplementedError

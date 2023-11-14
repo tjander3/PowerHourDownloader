@@ -91,14 +91,20 @@ classDiagram
         <<abstract>>
         VideoLink video_link
         Path video
+        str name
+        float start_time
+        float end_time
 
-        download(start_time=None, end_time=None) -> Path
+        download() -> Path
     }
 
     Video <|-- YoutubeVideo
     class YoutubeVideo {
         VideoLink video_link
         Path video
+        str name
+        float start_time
+        float end_time
 
         download(start_time=None, end_time=None) -> Path
     }
