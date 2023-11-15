@@ -2,6 +2,8 @@ import logging
 import re
 import urllib.request
 from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Union
 
 from powerhourdownloader.power_hour import PowerHour
 from powerhourdownloader.power_hour_parser import PowerHourParser
@@ -17,12 +19,24 @@ class MyTube60Parser(PowerHourParser):
     def _get_webpage(self):
         """Get powerhour webpage from self.link"""
         page = urllib.request.urlopen(self.link)
-        webpage_hmtl = page.read()
-        return webpage_hmtl
+        webpage_html = page.read()
+        return webpage_html
 
-    def parse(self):
+    def parse(self, debug: Union[bool, str] = False):
+        """Parse powerhour given for this class
+
+        Args:
+            debug (Union[bool, str], optional): Used to test on pre downloaded html file.
+                Defaults to False.
+                If variable is not false we are expecting webpage content to parse.
+        """
         videos = []
-        powerhour_webpage = str(self._get_webpage())
+        # If debug is not false we are expecting a webpage to have already been provided
+        if debug:
+            powerhour_webpage = str(debug)
+        else:
+            powerhour_webpage = str(self._get_webpage())
+
         start_of_playlist = powerhour_webpage.find('$(document).ready(function(){\\n\\t\\tplayList = [];')
         end_of_playlist = powerhour_webpage.find("nav = \\\'\\\';\\n\\t\\tfor(var i = 0; i < playList.length; i++){")
 
@@ -56,11 +70,26 @@ class MyTube60Parser(PowerHourParser):
 
 
 def main():
-    # TODO add option to use local html page already downloaded
+    # Link can be used if there is internet connection
     link = 'https://www.mytube60.com/video/on/emo-night/b664367fb7ee40799dccbe693015d6f6.html'
+    webpage = False
+
+    # If no internet connection use the pre downloaded file
+    with open(
+        Path(__file__).parent /
+        '..' /
+        'tests' /
+        'webpages' /
+        'mytube60-test-webpage-emo-night.html',
+        'r',
+        encoding='utf-8',
+    ) as f:
+        link = None
+        webpage = f.read()
+
 
     mytube60 = MyTube60Parser(link=link)
-    mytube60.parse()
+    mytube60.parse(debug=webpage)
 
     print(mytube60.power_hour)
 
