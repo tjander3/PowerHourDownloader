@@ -1,0 +1,423 @@
+output: !PowerHour
+  videos:
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=ap0mqwvf7H0
+    name: Taking Back Sunday - Cute Without the \\"E\\" (Cut From the Team)
+    video:
+    start_time: 0.0
+    end_time: 61.02097006484987
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=X9fLbfzCqWw
+    name: Yellowcard - Ocean Avenue (Official Music Video)
+    video:
+    start_time: 6.85401512588501
+    end_time: 68.43581498092651
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=JixFMKqQU5w
+    name: Evanescence - Bring Me To Life (Remastered 2023) - Official Visualizer
+    video:
+    start_time: 9.916522040054318
+    end_time: 73.20054102479553
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=kXYiU_JCYtU
+    name: Numb (Official Music Video) [4K UPGRADE] \\u2013 Linkin Park
+    video:
+    start_time: 12.376211024795525
+    end_time: 70.6388469752045
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=qgtkPKZ2OPk
+    name: Brand New - The Quiet Things That No One Ever Knows (Official Video)
+    video:
+    start_time: 10.731397112533573
+    end_time: 84.19888200381472
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=dhZTNgAs4Fc
+    name: My Chemical Romance - I&#39;m Not Okay (I Promise) [Dialogue\\/MTV Version]
+    video:
+    start_time: 13.431528110626227
+    end_time: 74.9351411106262
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=gGdGFtwCNBE
+    name: The Killers - Mr. Brightside (Official Music Video)
+    video:
+    start_time: 26.587969917984008
+    end_time: 88.15747301907346
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=y-jC3H_8Dk4
+    name: Good Charlotte - Lifestyles of the Rich & Famous (Official Video)
+    video:
+    start_time: 10.898972072479246
+    end_time: 70.96615086839294
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=sJRPPUr1yic
+    name: Arcade Fire - Wake Up (Official Audio)
+    video:
+    start_time: 134.4322929904633
+    end_time: 196.83968808392328
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=H2M7zo8ZziE
+    name: Simple Plan - I&#39;d Do Anything (Official Video)
+    video:
+    start_time: 0.0
+    end_time: 61.39643980735775
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=3dm_5qWWDV8
+    name: Muse - Hysteria [Official Music Video]
+    video:
+    start_time: 12.905656049591062
+    end_time: 73.68544109727478
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=YU4hhNKsPog
+    name: AFI - Miss Murder (Official Music Video) (Long Version)
+    video:
+    start_time: 110.17186806294244
+    end_time: 175.09953083406066
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=hUO-sRLotOI
+    name: Hawthorne Heights - Ohio Is for Lovers (Official Video)
+    video:
+    start_time: 23.256311860763553
+    end_time: 82.5103659694824
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=Soa3gO7tL-c
+    name: Green Day - Boulevard Of Broken Dreams [Official Music Video]
+    video:
+    start_time: 35.917224009536746
+    end_time: 100.25016797329715
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=-3GBJZzPkYQ
+    name: I Write Sins Not Tragadies- Panic! At The Disco
+    video:
+    start_time: 0.0
+    end_time: 62.528596965667745
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=gPDcwjJ8pLg
+    name: The All-American Rejects - Dirty Little Secret (Official Music Video)
+    video:
+    start_time: 0.0
+    end_time: 58.941807022888156
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=GEGieUB4b3c
+    name: Linkin Park - Somewhere I Belong (Audio)
+    video:
+    start_time: 24.024945169754037
+    end_time: 89.78253902861019
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=4ldjbjwim4k
+    name: Taking Back Sunday - MakeDamnSure
+    video:
+    start_time: 0.0
+    end_time: 55.09193185122682
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=swvjAqCELis
+    name: My Immortal (Band Version)
+    video:
+    start_time: 160.4940229351502
+    end_time: 218.70761614114372
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=6Ux6SlOE9Qk
+    name: The Red Jumpsuit Apparatus - Face Down
+    video:
+    start_time: 12.910261889373777
+    end_time: 71.81842295994568
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=hCL-xcCFVDM
+    name: Fall Out Boy - Dance, Dance
+    video:
+    start_time: 7.948357049591064
+    end_time: 66.37074320408634
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=AszabgCs6d8
+    name: Bayside - Devotion and Desire
+    video:
+    start_time: 5.216957102996828
+    end_time: 69.63455584359745
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=2ZGRzdywXqs
+    name: Say Anything - Alive With The Glory Of Love (MUSIC VIDEO)
+    video:
+    start_time: 6.640171832153321
+    end_time: 66.80231699809266
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=DrQgUfkYhic
+    name: Love Me Dead
+    video:
+    start_time: 3.1532270858306886
+    end_time: 73.0016270743866
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=JjPIOuFtWAI
+    name: The Kill (Bury Me) - 30 Seconds To Mars [lyrics] HQ
+    video:
+    start_time: 6.509480101089477
+    end_time: 66.61562404386902
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=S9z3gv3MWaM
+    name: Taking Back Sunday - A Decade Under the Influence (Official Music Video)
+    video:
+    start_time: 162.71864104196172
+    end_time: 237.37437500190725
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=Ft1lxiWFbDk
+    name: Jimmy Eat World - Bleed American (Lyrics)
+    video:
+    start_time: 0.0
+    end_time: 60.428027980926515
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=1Yzu-4kJg6g
+    name: AFI - Girl&#39;s Not Grey (Official Music Video)
+    video:
+    start_time: 0.0
+    end_time: 63.51273904577634
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=e8X3ACToii0
+    name: Rise Against - Savior (Official Music Video)
+    video:
+    start_time: 26.87904107057191
+    end_time: 86.37561698664852
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=lDK9QqIzhwk
+    name: Bon Jovi - Livin&#39; On A Prayer
+    video:
+    start_time: 39.663284101089495
+    end_time: 101.47635499809257
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=hPC2Fp7IT7o
+    name: Seether - Broken ft. Amy Lee
+    video:
+    start_time: 65.0064309160767
+    end_time: 126.42744886839293
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=ONDxTK-aokY
+    name: Taking Back Sunday \\u2013 Set Phasers to Stun
+    video:
+    start_time: 0.11104817356872562
+    end_time: 57.77434991416933
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=kl4wkIPiTcY
+    name: Rage Against The Machine - Sleep Now in the Fire (Official HD Video)
+    video:
+    start_time: 21.62189896948243
+    end_time: 82.25293590272523
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=zINlfg0aGqw
+    name: Head Automatica - Beating Heart Baby (Video)
+    video:
+    start_time: 0.0
+    end_time: 62.06186703623963
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=aCyGvGEtOwc
+    name: 'Paramore: Misery Business [OFFICIAL VIDEO]'
+    video:
+    start_time: 0.0
+    end_time: 64.46979806866455
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=ZEvi_wY53Zo
+    name: Staind - It&#39;s Been Awhile
+    video:
+    start_time: 100.40387110490414
+    end_time: 169.60528895613098
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=0SbxNQYblY0
+    name: The Ataris - In This Diary
+    video:
+    start_time: 11.114954104904175
+    end_time: 80.37737394277958
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=XleOkGsYgO8
+    name: The All-American Rejects - Move Along (Official Music Video)
+    video:
+    start_time: 8.485694950408936
+    end_time: 67.69170508392338
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=uizQVriWp8M
+    name: Death Cab for Cutie - Soul Meets Body (video)
+    video:
+    start_time: 101.63209199809265
+    end_time: 161.38051503623961
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=0aCJJkR2BvI
+    name: ARMOR FOR SLEEP \\"Car Underwater\\" (Official Music Video)
+    video:
+    start_time: 12.742440059127814
+    end_time: 71.77608676539612
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=n0H3RlaQVrM
+    name: Coheed and Cambria - Welcome Home
+    video:
+    start_time: 1.4040622340425533
+    end_time: 63.78528191226194
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=CYpn8yUnX_c
+    name: I Bet You Look Good On The Dancefloor
+    video:
+    start_time: 9.19589805722046
+    end_time: 67.16975098092647
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=UWvh8gezm_c
+    name: Hawthorne Heights - Niki Fm
+    video:
+    start_time: 7.123834053405764
+    end_time: 67.4886500591278
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=dqy1jA8-WCQ
+    name: Thrice - The Artist In The Ambulance [Audio]
+    video:
+    start_time: 0.1385451239776612
+    end_time: 73.13313910490413
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=0otKD0vL0MU
+    name: The Used - Pretty Handsome Awkward (Video)
+    video:
+    start_time: 16.994667106811544
+    end_time: 72.41434101716611
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=UCCyoocDxBA
+    name: My Chemical Romance - Helena [Official Music Video]
+    video:
+    start_time: 0.9627379351501467
+    end_time: 63.56258683406067
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=yFdLSM8zVVI
+    name: Matchbook Romance - Monsters
+    video:
+    start_time: 5.197842841690061
+    end_time: 67.727454879837
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=R4sqFmSqrSc
+    name: Anberlin - Feel Good Drag
+    video:
+    start_time: 5.4249429504089335
+    end_time: 64.35042192561343
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=A3x49g2TMxU
+    name: Going Under (Remastered 2023)
+    video:
+    start_time: 0.39923010871887193
+    end_time: 67.40704009536746
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=lHFIofq6ngo
+    name: Saves the Day \\u2013 At Your Funeral (Official Music Video)
+    video:
+    start_time: 39.85007394277954
+    end_time: 106.67108000953674
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=eVTXPUF4Oz4
+    name: In The End [Official HD Music Video] - Linkin Park
+    video:
+    start_time: 14.966105087738043
+    end_time: 74.66882911062622
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=h3YVKTxTOgU
+    name: Brand New - Sic Transit Gloria...Glory Fades
+    video:
+    start_time: 8.802222959945682
+    end_time: 70.79918103814697
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=Neo-I7U1UfI
+    name: Straylight Run - Existentialism On Prom Night
+    video:
+    start_time: 60.0
+    end_time: 138.8780281792907
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=WdW48xSbb9s
+    name: Jack&#39;s Mannequin - The Mixed Tape [Official Music Video]
+    video:
+    start_time: 0.0
+    end_time: 59.563364927520766
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=dZLfasMPOU4
+    name: Fountains of Wayne - Stacy&#39;s Mom (Official Music Video)
+    video:
+    start_time: 81.42955897901913
+    end_time: 146.52200695231627
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=lL2ZwXj1tXM
+    name: Three Days Grace - Never Too Late
+    video:
+    start_time: 6.4846370553131125
+    end_time: 65.35566600572199
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=lLHPYEieXb0
+    name: Baby Blue
+    video:
+    start_time: 97.8095378855591
+    end_time: 157.43228508392335
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=G_sBOsh-vyI
+    name: Muse - Knights Of Cydonia  (Video)
+    video:
+    start_time: 91.3768590152588
+    end_time: 156.18967778256234
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=cMY5VwfcGdU
+    name: Fall Out Boy - Thnks Fr Th Mmrs (Audio) (HD)
+    video:
+    start_time: 0.23471915258789053
+    end_time: 62.27915598474125
+  - !YoutubeVideo
+    video_link: !VideoLink
+      video_link: https://www.youtube.com/watch?v=lu9VjpkVYYM
+    name: Taking Back Sunday - You&#39;re So Last Summer (Official Visualizer)
+    video:
+    start_time: 4.554694860763548
+    end_time: 178.84478381689453
+  transitions:

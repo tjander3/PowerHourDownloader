@@ -3,7 +3,7 @@ import re
 import urllib.request
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Union
+from typing import Optional, Union
 
 from powerhourdownloader.power_hour import PowerHour
 from powerhourdownloader.power_hour_parser import PowerHourParser
@@ -13,11 +13,14 @@ from powerhourdownloader.youtube_video import YoutubeVideo
 
 @dataclass
 class MyTube60Parser(PowerHourParser):
-    link: str
+    link: Optional[str] = None
     power_hour: PowerHour = field(init=False)
 
     def _get_webpage(self):
         """Get powerhour webpage from self.link"""
+        if not self.link:
+            raise ValueError('self.link is expected to be set; not None')
+
         page = urllib.request.urlopen(self.link)
         webpage_html = page.read()
         return webpage_html
