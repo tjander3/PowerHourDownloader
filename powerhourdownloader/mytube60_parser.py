@@ -72,7 +72,7 @@ class MyTube60Parser(PowerHourParser):
         self.power_hour = PowerHour(videos=videos, transitions=None)
 
 
-def main():
+def example_mytube60_parser_setup() -> MyTube60Parser:
     # Link can be used if there is internet connection
     link = 'https://www.mytube60.com/video/on/emo-night/b664367fb7ee40799dccbe693015d6f6.html'
     webpage = False
@@ -95,6 +95,11 @@ def main():
     mytube60.parse(debug=webpage)
 
     print(mytube60.power_hour)
+    return mytube60
+
+
+def main():
+    example_mytube60_parser_setup()
 
 
 if __name__ == '__main__':
