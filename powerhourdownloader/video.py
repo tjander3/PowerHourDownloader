@@ -1,11 +1,19 @@
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 from pathlib import Path
+from typing import Optional
+
+from powerhourdownloader.video_link import VideoLink
 
 
+@dataclass
 class Video(ABC):
-    def __init__(self) -> None:
-        raise NotImplementedError
+    video_link: VideoLink
+    name: str
+    video: Optional[Path]
+    start_time: Optional[float]
+    end_time: Optional[float]
 
     @abstractmethod
-    def download(self, start_time=None, end_time=None) -> Path:
+    def download(self) -> Path:
         raise NotImplementedError
