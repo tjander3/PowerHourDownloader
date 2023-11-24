@@ -27,3 +27,7 @@ pytest-golden
 moviepy
 
 beautifulsoup4
+
+# Used for downloading youtube videos
+# Had to donwload this git repo and install with python setup.pu develop
+# youtube-dl
