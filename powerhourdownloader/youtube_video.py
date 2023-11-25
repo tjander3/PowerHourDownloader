@@ -5,27 +5,34 @@ from typing import Optional
 import youtube_dl
 from moviepy.editor import VideoFileClip
 
-from powerhourdownloader.video import Video
+from powerhourdownloader.video import Video, txt2filename
 from powerhourdownloader.video_link import VideoLink
 
 
 @dataclass
 class YoutubeVideo(Video):
-    def download(self) -> Path:
-        # TODO rename / fix these
-        full_video_path = 'full_video.mp4'
-        input_clip_path = 'input_clip.mp4'
+    def download(self) -> None:
+        """Download youtube video.
+
+        Returns:
+            None: This does not return anything but the video downloaded should be
+                in the location stored in self.video
+        """
+        if self.video is None:
+            # This will set self.video and make sure the directory exists
+            self.setup_download_dir()
+
+        full_video_path = self.video.parent / f'{txt2filename(self.name)}-full-video.mp4'
         # download parameters:
-        ydl_opts = {'format': 'best', 'overwrites': True, 'outtmpl': full_video_path}
-        #ydl_opts = {'outputmpl': full_video_path}
+        ydl_opts = {'format': 'best', 'overwrites': True, 'outtmpl': str(full_video_path)}
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             ydl.download([self.video_link.video_link])
 
         # extract the relevant subclip:
         if self.start_time is not None:
-            with VideoFileClip(full_video_path) as video:
+            with VideoFileClip(str(full_video_path)) as video:
                 subclip = video.subclip(self.start_time, self.end_time)
-                subclip.write_videofile(input_clip_path)
+                subclip.write_videofile(str(self.video))
 
 def main():
     youtube_video = YoutubeVideo(
