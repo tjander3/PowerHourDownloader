@@ -95,7 +95,8 @@ classDiagram
         float start_time
         float end_time
 
-        download() -> Path
+        download() -> None
+        setup_download_dir() -> None:
     }
 
     Video <|-- YoutubeVideo
@@ -106,7 +107,7 @@ classDiagram
         float start_time
         float end_time
 
-        download(start_time=None, end_time=None) -> Path
+        download(start_time=None, end_time=None) -> None
     }
 
     Video -- VideoLink
