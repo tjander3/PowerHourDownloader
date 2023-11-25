@@ -1,10 +1,12 @@
+import logging
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
+
 from moviepy.editor import concatenate_videoclips
 
-from powerhourdownloader.video import Video
 from powerhourdownloader.transition import Transition
+from powerhourdownloader.video import Video
 
 
 @dataclass
@@ -35,8 +37,10 @@ class PowerHour:
         # stitch videos together
         # TODO option to download in parallel?
         for video in self.videos:
+            logging.debug('Downloading %s', video.name)
             video.download()
-        raise NotImplementedError
+
+        self.combine_videos()
 
     def save_power_hour(self) -> Path:
         raise NotImplementedError
@@ -45,7 +49,9 @@ class PowerHour:
         raise NotImplementedError
 
 def main():
-    from powerhourdownloader.mytube60_parser import example_mytube60_parser_setup
+    logging.getLogger().setLevel(logging.DEBUG)
+    from powerhourdownloader.mytube60_parser import \
+        example_mytube60_parser_setup
     power_hour_parser = example_mytube60_parser_setup()
     # Create a tmp power hour from example in other class. We just
     # want to make a short power hour with a few videos so this main
