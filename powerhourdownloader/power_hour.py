@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
-from moviepy.editor import concatenate_videoclips
+from moviepy.editor import concatenate_videoclips, VideoFileClip
 
 from powerhourdownloader.transition import Transition
 from powerhourdownloader.video import Video
@@ -12,7 +12,7 @@ from powerhourdownloader.video import Video
 @dataclass
 class PowerHour:
     videos: list[Video]
-    transitions: Optional[list[Transition]]
+    transitions: Optional[list[Optional[Transition]]]
 
     def combine_serially(self):
         for video, transition in zip(self.videos, self.transitions):
@@ -24,8 +24,15 @@ class PowerHour:
     def combine_videos(self):
         # concatenating both the clips
         # TODO test this
-        # TODO deal with transitions
-        videoclips = [item for pair in zip(self.videos, self.transitions) for item in pair]
+        # TODO combination created a problem
+        if self.transitions is None:
+            self.transitions = [None for _ in range(len(self.videos))]
+
+        videoclips = [
+            VideoFileClip(str(item.video))
+            for pair in zip(self.videos, self.transitions)
+            for item in pair if item is not None
+        ]
         # TODO can this be used to do in parallel
         final = concatenate_videoclips(videoclips)
         #writing the video into a file / saving the combined video
