@@ -25,6 +25,7 @@ class PowerHour:
         # concatenating both the clips
         # TODO test this
         # TODO combination created a problem
+        # TODO need to cleanup videos as well
         if self.transitions is None:
             self.transitions = [None for _ in range(len(self.videos))]
 
@@ -34,9 +35,12 @@ class PowerHour:
             for item in pair if item is not None
         ]
         # TODO can this be used to do in parallel
-        final = concatenate_videoclips(videoclips)
+        # Fix concatenate thanks to following links
+        # https://stackoverflow.com/questions/45248042/moviepy-concatenating-video-clips-causes-weird-glitches-in-final-video
+        # https://www.reddit.com/r/moviepy/comments/2z3q38/help_getting_glitch_art_when_concatenating_clips/
+        final = concatenate_videoclips(videoclips, method='compose')
         #writing the video into a file / saving the combined video
-        final.write_videofile("output.mp4")  # TODO name this better
+        final.write_videofile("tyler-output.mp4")  # TODO name this better
 
     def create_power_hour(self) -> Path:
         # TODO left off here lets implemet this, baically loop over all videos and download.  could be good to use multiple cores for this as well
@@ -65,7 +69,7 @@ def main():
     # function can run faster
     power_hour_tmp = power_hour_parser.power_hour
 
-    power_hour = PowerHour(videos=power_hour_tmp.videos[0:3], transitions=None)
+    power_hour = PowerHour(videos=power_hour_tmp.videos[0:2], transitions=None)
     power_hour.create_power_hour()
 
 
