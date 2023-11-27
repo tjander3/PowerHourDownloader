@@ -13,6 +13,7 @@ from powerhourdownloader.video import Video
 class PowerHour:
     videos: list[Video]
     transitions: Optional[list[Optional[Transition]]]
+    output: Path = Path(__file__).parent / 'videos' / 'tyler-output.mp4',
 
     def combine_serially(self):
         for video, transition in zip(self.videos, self.transitions):
@@ -21,8 +22,8 @@ class PowerHour:
     def combine_in_parallel(self, num_proc: int = 2):
         pass
 
-    def combine_videos(self):
-        # concatenating both the clips
+    def combine_videos(self) -> None:
+        # concatenating both the clips and store results in self.output
         # TODO test this
         # TODO combination created a problem
         # TODO need to cleanup videos as well
@@ -39,10 +40,10 @@ class PowerHour:
         # https://stackoverflow.com/questions/45248042/moviepy-concatenating-video-clips-causes-weird-glitches-in-final-video
         # https://www.reddit.com/r/moviepy/comments/2z3q38/help_getting_glitch_art_when_concatenating_clips/
         final = concatenate_videoclips(videoclips, method='compose')
-        #writing the video into a file / saving the combined video
-        final.write_videofile("tyler-output.mp4")  # TODO name this better
+        # writing the video into a file / saving the combined video
+        final.write_videofile(str(self.output))  # TODO name this better
 
-    def create_power_hour(self) -> Path:
+    def create_power_hour(self) -> None:
         # TODO left off here lets implemet this, baically loop over all videos and download.  could be good to use multiple cores for this as well
         # download youtube videos
         # stitch videos together
