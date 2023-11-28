@@ -13,20 +13,20 @@ from powerhourdownloader.video import Video
 class PowerHour:
     videos: list[Video]
     transitions: Optional[list[Optional[Transition]]]
-    output: Path = Path(__file__).parent / 'videos' / 'tyler-output.mp4',
+    output: Path = Path(__file__).parent / 'videos' / 'tyler-output.mp4'
 
     def combine_serially(self):
         for video, transition in zip(self.videos, self.transitions):
             pass
 
-    def combine_in_parallel(self, num_proc: int = 2):
-        pass
+    def combine_videos_in_parallel(self, num_proc: int = 2):
+        raise NotImplementedError
 
     def combine_videos(self) -> None:
         # concatenating both the clips and store results in self.output
         # TODO test this
-        # TODO combination created a problem
         # TODO need to cleanup videos as well
+        # TODO ability to set one transition
         if self.transitions is None:
             self.transitions = [None for _ in range(len(self.videos))]
 
