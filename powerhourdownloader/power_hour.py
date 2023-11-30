@@ -1,7 +1,7 @@
 import logging
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Union
 
 from moviepy.editor import concatenate_videoclips, VideoFileClip
 
@@ -12,7 +12,10 @@ from powerhourdownloader.video import Video
 @dataclass
 class PowerHour:
     videos: list[Video]
-    transitions: Optional[list[Optional[Transition]]]
+    # Transitions can either be None, a single transition to be used between
+    # all videos or a list of transitions.  The list of transitions can also
+    # have None if you dont want a transition in between certain videos
+    transitions: Optional[Union[Transition, list[Optional[Transition]]]]
     output: Path = Path(__file__).parent / 'videos' / 'tyler-output.mp4'
 
     def combine_serially(self):
@@ -22,13 +25,24 @@ class PowerHour:
     def combine_videos_in_parallel(self, num_proc: int = 2):
         raise NotImplementedError
 
+    def _set_transitions(self):
+        if self.transitions is None:
+            self.transitions = [None for _ in range(len(self.videos))]
+        elif isinstance(self.transitions, Transition):
+            self.transitions = [self.transitions for _ in range(len(self.videos))]
+        elif isinstance(self.transitions, list):
+            # self.transitions is already set no need to do anything
+            pass
+        else:
+            raise ValueError(f'self.transitions is an unexpected value: {self.transitions}')
+
+
     def combine_videos(self) -> None:
         # concatenating both the clips and store results in self.output
         # TODO test this
         # TODO need to cleanup videos as well
         # TODO ability to set one transition
-        if self.transitions is None:
-            self.transitions = [None for _ in range(len(self.videos))]
+        self._set_transitions()
 
         videoclips = [
             VideoFileClip(str(item.video))
@@ -44,7 +58,6 @@ class PowerHour:
         final.write_videofile(str(self.output))  # TODO name this better
 
     def create_power_hour(self) -> None:
-        # TODO left off here lets implemet this, baically loop over all videos and download.  could be good to use multiple cores for this as well
         # download youtube videos
         # stitch videos together
         # TODO option to download in parallel?
@@ -70,6 +83,7 @@ def main():
     # function can run faster
     power_hour_tmp = power_hour_parser.power_hour
 
+    # TODO left off here lets add a transition, create a function in transition video and transition image to be used for this
     power_hour = PowerHour(videos=power_hour_tmp.videos[0:2], transitions=None)
     power_hour.create_power_hour()
 
