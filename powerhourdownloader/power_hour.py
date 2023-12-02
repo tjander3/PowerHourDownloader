@@ -4,9 +4,14 @@ from pathlib import Path
 from typing import Optional, Union
 
 from moviepy.editor import concatenate_videoclips, VideoFileClip
+from powerhourdownloader.location import Location
+from powerhourdownloader.text_video_overlay import TextVideoOverlay
 
 from powerhourdownloader.transition import Transition
+from powerhourdownloader.transition_video import TransitionVideo
 from powerhourdownloader.video import Video
+from powerhourdownloader.video_link import VideoLink
+from powerhourdownloader.youtube_video import YoutubeVideo
 
 
 @dataclass
@@ -84,7 +89,27 @@ def main():
     power_hour_tmp = power_hour_parser.power_hour
 
     # TODO left off here lets add a transition, create a function in transition video and transition image to be used for this
-    power_hour = PowerHour(videos=power_hour_tmp.videos[0:2], transitions=None)
+    transition_video = YoutubeVideo(
+        video_link=VideoLink(video_link='https://www.youtube.com/watch?v=XfzAB1lDGgg'),
+        name='Penguin Subway Drum Solo',
+        video=None,
+        start_time=None,
+        end_time=None,
+    )
+    transition_video.download()
+    transition = TransitionVideo(
+        video=transition_video.video,
+        text=TextVideoOverlay(
+            text='Drink!',
+            text_color='black',  # TODO this color is not working
+            text_location=Location(str_loc=('left', 'top')),
+        ),
+    )
+    # TODO these things should be done in post init
+    transition._add_text_to_video()
+    transition.video = transition.updated_video
+
+    power_hour = PowerHour(videos=power_hour_tmp.videos[0:2], transitions=transition)
     power_hour.create_power_hour()
 
 

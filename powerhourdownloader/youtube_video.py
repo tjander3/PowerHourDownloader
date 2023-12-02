@@ -33,6 +33,11 @@ class YoutubeVideo(Video):
             with VideoFileClip(str(full_video_path)) as video:
                 subclip = video.subclip(self.start_time, self.end_time)
                 subclip.write_videofile(str(self.video))
+        else:
+            # Have to rename file since we use fill_video_path
+            if self.video.exists():
+                self.video.unlink()
+            full_video_path.rename(self.video)
 
 def main():
     youtube_video = YoutubeVideo(

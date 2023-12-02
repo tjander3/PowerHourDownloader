@@ -21,6 +21,7 @@ class TransitionVideo(Transition):
     audio: Optional[Path] = field(default=None)
 
     def _add_text_to_video(self) -> None:
+        # TODO this should be in post init
         # TODO this could be in the parent class
         # Python program to write
         # text on video
