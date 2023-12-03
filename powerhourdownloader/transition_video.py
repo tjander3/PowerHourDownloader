@@ -20,6 +20,12 @@ class TransitionVideo(Transition):
     text: Optional[TextVideoOverlay] = None
     audio: Optional[Path] = field(default=None)
 
+    def __post_init__(self):
+        if self.text is not None:
+            self._add_text_to_video()
+            # TODO deal with setting this
+            self.video = self.updated_video
+
     def _add_text_to_video(self) -> None:
         # TODO this should be in post init
         # TODO this could be in the parent class
@@ -71,7 +77,6 @@ def main():
         text=TextVideoOverlay(text='Hello there', text_location=Location(str_loc=('left', 'top'))),
         audio=None,  # TODO this needs to be implemented still
     )
-    tv._add_text_to_video()
 
 if __name__ == '__main__':
     main()

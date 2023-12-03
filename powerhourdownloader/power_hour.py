@@ -105,9 +105,6 @@ def main():
             text_location=Location(str_loc=('left', 'top')),
         ),
     )
-    # TODO these things should be done in post init
-    transition._add_text_to_video()
-    transition.video = transition.updated_video
 
     power_hour = PowerHour(videos=power_hour_tmp.videos[0:2], transitions=transition)
     power_hour.create_power_hour()

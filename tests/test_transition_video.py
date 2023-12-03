@@ -32,7 +32,6 @@ class TestTransitionVideo:
         text_overlay = TextVideoOverlay(text=text, text_color=None, text_location=location)
         transition_video = TransitionVideo(video=video_path, output=tmp_path, text=text_overlay, audio=None)
         # Video written loses a lot of data 1.2MB -> 383 Kb maybe make sure we are doing max resolution and fps
-        transition_video._add_text_to_video()  # TODO this should not be privagte
 
         transition_video_hash = open(transition_video.updated_video, 'rb').read()
         golden_video_hash = open(expected_result, 'rb').read()
