@@ -45,7 +45,7 @@ class TransitionVideo(Transition):
 
         # Make the text. Many more options are available.
         txt_clip = (
-            TextClip(self.text.text, fontsize=70, color='white')
+            TextClip(self.text.text, fontsize=70, color=self.text.text_color)
                 .set_position(self.text.text_location.location)
                 .set_duration(video.duration)
         )

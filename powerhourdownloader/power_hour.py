@@ -101,7 +101,7 @@ def main():
         video=transition_video.video,
         text=TextVideoOverlay(
             text='Drink!',
-            text_color='black',  # TODO this color is not working
+            text_color='black',
             text_location=Location(str_loc=('left', 'top')),
         ),
     )
