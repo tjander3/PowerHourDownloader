@@ -11,7 +11,7 @@ class Location:
     # To view available str options see documentation for TextClip.set_position
     # from moviepy
     # If x and y are note provided we default to center
-    str_loc: Union[tuple[int], tuple[str]] = ('center',)
+    str_loc: Union[tuple[int], tuple[str], str] = 'center'
 
     def __post_init__(self) -> None:
         # TODO make it so you can only give x,y or str_loc

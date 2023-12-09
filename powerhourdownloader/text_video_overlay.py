@@ -7,7 +7,7 @@ from powerhourdownloader.location import Location
 @dataclass
 class TextVideoOverlay:
     text: str
-    text_color: Optional[str] = None  # Color # TODO make this a color Color  # TODO set a default
+    text_color: Optional[str] = 'black'  # Color # TODO make this a color Color  # TODO set a default
     text_location: Optional[Location] = None
 
     def __post_init__(self):
