@@ -97,14 +97,7 @@ def main():
         end_time=None,
     )
     transition_video.download()
-    transition = TransitionVideo(
-        video=transition_video.video,
-        text=TextVideoOverlay(
-            text='Drink!',
-            text_color='black',
-            text_location=Location(str_loc=('left', 'top')),
-        ),
-    )
+    transition = TransitionVideo(video=transition_video.video)
 
     power_hour = PowerHour(videos=power_hour_tmp.videos[0:2], transitions=transition)
     power_hour.create_power_hour()
