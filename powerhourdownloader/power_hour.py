@@ -99,7 +99,6 @@ def main():
     transition_video.download()
     transition = TransitionVideo(
         video=transition_video.video,
-        # TODO this was not working when only giving text?
         text=TextVideoOverlay(
             text='Drink!',
             text_color='black',
