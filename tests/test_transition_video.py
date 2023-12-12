@@ -29,7 +29,7 @@ class TestTransitionVideo:
         expected_result: Path,
         tmp_path: Path,
     ) -> None:
-        text_overlay = TextVideoOverlay(text=text, text_color=None, text_location=location)
+        text_overlay = TextVideoOverlay(text=text, text_color="white", text_location=location)
         transition_video = TransitionVideo(video=video_path, output=tmp_path, text=text_overlay, audio=None)
         # Video written loses a lot of data 1.2MB -> 383 Kb maybe make sure we are doing max resolution and fps
 
