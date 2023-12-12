@@ -88,10 +88,10 @@ def main():
     # function can run faster
     power_hour_tmp = power_hour_parser.power_hour
 
-    # TODO left off here lets add a transition, create a function in transition video and transition image to be used for this
+    # TODO create a function in transition video and transition image to be used for this
     transition_video = YoutubeVideo(
         video_link=VideoLink(video_link='https://www.youtube.com/watch?v=XfzAB1lDGgg'),
-        name='Penguin Subway Drum Solo',
+        name=None,
         video=None,
         start_time=None,
         end_time=None,

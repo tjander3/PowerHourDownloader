@@ -62,7 +62,7 @@ def txt2filename(txt, chr_set='printable'):
 @dataclass
 class Video(ABC):
     video_link: VideoLink
-    name: str
+    name: Optional[str]
     video: Optional[Path]
     start_time: Optional[float]
     end_time: Optional[float]

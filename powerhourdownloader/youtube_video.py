@@ -11,6 +11,17 @@ from powerhourdownloader.video_link import VideoLink
 
 @dataclass
 class YoutubeVideo(Video):
+
+    def __post_init__(self):
+        if self.name is None:
+            with youtube_dl.YoutubeDL() as ydl:
+                  info_dict = ydl.extract_info(self.video_link.video_link, download=False)
+                  # Misc info you can get, keeping around incase we need it
+                  # video_url = info_dict.get("url", None)
+                  # video_id = info_dict.get("id", None)
+                  video_title = info_dict.get('title', None)
+                  self.name = video_title
+
     def download(self) -> None:
         """Download youtube video.
 
