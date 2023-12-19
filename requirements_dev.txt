@@ -28,6 +28,11 @@ moviepy
 
 beautifulsoup4
 
+flask
+flask-wtf
+flask-bootstrap
+wtforms
+
 # Used for downloading youtube videos
 # Had to donwload this git repo and install with python setup.pu develop
 # youtube-dl
