@@ -20,4 +20,8 @@ Since I am doing small incremental work on this project it would take too much t
     - YoutubeVideo
     - VideoLink
 
-- [ ] Is is possible to not download all of youtube video?
+- [ ] Is is possible to not download all of youtube video (just a section)?
+- [ ] Download options
+    - [ ] single mp4
+    - [ ] single mp3 (option to keep transitions or not)
+    - [ ] multiple mp3 (no transitions)
