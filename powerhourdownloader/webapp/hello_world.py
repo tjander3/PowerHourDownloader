@@ -34,7 +34,7 @@ $ python -m flask run
 
 """
 import secrets
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, flash, render_template, redirect, request, url_for
 from flask_bootstrap import Bootstrap  # TODO fix this
 from flask_wtf import FlaskForm, CSRFProtect
 from wtforms import StringField, SubmitField
@@ -47,10 +47,16 @@ print(f'{app.template_folder=}')
 
 foo = secrets.token_urlsafe(16)
 app.secret_key = foo
-# Bootstrap-Flask requires this line
-bootstrap = Bootstrap(app)
-# Flask-WTF requires this line
-csrf = CSRFProtect(app)
+## Bootstrap-Flask requires this line
+#bootstrap = Bootstrap(app)
+## Flask-WTF requires this line
+#csrf = CSRFProtect(app)
+
+messages = [{'title': 'Message One',
+             'content': 'Message One Content'},
+            {'title': 'Message Two',
+             'content': 'Message Two Content'}
+            ]
 
 # @app.route('/')
 # def hello_world():
@@ -69,10 +75,21 @@ def index():
 
 @app.route('/create/', methods=('GET', 'POST'))
 def create():
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['content']
+
+        if not title:
+            flash('Title is required!')
+        elif not content:
+            flash('Content is required!')
+        else:
+            messages.append({'title': title, 'content': content})
+            return redirect(url_for('index'))
     return render_template('create.html')
 
 # TODO left off here: https://www.digitalocean.com/community/tutorials/how-to-use-web-forms-in-a-flask-application
-# TODO left off at step 3
+# TODO left off at step 3, finished it but not working fully. Does not update the main page yet when submiting a form
 
 
 class NameForm(FlaskForm):
