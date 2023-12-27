@@ -65,12 +65,6 @@ messages = [{'title': 'Message One',
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    messages = [{'title': 'Message One',
-                 'content': 'Message One Content'},
-                {'title': 'Message Two',
-                 'content': 'Message Two Content'}
-                ]
-
     return render_template('index.html', messages=messages)
 
 @app.route('/create/', methods=('GET', 'POST'))
@@ -87,6 +81,12 @@ def create():
             messages.append({'title': title, 'content': content})
             return redirect(url_for('index'))
     return render_template('create.html')
+
+@app.route('/ph/', methods=('GET', 'POST'))
+def create_power_hour():
+    if request.method == 'POST':
+        print('Hello Tyler')
+    return render_template('ph.html')
 
 # TODO left off here: https://www.digitalocean.com/community/tutorials/how-to-use-web-forms-in-a-flask-application
 # TODO left off at step 3, finished it but not working fully. Does not update the main page yet when submiting a form
