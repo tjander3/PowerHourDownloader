@@ -40,6 +40,9 @@ from flask_wtf import FlaskForm, CSRFProtect
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, Length
 
+from powerhourdownloader.mytube60_parser import example_mytube60_parser_setup
+from powerhourdownloader.power_hour_runner import PowerHourRunner
+
 # TODO left off here https://python-adv-web-apps.readthedocs.io/en/latest/flask_forms.html
 
 app = Flask(__name__)
@@ -86,6 +89,10 @@ def create():
 def create_power_hour():
     if request.method == 'POST':
         print('Hello Tyler')
+        power_hour_parser = example_mytube60_parser_setup()
+        power_hour_runner = PowerHourRunner(parser=power_hour_parser)
+
+        power_hour_runner.run()
     return render_template('ph.html')
 
 # TODO left off here: https://www.digitalocean.com/community/tutorials/how-to-use-web-forms-in-a-flask-application
