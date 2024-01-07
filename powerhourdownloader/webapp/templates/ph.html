@@ -3,20 +3,41 @@
 {% block content %}
     <h1>{% block title %} Add a New Message {% endblock %}</h1>
     <form method="post">
-        <label for="title">Title</label>
-        <br>
-        <input type="checkbox" name="title"
-               placeholder="Message title"
-               value="{{ request.form['title'] }}"></input>
+
+        <label for="webpage_link">Webpage link:</label>
+        <input type="text" id="webpage_link" name="webpage_link">
         <br>
 
-        <label for="content">Message Content</label>
+        <label>
+            <input type="checkbox" name="audio_only"> Audio only
+        </label>
         <br>
-        <textarea name="content"
-                  placeholder="Message content"
-                  rows="15"
-                  cols="60"
-                  >{{ request.form['content'] }}</textarea>
+
+        <label for="transition_link">Transition link (optional):</label>
+        <input type="text" id="transition_link" name="transition_link">
+        <br>
+
+        <label for="start_time">Start Time (optional):</label>
+        <input type="number" id="start_time" name="start_time" placeholder="Enter start time in seconds">
+        <br>
+
+        <label for="end_time">End Time (optional):</label>
+        <input type="number" id="end_time" name="end_time" placeholder="Enter end time in seconds">
+
+        <!-- <label for="title">Title</label> -->
+        <!-- <br> -->
+        <!-- <input type="checkbox" name="title" -->
+               <!-- placeholder="Message title" -->
+               <!-- value="{{ request.form['title'] }}"></input> -->
+        <!-- <br> -->
+<!--  -->
+        <!-- <label for="content">Message Content</label> -->
+        <!-- <br> -->
+        <!-- <textarea name="content" -->
+                  <!-- placeholder="Message content" -->
+                  <!-- rows="15" -->
+                  <!-- cols="60" -->
+                  <!-- >{{ request.form['content'] }}</textarea> -->
         <br>
         <button type="submit">Submit</button>
     </form>
