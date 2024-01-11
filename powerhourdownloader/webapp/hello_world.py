@@ -33,14 +33,17 @@ $ python -m flask run
 ```
 
 """
+import logging
 import secrets
-from flask import Flask, flash, render_template, redirect, request, url_for
+
+from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_bootstrap import Bootstrap  # TODO fix this
-from flask_wtf import FlaskForm, CSRFProtect
+from flask_wtf import CSRFProtect, FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, Length
 
-from powerhourdownloader.mytube60_parser import MyTube60Parser, example_mytube60_parser_setup
+from powerhourdownloader.mytube60_parser import (MyTube60Parser,
+                                                 example_mytube60_parser_setup)
 from powerhourdownloader.power_hour_runner import PowerHourRunner
 
 # TODO left off here https://python-adv-web-apps.readthedocs.io/en/latest/flask_forms.html
@@ -117,6 +120,8 @@ def create_power_hour():
             print("Start Time:", start_time)
             print("End Time:", end_time)
             print('Hello Tyler')
+            logging.basicConfig()
+            logging.getLogger().setLevel(logging.DEBUG)
             # TODO transitions not implemented yet
             mytube60 = MyTube60Parser(link=webpage_link)
             mytube60.parse()
@@ -124,7 +129,6 @@ def create_power_hour():
             power_hour_runner = PowerHourRunner(parser=mytube60)
             power_hour_runner.run()
 
-            power_hour_runner.run()
             # TODO show status
             return redirect(url_for('index'))
     return render_template('ph.html')

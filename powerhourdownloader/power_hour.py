@@ -66,7 +66,8 @@ class PowerHour:
         # download youtube videos
         # stitch videos together
         # TODO option to download in parallel?
-        for video in self.videos:
+        for index, video in enumerate(self.videos):
+            logging.debug('Video #%s', index)
             logging.debug('Downloading %s', video.name)
             video.download()
 
