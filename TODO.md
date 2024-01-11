@@ -21,6 +21,9 @@ Since I am doing small incremental work on this project it would take too much t
     - VideoLink
 
 - [ ] Is is possible to not download all of youtube video (just a section)?
+- [ ] Progress for downloading
+    - [x] command line
+    - [ ] HTML
 - [ ] Download options
     - [ ] single mp4
     - [ ] single mp3 (option to keep transitions or not)
