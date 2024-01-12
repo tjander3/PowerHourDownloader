@@ -1,3 +1,10 @@
+# Power Hour Downloader
+powerhourdownloader/videos/*
+*.mp4
+*.mp3
+# This is a virtual env and should be removed or blocked a different way
+test2/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

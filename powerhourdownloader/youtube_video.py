@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+import logging
 from pathlib import Path
 from typing import Optional
 
@@ -29,6 +30,7 @@ class YoutubeVideo(Video):
             None: This does not return anything but the video downloaded should be
                 in the location stored in self.video
         """
+        logging.debug("Starting to download video")
         if self.video is None:
             # This will set self.video and make sure the directory exists
             self.setup_download_dir()

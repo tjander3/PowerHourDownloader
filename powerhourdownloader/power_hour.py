@@ -52,7 +52,10 @@ class PowerHour:
         videoclips = [
             VideoFileClip(str(item.video))
             for pair in zip(self.videos, self.transitions)
-            for item in pair if item is not None
+            # Here we are skipping and transitions or videos that are not complete.
+            # It would be great if we kept track of them and printed a report or message
+            # letting the user know something went wrong
+            for item in pair if item is not None and item.video is not None
         ]
         # TODO can this be used to do in parallel
         # Fix concatenate thanks to following links

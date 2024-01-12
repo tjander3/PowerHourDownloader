@@ -1,3 +1,4 @@
+import logging
 import re
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
@@ -55,7 +56,7 @@ def txt2filename(txt, chr_set='printable'):
 
     # Step 4: Windows does not allow filenames to end with '.' or ' ' or begin with ' '.
     # I also dont want to allow - or * for ffmpeg running into problems writing possibly
-    result = re.sub(r'^[. -*]', START_FILLER, result)
+    result = re.sub(r'^[. \-*]', START_FILLER, result)
     result = re.sub(r' $', FILLER, result)
 
     return result
@@ -72,9 +73,12 @@ class Video(ABC):
     def setup_download_dir(self) -> None:
         # If self.video is not provided this will set it and make sure
         # it exists
+        logging.debug("Setup download dir")
         self.video = Path(__file__).parent / 'videos'
         self.video.mkdir(parents=True, exist_ok=True)
         self.video = self.video / f'{txt2filename(self.name)}.mp4'
+        logging.debug("Video path is %s", self.video)
+
 
     @abstractmethod
     def download(self) -> Path:
