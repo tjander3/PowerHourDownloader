@@ -21,6 +21,7 @@ def txt2filename(txt, chr_set='printable'):
     """
 
     FILLER = '-'
+    START_FILLER = 'x'
     MAX_LEN = 255  # Maximum length of filename is 255 bytes in Windows and some *nix flavors.
 
     # Step 1: Remove excluded characters.
@@ -53,7 +54,8 @@ def txt2filename(txt, chr_set='printable'):
         result = result[:MAX_LEN - len(ext)] + ext
 
     # Step 4: Windows does not allow filenames to end with '.' or ' ' or begin with ' '.
-    result = re.sub(r'^[. ]', FILLER, result)
+    # I also dont want to allow - or * for ffmpeg running into problems writing possibly
+    result = re.sub(r'^[. -*]', START_FILLER, result)
     result = re.sub(r' $', FILLER, result)
 
     return result

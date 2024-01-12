@@ -72,24 +72,24 @@ class MyTube60Parser(PowerHourParser):
         self.power_hour = PowerHour(videos=videos, transitions=None)
 
 
-def example_mytube60_parser_setup() -> MyTube60Parser:
+def example_mytube60_parser_setup(
+        link='https://www.mytube60.com/video/on/emo-night/b664367fb7ee40799dccbe693015d6f6.html',
+        webpage=False,
+) -> MyTube60Parser:
     # Link can be used if there is internet connection
-    link = 'https://www.mytube60.com/video/on/emo-night/b664367fb7ee40799dccbe693015d6f6.html'
-    webpage = False
-
     # If no internet connection use the pre downloaded file
-    with open(
-        Path(__file__).parent /
-        '..' /
-        'tests' /
-        'webpages' /
-        'mytube60-test-webpage-emo-night.html',
-        'r',
-        encoding='utf-8',
-    ) as f:
-        link = None
-        webpage = f.read()
-
+    if webpage:
+        with open(
+            Path(__file__).parent /
+            '..' /
+            'tests' /
+            'webpages' /
+            'mytube60-test-webpage-emo-night.html',
+            'r',
+            encoding='utf-8',
+        ) as f:
+            link = None
+            webpage = f.read()
 
     mytube60 = MyTube60Parser(link=link)
     mytube60.parse(debug=webpage)
