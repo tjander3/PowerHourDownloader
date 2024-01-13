@@ -8,23 +8,25 @@ from moviepy.editor import VideoFileClip
 
 from powerhourdownloader.video import Video, txt2filename
 from powerhourdownloader.video_link import VideoLink
+from powerhourdownloader.youtube_video import YoutubeVideo
 
 
 @dataclass
-class YoutubeVideo(Video):
+class YoutubeAudio(YoutubeVideo):
 
     def __post_init__(self):
-        self.ydl_opts = {'format': 'best', 'overwrites': True}
-        if self.name is None:
-            with youtube_dl.YoutubeDL() as ydl:
-                  info_dict = ydl.extract_info(self.video_link.video_link, download=False)
-                  # Misc info you can get, keeping around incase we need it
-                  # video_url = info_dict.get("url", None)
-                  # video_id = info_dict.get("id", None)
-                  video_title = info_dict.get('title', None)
-                  self.name = video_title
+        super().__post_init__()
+        self.ydl_opts = {
+            'format': 'bestaudio/best',
+            'overwrites': True,
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': '192',
+            }],
+        }
 
-    def download(self, audio_only=False) -> None:
+    def download(self, audio_only=True) -> None:
         """Download youtube video.
         Args:
             audio_only (bool, optional): Only use audio. Defaults to False.
@@ -33,7 +35,8 @@ class YoutubeVideo(Video):
             None: This does not return anything but the video downloaded should be
                 in the location stored in self.video
         """
-        logging.debug("Starting to download video")
+        logging.debug("Starting to download audio")
+        super().download(audio_only=True)
         if self.video is None:
             # This will set self.video and make sure the directory exists
             self.setup_download_dir()
@@ -47,16 +50,9 @@ class YoutubeVideo(Video):
 
         # extract the relevant subclip:
         if self.start_time is not None:
-            from moviepy.audio.io.AudioFileClip import AudioFileClip
-            if audio_only == True:  # TODO can I check the class instead?
-                with AudioFileClip(str(full_video_path)) as audio:
-                    subclip = audio.subclip(self.start_time, self.end_time)
-                    subclip.write_audiofile(str(self.video))
-
-            else:
-                with VideoFileClip(str(full_video_path)) as video:
-                    subclip = video.subclip(self.start_time, self.end_time)
-                    subclip.write_videofile(str(self.video))
+            with VideoFileClip(str(full_video_path)) as video:
+                subclip = video.subclip(self.start_time, self.end_time)
+                subclip.write_videofile(str(self.video))
         else:
             # Have to rename file since we use fill_video_path
             if self.video.exists():
@@ -64,6 +60,7 @@ class YoutubeVideo(Video):
             full_video_path.rename(self.video)
 
 def main():
+    # TODO need to test this
     youtube_video = YoutubeVideo(
         video_link=VideoLink(video_link='https://www.youtube.com/watch?v=ap0mqwvf7H0'),
         name='Taking Back Sunday - Cute Without the \\"E\\" (Cut From the Team)',

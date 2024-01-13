@@ -110,6 +110,17 @@ classDiagram
         download(start_time=None, end_time=None) -> None
     }
 
+    YoutubeVideo <|-- YoutubeAudio
+    class YoutubeAudio {
+        VideoLink video_link
+        Path video
+        str name
+        float start_time
+        float end_time
+
+        download(start_time=None, end_time=None) -> None
+    }
+
     Video -- VideoLink
     class VideoLink {
         str video_link
