@@ -70,13 +70,17 @@ class Video(ABC):
     start_time: Optional[float]
     end_time: Optional[float]
 
-    def setup_download_dir(self) -> None:
+    def setup_download_dir(self, audio_only=False) -> None:
         # If self.video is not provided this will set it and make sure
         # it exists
         logging.debug("Setup download dir")
         self.video = Path(__file__).parent / 'videos'
         self.video.mkdir(parents=True, exist_ok=True)
-        self.video = self.video / f'{txt2filename(self.name)}.mp4'
+        if audio_only is True:
+            file_extension = 'mp3'
+        else:
+            file_extension = 'mp4'
+        self.video = self.video / f'{txt2filename(self.name)}.{file_extension}'
         logging.debug("Video path is %s", self.video)
 
 

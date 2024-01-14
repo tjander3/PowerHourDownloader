@@ -36,9 +36,15 @@ class YoutubeVideo(Video):
         logging.debug("Starting to download video")
         if self.video is None:
             # This will set self.video and make sure the directory exists
-            self.setup_download_dir()
+            self.setup_download_dir(audio_only=audio_only)
 
-        full_video_path = self.video.parent / f'{txt2filename(self.name)}-full-video.mp4'
+
+        if audio_only is True:
+            file_extension = 'mp3'
+        else:
+            file_extension = 'mp4'
+
+        full_video_path = self.video.parent / f'{txt2filename(self.name)}-full-video.{file_extension}'
         # add to download parameters:
         self.ydl_opts['outtmpl'] = str(full_video_path)
 

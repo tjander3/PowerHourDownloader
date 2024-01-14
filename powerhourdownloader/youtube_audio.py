@@ -37,36 +37,15 @@ class YoutubeAudio(YoutubeVideo):
         """
         logging.debug("Starting to download audio")
         super().download(audio_only=True)
-        if self.video is None:
-            # This will set self.video and make sure the directory exists
-            self.setup_download_dir()
-
-        full_video_path = self.video.parent / f'{txt2filename(self.name)}-full-video.mp4'
-        # add to download parameters:
-        self.ydl_opts['outtmpl'] = str(full_video_path)
-
-        with youtube_dl.YoutubeDL(self.ydl_opts) as ydl:
-            ydl.download([self.video_link.video_link])
-
-        # extract the relevant subclip:
-        if self.start_time is not None:
-            with VideoFileClip(str(full_video_path)) as video:
-                subclip = video.subclip(self.start_time, self.end_time)
-                subclip.write_videofile(str(self.video))
-        else:
-            # Have to rename file since we use fill_video_path
-            if self.video.exists():
-                self.video.unlink()
-            full_video_path.rename(self.video)
 
 def main():
     # TODO need to test this
-    youtube_video = YoutubeVideo(
+    youtube_video = YoutubeAudio(
         video_link=VideoLink(video_link='https://www.youtube.com/watch?v=ap0mqwvf7H0'),
         name='Taking Back Sunday - Cute Without the \\"E\\" (Cut From the Team)',
         video=None,
         start_time=2,
-        end_time=3,
+        end_time=20,
     )
 
     youtube_video.download()
