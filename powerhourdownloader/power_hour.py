@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional, Union
 
-from moviepy.editor import concatenate_videoclips, VideoFileClip
+from moviepy.editor import concatenate_videoclips, VideoFileClip, AudioFileClip, concatenate_audioclips
 from powerhourdownloader.location import Location
 from powerhourdownloader.text_video_overlay import TextVideoOverlay
 
@@ -11,6 +11,7 @@ from powerhourdownloader.transition import Transition
 from powerhourdownloader.transition_video import TransitionVideo
 from powerhourdownloader.video import Video
 from powerhourdownloader.video_link import VideoLink
+from powerhourdownloader.youtube_audio import YoutubeAudio
 from powerhourdownloader.youtube_video import YoutubeVideo
 
 
@@ -49,8 +50,11 @@ class PowerHour:
         # TODO ability to set one transition
         self._set_transitions()
 
+        clip_type = VideoFileClip
+        if isinstance(self.videos[0], YoutubeAudio):
+            clip_type = AudioFileClip
         videoclips = [
-            VideoFileClip(str(item.video))
+            clip_type(str(item.video))
             for pair in zip(self.videos, self.transitions)
             # Here we are skipping and transitions or videos that are not complete.
             # It would be great if we kept track of them and printed a report or message
@@ -61,14 +65,22 @@ class PowerHour:
         # Fix concatenate thanks to following links
         # https://stackoverflow.com/questions/45248042/moviepy-concatenating-video-clips-causes-weird-glitches-in-final-video
         # https://www.reddit.com/r/moviepy/comments/2z3q38/help_getting_glitch_art_when_concatenating_clips/
-        final = concatenate_videoclips(videoclips, method='compose')
+
+        # TODO combine better somehow, aka use classes or something
+        if isinstance(self.videos[0], YoutubeAudio):
+            final = concatenate_audioclips(videoclips)
+            self.output = self.output.with_suffix('.mp3')
+            final.write_audiofile(str(self.output))  # TODO name this better
+        else:
+            final = concatenate_videoclips(videoclips, method='compose')
+            final.write_videofile(str(self.output))  # TODO name this better
         # writing the video into a file / saving the combined video
-        final.write_videofile(str(self.output))  # TODO name this better
 
     def create_power_hour(self) -> None:
         # download youtube videos
         # stitch videos together
         # TODO option to download in parallel?
+        self.videos = self.videos[0:4]
         for index, video in enumerate(self.videos):
             logging.debug('Video #%s', index)
             logging.debug('Downloading %s', video.name)

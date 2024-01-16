@@ -8,6 +8,7 @@ from typing import Optional, Union
 from powerhourdownloader.power_hour import PowerHour
 from powerhourdownloader.power_hour_parser import PowerHourParser
 from powerhourdownloader.video_link import VideoLink
+from powerhourdownloader.youtube_audio import YoutubeAudio
 from powerhourdownloader.youtube_video import YoutubeVideo
 
 
@@ -25,10 +26,12 @@ class MyTube60Parser(PowerHourParser):
         webpage_html = page.read()
         return webpage_html
 
-    def parse(self, debug: Union[bool, str] = False):
+    def parse(self, audio_only: bool = False, debug: Union[bool, str] = False):
         """Parse powerhour given for this class
 
         Args:
+            audio_only (bool): If True we only want audio so we can get rid of video.
+                Defaults to False.
             debug (Union[bool, str], optional): Used to test on pre downloaded html file.
                 Defaults to False.
                 If variable is not false we are expecting webpage content to parse.
@@ -57,7 +60,12 @@ class MyTube60Parser(PowerHourParser):
             )
             video, start_time, end_time, name = match.groups()
             video = VideoLink(f'https://www.youtube.com/watch?v={video}')
-            youtube_video = YoutubeVideo(
+
+            video_class = YoutubeVideo
+            if audio_only:
+                video_class = YoutubeAudio
+
+            youtube_video = video_class(
                 video_link=video,
                 name=name,
                 video=None,
@@ -92,7 +100,7 @@ def example_mytube60_parser_setup(
             webpage = f.read()
 
     mytube60 = MyTube60Parser(link=link)
-    mytube60.parse(debug=webpage)
+    mytube60.parse(audio_only=True, debug=webpage)
 
     print(mytube60.power_hour)
     return mytube60

@@ -124,7 +124,7 @@ def create_power_hour():
             logging.getLogger().setLevel(logging.DEBUG)
             # TODO transitions not implemented yet
             mytube60 = MyTube60Parser(link=webpage_link)
-            mytube60.parse()
+            mytube60.parse(audio_only=audio_only)
             mytube60.power_hour.transitions
             power_hour_runner = PowerHourRunner(parser=mytube60)
             power_hour_runner.run()
