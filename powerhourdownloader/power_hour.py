@@ -23,6 +23,14 @@ class PowerHour:
     # have None if you dont want a transition in between certain videos
     transitions: Optional[Union[Transition, list[Optional[Transition]]]]
     output: Path = Path(__file__).parent / 'videos' / 'tyler-output.mp4'
+    title: Optional[str] = None
+
+    def __post_init__(self):
+        if self.title:
+            # Rename the file to use the webpages name, make sure to keep the file extension
+            # of current output
+            file_extension = self.output.suffix
+            self.output = self.output.resolve().parent / f'{self.title}{file_extension}'
 
     def combine_serially(self):
         for video, transition in zip(self.videos, self.transitions):
@@ -80,7 +88,6 @@ class PowerHour:
         # download youtube videos
         # stitch videos together
         # TODO option to download in parallel?
-        self.videos = self.videos[0:4]
         for index, video in enumerate(self.videos):
             logging.debug('Video #%s', index)
             logging.debug('Downloading %s', video.name)

@@ -22,9 +22,9 @@ Since I am doing small incremental work on this project it would take too much t
 
 - [ ] Is is possible to not download all of youtube video (just a section)?
 - [x] -nsync is not downloading in webapp
-- [ ] add mp3
-    - [ ] youtube audio class
-    - [ ] need to fix power_hour to reflect this as well
+- [x] add mp3
+    - [x] youtube audio class
+    - [x] need to fix power_hour to reflect this as well
 - [ ] Progress for downloading
     - [x] command line
     - [ ] HTML
@@ -32,3 +32,4 @@ Since I am doing small incremental work on this project it would take too much t
     - [ ] single mp4
     - [ ] single mp3 (option to keep transitions or not)
     - [ ] multiple mp3 (no transitions)
+- [x] name resulting power hour based on the name of the given power hour... duh

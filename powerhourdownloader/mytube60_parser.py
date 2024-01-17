@@ -4,9 +4,13 @@ import urllib.request
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional, Union
+from urllib.request import urlopen
+
+from bs4 import BeautifulSoup
 
 from powerhourdownloader.power_hour import PowerHour
 from powerhourdownloader.power_hour_parser import PowerHourParser
+from powerhourdownloader.video import txt2filename
 from powerhourdownloader.video_link import VideoLink
 from powerhourdownloader.youtube_audio import YoutubeAudio
 from powerhourdownloader.youtube_video import YoutubeVideo
@@ -25,6 +29,21 @@ class MyTube60Parser(PowerHourParser):
         page = urllib.request.urlopen(self.link)
         webpage_html = page.read()
         return webpage_html
+
+    def get_webpage_title(self):
+        if not self.link:
+            raise ValueError('self.link is expected to be set; not None')
+
+        soup = BeautifulSoup(urlopen(self.link))
+        title = soup.title.get_text()
+
+        # TODO maybe make a common tool file for txt2filename
+        title = txt2filename(title)
+
+        # Go an extra step and remove space in favor of - just since I like that better
+        title = title.replace(' ', '-')
+
+        return title
 
     def parse(self, audio_only: bool = False, debug: Union[bool, str] = False):
         """Parse powerhour given for this class
@@ -77,7 +96,7 @@ class MyTube60Parser(PowerHourParser):
 
         # We do Powerhour instead of a lis of videos here because we may
         # need to parse a video that already has transitions.
-        self.power_hour = PowerHour(videos=videos, transitions=None)
+        self.power_hour = PowerHour(videos=videos, transitions=None, title=self.get_webpage_title())
 
 
 def example_mytube60_parser_setup(
