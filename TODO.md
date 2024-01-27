@@ -25,13 +25,13 @@ Since I am doing small incremental work on this project it would take too much t
 - [x] add mp3
     - [x] youtube audio class
     - [x] need to fix power_hour to reflect this as well
-- [ ] Progress for downloading
+- [x] Progress for downloading
     - [x] command line
-    - [ ] HTML
-- [ ] Download options
+    - [>] HTML (moved below)
+- [x] Download options
     - [x] single mp4
     - [x] single mp3 (option to keep transitions or not)
-    - [ ] multiple mp3 (no transitions)
+    - [>] multiple mp3 (no transitions)
 - [x] name resulting power hour based on the name of the given power hour... duh
 - webpage
     - [ ] download the power hour
