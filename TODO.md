@@ -37,3 +37,8 @@ Since I am doing small incremental work on this project it would take too much t
     - [ ] download the power hour
     - [ ] show status
     - [ ] navigate to other pages while downloading
+- auto upload
+    - [ ] google drive
+        - [ ] update class diagram
+        - [ ] authentication?
+        - [ ] implement
