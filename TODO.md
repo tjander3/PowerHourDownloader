@@ -29,7 +29,11 @@ Since I am doing small incremental work on this project it would take too much t
     - [x] command line
     - [ ] HTML
 - [ ] Download options
-    - [ ] single mp4
-    - [ ] single mp3 (option to keep transitions or not)
+    - [x] single mp4
+    - [x] single mp3 (option to keep transitions or not)
     - [ ] multiple mp3 (no transitions)
 - [x] name resulting power hour based on the name of the given power hour... duh
+- webpage
+    - [ ] download the power hour
+    - [ ] show status
+    - [ ] navigate to other pages while downloading

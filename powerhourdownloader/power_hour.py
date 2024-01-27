@@ -88,6 +88,12 @@ class PowerHour:
         # download youtube videos
         # stitch videos together
         # TODO option to download in parallel?
+
+        # Here we set self.videos to only be 3 vidoes so downloading and combining can
+        # happen faster.  When committing please make sure this is False
+        debug = False
+        if debug:
+            self.videos = self.videos[0:3]
         for index, video in enumerate(self.videos):
             logging.debug('Video #%s', index)
             logging.debug('Downloading %s', video.name)
