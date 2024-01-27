@@ -91,6 +91,8 @@ class PowerHour:
 
         # Here we set self.videos to only be 3 vidoes so downloading and combining can
         # happen faster.  When committing please make sure this is False
+        # TODO would be great if this was set at class level or by some command line argument
+        # or some bash variable
         debug = False
         if debug:
             self.videos = self.videos[0:3]
