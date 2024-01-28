@@ -7,9 +7,11 @@ classDiagram
     PowerHourRunner -- PowerHourParser
     class PowerHourRunner {
         PowerHourParser parser
+        FileStorage file_storage
 
         run() -> None
         main() -> None
+        store_file()
     }
 
     PowerHour "1" --o "*" Video: has
@@ -126,5 +128,28 @@ classDiagram
         str video_link
 
         verify_video_link() -> bool
+    }
+
+    PowerHourRunner -- FileStorage
+    class FileStorage {
+        Path file
+        StorageProvider storageProvider
+
+        store_file()
+    }
+
+    FileStorage -- StorageProvider
+    class StorageProvider {
+        <<abstract>>
+
+        authenticate()
+        file_upload()
+    }
+
+    StorageProvider <|-- GoogleDrive
+    class GoogleDrive {
+
+        authenticate()
+        file_upload()
     }
 ```
