@@ -95,7 +95,7 @@ class PowerHour:
         # or some bash variable
         debug = False
         if debug:
-            self.videos = self.videos[0:3]
+            self.videos = self.videos[0:1]
         for index, video in enumerate(self.videos):
             logging.debug('Video #%s', index)
             logging.debug('Downloading %s', video.name)

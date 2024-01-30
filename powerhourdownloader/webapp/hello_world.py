@@ -130,9 +130,18 @@ def create_power_hour():
             power_hour_runner.run()
 
             # TODO show status
+            # TODO make this downloadable link
+            # We dont want to redirect but I want to keep this here to show how to redirect
+            messages.append(
+                {
+                    'title': str(
+                        power_hour_runner.parser.power_hour.output
+                    ),
+                    'content': 'Test video'
+                }
+                 )
             return redirect(url_for('index'))
     return render_template('ph.html')
-
 # TODO left off here: https://www.digitalocean.com/community/tutorials/how-to-use-web-forms-in-a-flask-application
 # TODO left off at step 3, finished it but not working fully. Does not update the main page yet when submiting a form
 
