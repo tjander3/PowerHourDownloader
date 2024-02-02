@@ -42,3 +42,10 @@ Since I am doing small incremental work on this project it would take too much t
         - [ ] update class diagram
         - [ ] authentication?
         - [ ] implement
+
+## TODO list order
+
+- Downloadable files
+    - Figure out link in flask
+- Status Bar
+- Deploy / Get to Andy
