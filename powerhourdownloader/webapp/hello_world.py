@@ -61,9 +61,9 @@ app.secret_key = foo
 #csrf = CSRFProtect(app)
 
 messages = [{'title': 'Message One',
-             'content': '<a href="http://127.0.0.1:5000/uploads/tyler-output.mp3">test tyler</a>'},  # TODO dont hardcode
+             'content': 'tyler-output.mp3'},  # TODO dont hardcode
             {'title': 'Message Two',
-             'content': '<a href="http://127.0.0.1:5000/uploads/tyler-output.mp3">test tyler</a>'},  # TODO dont hardcode
+             'content': 'tyler-output.mp4'},  # TODO dont hardcode
             ]
 
 # @app.route('/')
