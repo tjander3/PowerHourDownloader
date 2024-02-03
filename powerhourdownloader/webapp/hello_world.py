@@ -142,7 +142,7 @@ def create_power_hour():
             messages.append(
                 {
                     'title': str(power_hour_runner.parser.power_hour.title),
-                    'content': str(power_hour_runner.parser.power_hour.output),
+                    'content': str(power_hour_runner.parser.power_hour.output.name),
                 }
                  )
             return redirect(url_for('index'))

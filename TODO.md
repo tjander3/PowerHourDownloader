@@ -45,9 +45,6 @@ Since I am doing small incremental work on this project it would take too much t
 
 ## TODO list order
 
-- Downloadable files
-    - Figure out link in flask
-    - get files to download not just open
 - Status Bar
 - Deploy / Get to Andy
     - python executable
