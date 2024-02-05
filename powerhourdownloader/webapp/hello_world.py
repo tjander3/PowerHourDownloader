@@ -95,6 +95,14 @@ def create():
             return redirect(url_for('index'))
     return render_template('create.html')
 
+
+@app.route('/progress')
+def progress():
+    # Using the following two to try this
+    # https://stackoverflow.com/questions/37531829/how-to-create-a-progress-bar-using-flask
+    # https://stackoverflow.com/questions/24251898/flask-app-update-progress-bar-while-function-runs
+    return str(1)
+
 @app.route('/ph/', methods=('GET', 'POST'))
 def create_power_hour():
     if request.method == 'POST':

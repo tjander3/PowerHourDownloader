@@ -41,4 +41,18 @@
         <br>
         <button type="submit">Submit</button>
     </form>
+    <div class="container">
+           <h2>Progress Bar With Label</h2>
+           <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
+           </div>
+        </div>
+    <script>
+    var interval = setInterval(update_progress, 1000);
+    async function update_progress() {
+        console.log('hello tyler')
+        const tyler = await fetch("/progress")
+        console.log(tyler)
+    }
+    </script>
 {% endblock %}

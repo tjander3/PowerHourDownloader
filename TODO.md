@@ -46,6 +46,8 @@ Since I am doing small incremental work on this project it would take too much t
 ## TODO list order
 
 - Status Bar
+    - https://blog.miguelgrinberg.com/post/using-celery-with-flask
+    - https://github.com/miguelgrinberg/flask-celery-example/blob/master/templates/index.html
 - Deploy / Get to Andy
     - python executable
 - version it
@@ -53,3 +55,6 @@ Since I am doing small incremental work on this project it would take too much t
     - create shared drive terpmail
     - create way to authenticate to google
     - upload to terpmail drive (will need to be shared with user)
+- clean up webpage
+    - only keep needed menus
+    - make it pretty
