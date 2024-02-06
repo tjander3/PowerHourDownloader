@@ -66,6 +66,9 @@ messages = [{'title': 'Message One',
              'content': 'tyler-output.mp4'},  # TODO dont hardcode
             ]
 
+# TODO test tyler
+percentage = 0
+
 # @app.route('/')
 # def hello_world():
 #    return 'Hello, World!'
@@ -101,7 +104,10 @@ def progress():
     # Using the following two to try this
     # https://stackoverflow.com/questions/37531829/how-to-create-a-progress-bar-using-flask
     # https://stackoverflow.com/questions/24251898/flask-app-update-progress-bar-while-function-runs
-    return str(1)
+    global percentage
+    print(percentage)
+    percentage += 1
+    return str(percentage)
 
 @app.route('/ph/', methods=('GET', 'POST'))
 def create_power_hour():
