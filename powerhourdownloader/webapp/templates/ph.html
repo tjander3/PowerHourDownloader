@@ -56,6 +56,18 @@
         .then((responseData) => {
             console.log(responseData);
             //TODO figure out how to update div above
+            xpath = '/html/body/div/div/div/div'
+            // Find the element using XPath
+            var element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+
+            // Check if the element is found
+            if (element) {
+                // Set the width to 20%
+                element.style.width = responseData +'%';
+            } else {
+                console.error("Element not found with the specified XPath.");
+            }
+
             return responseData;
         })
         .catch(error => console.warn(error));
