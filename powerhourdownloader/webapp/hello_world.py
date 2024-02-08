@@ -32,6 +32,9 @@ you can also run with:
 $ python -m flask run
 ```
 
+TODO
+    - rename this file
+
 """
 import logging
 import os
@@ -67,7 +70,8 @@ messages = [{'title': 'Message One',
             ]
 
 # TODO test tyler
-percentage = 0
+power_hour_runner = None
+percentage = 0  # TODO remove this
 
 # @app.route('/')
 # def hello_world():
@@ -104,9 +108,25 @@ def progress():
     # Using the following two to try this
     # https://stackoverflow.com/questions/37531829/how-to-create-a-progress-bar-using-flask
     # https://stackoverflow.com/questions/24251898/flask-app-update-progress-bar-while-function-runs
+    # TODO deal with progress for the final step of combining the video
     global percentage
+    global power_hour_runner
+
+    if power_hour_runner is None:
+        return str(0)
+
+    videos_downloaded = power_hour_runner.parser.power_hour.videos_downloaded
+    total_videos = power_hour_runner.parser.power_hour.total_videos
+
+    if total_videos is None:
+        return str(0)
+    else:
+        return str((videos_downloaded / total_videos) * 100)
+
     print(percentage)
-    percentage += 1
+    if percentage < 100:
+        percentage += 1
+    # TODO have create power hour have some kind of file it updates to let us know the percentage, maybe an array like messages already is
     return str(percentage)
 
 @app.route('/ph/', methods=('GET', 'POST'))
@@ -147,6 +167,7 @@ def create_power_hour():
             mytube60 = MyTube60Parser(link=webpage_link)
             mytube60.parse(audio_only=audio_only)
             mytube60.power_hour.transitions
+            global power_hour_runner
             power_hour_runner = PowerHourRunner(parser=mytube60)
             power_hour_runner.run()
 

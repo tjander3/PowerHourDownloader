@@ -24,6 +24,8 @@ class PowerHour:
     transitions: Optional[Union[Transition, list[Optional[Transition]]]]
     output: Path = Path(__file__).parent / 'videos' / 'tyler-output.mp4'
     title: Optional[str] = None
+    videos_downloaded: int = 0  # TODO should not be able to set this as a parameter
+    total_videos: Optional[int] = None  # TODO should not be able to set this as a parameter
 
     def __post_init__(self):
         if self.title:
@@ -95,11 +97,14 @@ class PowerHour:
         # or some bash variable
         debug = False
         if debug:
-            self.videos = self.videos[0:1]
+            self.videos = self.videos[0:6]
+
+        self.total_videos = len(self.videos)
         for index, video in enumerate(self.videos):
             logging.debug('Video #%s', index)
             logging.debug('Downloading %s', video.name)
             video.download()
+            self.videos_downloaded += 1
 
         self.combine_videos()
 
