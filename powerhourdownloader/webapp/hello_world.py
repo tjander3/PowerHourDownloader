@@ -72,6 +72,7 @@ messages = [{'title': 'Message One',
 # TODO test tyler
 power_hour_runner = None
 percentage = 0  # TODO remove this
+combine_percentage = 20
 
 # @app.route('/')
 # def hello_world():
@@ -111,6 +112,7 @@ def progress():
     # TODO deal with progress for the final step of combining the video
     global percentage
     global power_hour_runner
+    global combine_percentage
 
     if power_hour_runner is None:
         return str(0)
@@ -121,7 +123,10 @@ def progress():
     if total_videos is None:
         return str(0)
     else:
-        return str((videos_downloaded / total_videos) * 100)
+        if power_hour_runner.parser.power_hour.are_videos_combined:
+            return str(((videos_downloaded / total_videos) * 100) - combine_percentage)
+        else:
+            return str(((videos_downloaded / total_videos) * 100))
 
     print(percentage)
     if percentage < 100:

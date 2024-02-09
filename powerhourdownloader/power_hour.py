@@ -25,6 +25,7 @@ class PowerHour:
     output: Path = Path(__file__).parent / 'videos' / 'tyler-output.mp4'
     title: Optional[str] = None
     videos_downloaded: int = 0  # TODO should not be able to set this as a parameter
+    are_videos_combined: bool = False  # TODO should not be able to set this as a parameter
     total_videos: Optional[int] = None  # TODO should not be able to set this as a parameter
 
     def __post_init__(self):
@@ -84,6 +85,8 @@ class PowerHour:
         else:
             final = concatenate_videoclips(videoclips, method='compose')
             final.write_videofile(str(self.output))  # TODO name this better
+
+        self.are_videos_combined = True
         # writing the video into a file / saving the combined video
 
     def create_power_hour(self) -> None:
