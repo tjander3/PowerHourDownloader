@@ -1,3 +1,4 @@
+from enum import StrEnum
 import logging
 from dataclasses import dataclass
 from pathlib import Path
@@ -14,6 +15,13 @@ from powerhourdownloader.video_link import VideoLink
 from powerhourdownloader.youtube_audio import YoutubeAudio
 from powerhourdownloader.youtube_video import YoutubeVideo
 
+class DownloadStatusEnum(StrEnum):
+    WAITING = 'Waiting to start downloading'
+    VIDEOS_DOWNLOADING = 'Videos Downloading'
+    VIDEOS_COMBINING = 'Combining videos'
+    VIDEOS_WRITING = 'Writing the Videos to file'
+    VIDEOS_DONE = 'Done with the power hour'
+
 
 @dataclass
 class PowerHour:
@@ -25,7 +33,7 @@ class PowerHour:
     output: Path = Path(__file__).parent / 'videos' / 'tyler-output.mp4'
     title: Optional[str] = None
     videos_downloaded: int = 0  # TODO should not be able to set this as a parameter
-    are_videos_combined: bool = False  # TODO should not be able to set this as a parameter
+    power_hour_status: DownloadStatusEnum = DownloadStatusEnum.WAITING  # TODO should not be able to set this as a parameter
     total_videos: Optional[int] = None  # TODO should not be able to set this as a parameter
 
     def __post_init__(self):
@@ -59,6 +67,8 @@ class PowerHour:
         # TODO test this
         # TODO need to cleanup videos as well
         # TODO ability to set one transition
+        self.power_hour_status = DownloadStatusEnum.VIDEOS_COMBINING
+
         self._set_transitions()
 
         clip_type = VideoFileClip
@@ -81,12 +91,13 @@ class PowerHour:
         if isinstance(self.videos[0], YoutubeAudio):
             final = concatenate_audioclips(videoclips)
             self.output = self.output.with_suffix('.mp3')
+            self.power_hour_status = DownloadStatusEnum.VIDEOS_WRITING
             final.write_audiofile(str(self.output))  # TODO name this better
         else:
             final = concatenate_videoclips(videoclips, method='compose')
+            self.power_hour_status = DownloadStatusEnum.VIDEOS_WRITING
             final.write_videofile(str(self.output))  # TODO name this better
 
-        self.are_videos_combined = True
         # writing the video into a file / saving the combined video
 
     def create_power_hour(self) -> None:
@@ -102,6 +113,8 @@ class PowerHour:
         if debug:
             self.videos = self.videos[0:6]
 
+        # TODO make this downloaing its own function
+        self.power_hour_status = DownloadStatusEnum.VIDEOS_DOWNLOADING
         self.total_videos = len(self.videos)
         for index, video in enumerate(self.videos):
             logging.debug('Video #%s', index)
@@ -110,6 +123,8 @@ class PowerHour:
             self.videos_downloaded += 1
 
         self.combine_videos()
+
+        self.power_hour_status = DownloadStatusEnum.VIDEOS_DONE
 
     def save_power_hour(self) -> Path:
         raise NotImplementedError

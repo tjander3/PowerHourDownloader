@@ -54,7 +54,6 @@
         const tyler = await fetch("/progress")
         .then((response) => response.json())
         .then((responseData) => {
-            console.log(responseData);
             //TODO figure out how to update div above
             xpath = '/html/body/div/div/div/div'
             // Find the element using XPath
@@ -62,8 +61,34 @@
 
             // Check if the element is found
             if (element) {
-                // Set the width to 20%
+                // Set the width to what we got from /progress
                 element.style.width = responseData +'%';
+            } else {
+                console.error("Element not found with the specified XPath.");
+            }
+
+            return responseData;
+        })
+        .catch(error => console.warn(error));
+        // console.log(tyler.json())
+    }
+    var interval = setInterval(update_status_str, 1000);
+    async function update_status_str() {
+        console.log('hello tyler function 2')
+        const tyler2 = await fetch("/download-status")
+        .then((response) => response.json())
+        .then((responseData) => {
+            console.log(responseData);
+            console.log(responseData["status"]);
+            //TODO figure out how to update div above
+            xpath = '/html/body/div/div/h2'
+            // Find the element using XPath
+            var element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+
+            // Check if the element is found
+            if (element) {
+                // Set string to what we got
+                element.innerText = responseData["status"];
             } else {
                 console.error("Element not found with the specified XPath.");
             }

@@ -49,6 +49,7 @@ from wtforms.validators import DataRequired, Length
 
 from powerhourdownloader.mytube60_parser import (MyTube60Parser,
                                                  example_mytube60_parser_setup)
+from powerhourdownloader.power_hour import DownloadStatusEnum
 from powerhourdownloader.power_hour_runner import PowerHourRunner
 
 # TODO left off here https://python-adv-web-apps.readthedocs.io/en/latest/flask_forms.html
@@ -104,6 +105,18 @@ def create():
     return render_template('create.html')
 
 
+@app.route('/download-status')
+def download_status():
+    global power_hour_runner
+
+    if power_hour_runner is None:
+        status = DownloadStatusEnum.WAITING
+    else:
+        status = power_hour_runner.parser.power_hour.power_hour_status
+
+    return f'{{"status": "{status}"}}'
+
+
 @app.route('/progress')
 def progress():
     # Using the following two to try this
@@ -123,10 +136,12 @@ def progress():
     if total_videos is None:
         return str(0)
     else:
-        if power_hour_runner.parser.power_hour.are_videos_combined:
-            return str(((videos_downloaded / total_videos) * 100) - combine_percentage)
-        else:
-            return str(((videos_downloaded / total_videos) * 100))
+        return str(((videos_downloaded / total_videos) * 100))
+        # TODO deal with video combining and video writing
+        #if power_hour_runner.parser.power_hour.are_videos_combined:
+        #    return str(((videos_downloaded / total_videos) * 100) - combine_percentage)
+        #else:
+        #    return str(((videos_downloaded / total_videos) * 100))
 
     print(percentage)
     if percentage < 100:
@@ -175,6 +190,8 @@ def create_power_hour():
             global power_hour_runner
             power_hour_runner = PowerHourRunner(parser=mytube60)
             power_hour_runner.run()
+
+            # TODO verify what happens after button is hit and you change fields (maybe click mp3 button)
 
             # TODO show status
             # TODO make this downloadable link
