@@ -73,7 +73,8 @@ messages = [{'title': 'Message One',
 # TODO test tyler
 power_hour_runner = None
 percentage = 0  # TODO remove this
-combine_percentage = 20
+combine_percentage = 15
+write_percentage = 15
 
 # @app.route('/')
 # def hello_world():
@@ -126,6 +127,7 @@ def progress():
     global percentage
     global power_hour_runner
     global combine_percentage
+    global write_percentage
 
     if power_hour_runner is None:
         return str(0)
@@ -136,12 +138,18 @@ def progress():
     if total_videos is None:
         return str(0)
     else:
-        return str(((videos_downloaded / total_videos) * 100))
-        # TODO deal with video combining and video writing
-        #if power_hour_runner.parser.power_hour.are_videos_combined:
-        #    return str(((videos_downloaded / total_videos) * 100) - combine_percentage)
-        #else:
-        #    return str(((videos_downloaded / total_videos) * 100))
+        #return str(((videos_downloaded / total_videos) * 100))
+        # TODO fix this monstrosity
+        if power_hour_runner.parser.power_hour.power_hour_status == DownloadStatusEnum.VIDEOS_DOWNLOADING:
+            return str(((videos_downloaded / total_videos) * 100) - combine_percentage - write_percentage)
+        elif power_hour_runner.parser.power_hour.power_hour_status == DownloadStatusEnum.VIDEOS_COMBINING:
+            return str(((videos_downloaded / total_videos) * 100) - combine_percentage - write_percentage)
+        elif power_hour_runner.parser.power_hour.power_hour_status == DownloadStatusEnum.VIDEOS_WRITING:
+            return str(((videos_downloaded / total_videos) * 100) - write_percentage)
+        elif power_hour_runner.parser.power_hour.power_hour_status == DownloadStatusEnum.VIDEOS_DONE:
+            return str(((videos_downloaded / total_videos) * 100))
+        else:
+            return 0
 
     print(percentage)
     if percentage < 100:
