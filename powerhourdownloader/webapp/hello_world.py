@@ -73,8 +73,8 @@ messages = [{'title': 'Message One',
 # TODO test tyler
 power_hour_runner = None
 percentage = 0  # TODO remove this
-combine_percentage = 15
-write_percentage = 15
+combine_percentage = 5
+write_percentage = 25
 
 # @app.route('/')
 # def hello_world():
