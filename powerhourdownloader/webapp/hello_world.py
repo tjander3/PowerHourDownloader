@@ -64,11 +64,19 @@ app.secret_key = foo
 ## Flask-WTF requires this line
 #csrf = CSRFProtect(app)
 
-messages = [{'title': 'Message One',
-             'content': 'tyler-output.mp3'},  # TODO dont hardcode
-            {'title': 'Message Two',
-             'content': 'tyler-output.mp4'},  # TODO dont hardcode
-            ]
+# TODO deal with this
+#messages = [
+#    {
+#        'title': 'Message One',
+#        'content': 'tyler-output.mp3'
+#    },  # TODO dont hardcode
+#    {
+#        'title': 'Message Two',
+#        'content': 'tyler-output.mp4'
+#    },  # TODO dont hardcode
+#]
+
+messages = []
 
 # TODO test tyler
 power_hour_runner = None
@@ -155,11 +163,6 @@ def progress():
     print(percentage)
     return str(percentage)
 
-    print(percentage)
-    if percentage < 100:
-        percentage += 1
-    # TODO have create power hour have some kind of file it updates to let us know the percentage, maybe an array like messages already is
-    return str(percentage)
 
 @app.route('/ph/', methods=('GET', 'POST'))
 def create_power_hour():
