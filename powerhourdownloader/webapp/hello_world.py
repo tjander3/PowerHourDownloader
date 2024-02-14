@@ -139,22 +139,18 @@ def progress():
     if total_videos is None:
         percentage = 0
     else:
-        #return str(((videos_downloaded / total_videos) * 100))
-        # TODO fix this monstrosity
-        if power_hour_runner.parser.power_hour.power_hour_status == DownloadStatusEnum.VIDEOS_DOWNLOADING:
+        if (
+            power_hour_runner.parser.power_hour.power_hour_status == DownloadStatusEnum.VIDEOS_DOWNLOADING
+            or power_hour_runner.parser.power_hour.power_hour_status == DownloadStatusEnum.VIDEOS_COMBINING
+        ):
             base = 100 - combine_percentage - write_percentage
-            percentage = (videos_downloaded / total_videos) * base
-        elif power_hour_runner.parser.power_hour.power_hour_status == DownloadStatusEnum.VIDEOS_COMBINING:
-            base = 100 - combine_percentage - write_percentage
-            percentage = (videos_downloaded / total_videos) * base
         elif power_hour_runner.parser.power_hour.power_hour_status == DownloadStatusEnum.VIDEOS_WRITING:
             base = 100 - write_percentage
-            percentage = (videos_downloaded / total_videos) * base
         elif power_hour_runner.parser.power_hour.power_hour_status == DownloadStatusEnum.VIDEOS_DONE:
             base = 100
-            percentage = (videos_downloaded / total_videos) * base
         else:
-            percentage = 0
+            base = 0
+        percentage = (videos_downloaded / total_videos) * base
 
     print(percentage)
     return str(percentage)
