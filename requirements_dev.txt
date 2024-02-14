@@ -33,6 +33,8 @@ flask-wtf
 flask-bootstrap
 wtforms
 
+pyinstaller
+
 # Used for downloading youtube videos
-# Had to donwload this git repo and install with python setup.pu develop
+# Had to donwload this git repo and install with python setup.py develop
 # youtube-dl

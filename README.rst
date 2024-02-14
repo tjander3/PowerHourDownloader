@@ -37,6 +37,20 @@ Activate environment: `. ./env/Scripts/activate`
 Install packages in environment: `python -m pip install -r requirements_dev.txt`
 
 
+Building
+--------
+
+To build this for release we use pyinstaller
+
+to build on windows do the following:
+
+- Verify you can run flask web app locally with your current python environment
+- Build with pyinstaller from webapp directory: `pyinstaller --paths C:\Users\tjand\git\PowerHourDownloader -w -F
+ --add-data "templates;templates" .\hello_world.py`
+
+
+
+
 Features
 --------
 
