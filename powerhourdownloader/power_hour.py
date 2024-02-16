@@ -111,7 +111,7 @@ class PowerHour:
         # or some bash variable
         debug = False
         if debug:
-            self.videos = self.videos[0:6]
+            self.videos = self.videos[0:2]
 
         # TODO make this downloaing its own function
         self.power_hour_status = DownloadStatusEnum.VIDEOS_DOWNLOADING

@@ -36,10 +36,13 @@ TODO
     - rename this file
 
 """
+import sys
 import logging
 import os
 from pathlib import Path
 import secrets
+from threading import Timer
+import webbrowser
 
 from flask import Flask, flash, redirect, render_template, request, send_from_directory, url_for
 from flask_bootstrap import Bootstrap  # TODO fix this
@@ -83,6 +86,13 @@ power_hour_runner = None
 percentage = 0  # TODO remove this
 combine_percentage = 5
 write_percentage = 25
+
+if getattr(sys, 'frozen', False):
+    template_folder = os.path.join(sys._MEIPASS, 'templates')
+    static_folder = os.path.join(sys._MEIPASS, 'static')
+    app = Flask(__name__, template_folder=template_folder, static_folder=static_folder)
+else:
+    app = Flask(__name__)
 
 # @app.route('/')
 # def hello_world():
@@ -227,3 +237,13 @@ class NameForm(FlaskForm):
     name = StringField('Which actor is your favorite?',
                        validators=[DataRequired(), Length(10, 40)])
     submit = SubmitField('Submit')
+
+def open_browser():
+    webbrowser.open_new('http://127.0.0.1:5000/')
+
+def main():
+    Timer(1, open_browser).start()
+    app.run()
+
+if __name__ == '__main__':
+    main()
