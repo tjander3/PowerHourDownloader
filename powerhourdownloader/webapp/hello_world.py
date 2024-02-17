@@ -86,12 +86,16 @@ power_hour_runner = None
 percentage = 0  # TODO remove this
 combine_percentage = 5
 write_percentage = 25
+pyinstaller_in_use = False
 
 if getattr(sys, 'frozen', False):
+    # When running app as executable from pyinstaller
+    pyinstaller_in_use = True
     template_folder = os.path.join(sys._MEIPASS, 'templates')
     static_folder = os.path.join(sys._MEIPASS, 'static')
     app = Flask(__name__, template_folder=template_folder, static_folder=static_folder)
 else:
+    # When running app from command line
     app = Flask(__name__)
 
 # @app.route('/')
@@ -101,7 +105,11 @@ else:
 
 @app.route('/uploads/<path:filename>', methods=['GET', 'POST'])
 def download(filename):
-    uploads = Path(__file__).parent.parent / 'videos'
+    global pyinstaller_in_use
+    if pyinstaller_in_use:
+        uploads = Path(__file__).parent / 'powerhourdownloader' / 'videos'
+    else:
+        uploads = Path(__file__).parent.parent / 'videos'
     return send_from_directory(str(uploads), filename)
 
 @app.route('/', methods=['GET', 'POST'])
