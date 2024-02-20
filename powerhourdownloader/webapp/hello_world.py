@@ -141,6 +141,11 @@ def download_status():
     else:
         status = power_hour_runner.parser.power_hour.power_hour_status
 
+        if status == DownloadStatusEnum.VIDEOS_DOWNLOADING:
+            videos_downloaded = power_hour_runner.parser.power_hour.videos_downloaded
+            total_videos = power_hour_runner.parser.power_hour.total_videos
+            status += f': {videos_downloaded}/{total_videos}'
+
     return f'{{"status": "{status}"}}'
 
 
