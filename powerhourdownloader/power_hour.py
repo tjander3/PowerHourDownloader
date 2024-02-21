@@ -119,6 +119,7 @@ class PowerHour:
         for index, video in enumerate(self.videos):
             logging.debug('Video #%s', index)
             logging.debug('Downloading %s', video.name)
+            # TODO try catch on video .download, if fail change videos downloaded and totatl _videos appropriately
             video.download()
             self.videos_downloaded += 1
 

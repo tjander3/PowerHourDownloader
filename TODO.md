@@ -64,6 +64,9 @@ Since I am doing small incremental work on this project it would take too much t
 - rename `hello_world.py`
 - display 1/60 2/60 etc in webapp
 - dont allow double submit
+- power hour with the same name?
+- new release
+- automate release
 
 
 C:\Users\tjand\AppData\Local\Temp\_MEI240322\powerhourdownloader\videos\2000s-Power-Hour.mp4
