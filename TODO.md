@@ -45,12 +45,11 @@ Since I am doing small incremental work on this project it would take too much t
 
 ## TODO list order
 
-- Status Bar
-    - https://blog.miguelgrinberg.com/post/using-celery-with-flask
-    - https://github.com/miguelgrinberg/flask-celery-example/blob/master/templates/index.html
-- Deploy / Get to Andy
-    - python executable
-- version it
+- rename `hello_world.py`
+- cleanup files everywhere
+- github actions outline
+- tests
+- coverage
 - Upload to drive
     - create shared drive terpmail
     - create way to authenticate to google
@@ -59,14 +58,24 @@ Since I am doing small incremental work on this project it would take too much t
     - only keep needed menus
     - make it pretty
 
-- Download power hour not working in app
-- document how to build: `pyinstaller --onefile --add-data "templates;templates" .\hello_world.py`
-- rename `hello_world.py`
-- display 1/60 2/60 etc in webapp
-- dont allow double submit
-- power hour with the same name?
-- new release
-- automate release
+- bookkeeping
+    - document how to build: `pyinstaller --onefile --add-data "templates;templates" .\hello_world.py`
+- verify videos are there when parsing - this is next
+- what to do if video is not found
+    - list them and make them anyways
+- core functionality
+    - fix transitions
+    - power hour with the same name?
+- ci/cd
+    - automate release
+- gui
+    - dont allow double submit
+    - cancel button
+    - queue
+    - list bad videos found and option to cancel
+- other
+    - look into yt_dlp
+    - get executable not seen as a virus
 
 
 C:\Users\tjand\AppData\Local\Temp\_MEI240322\powerhourdownloader\videos\2000s-Power-Hour.mp4
