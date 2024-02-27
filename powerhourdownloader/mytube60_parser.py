@@ -92,7 +92,14 @@ class MyTube60Parser(PowerHourParser):
                 end_time=float(end_time),
             )
 
-            videos.append(youtube_video)
+            # Verify that the video exists and is downloadable
+            # TODO is it possible to do this with threads?
+            # TODO need to make sure this actually works
+            video_exists = youtube_video.video_link.verify_video_link()
+            if video_exists:
+                videos.append(youtube_video)
+            else:
+                logging.warning(f'Video, {name}, is not downloadable')
 
         # We do Powerhour instead of a lis of videos here because we may
         # need to parse a video that already has transitions.

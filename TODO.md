@@ -58,11 +58,14 @@ Since I am doing small incremental work on this project it would take too much t
     - only keep needed menus
     - make it pretty
 
+- next
+    - [ ] verify videos are there when parsing - this is next
+        - do this with threads
+    - what to do if video is not found
+        - list them and make them anyways
+    - after this verify transitions work
 - bookkeeping
     - document how to build: `pyinstaller --onefile --add-data "templates;templates" .\hello_world.py`
-- verify videos are there when parsing - this is next
-- what to do if video is not found
-    - list them and make them anyways
 - core functionality
     - fix transitions
     - power hour with the same name?
