@@ -64,6 +64,7 @@ Since I am doing small incremental work on this project it would take too much t
     - what to do if video is not found
         - list them and make them anyways
     - after this verify transitions work
+- percentage validating?
 - bookkeeping
     - document how to build: `pyinstaller --onefile --add-data "templates;templates" .\hello_world.py`
 - core functionality

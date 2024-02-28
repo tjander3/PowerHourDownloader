@@ -14,6 +14,7 @@ from powerhourdownloader.video import txt2filename
 from powerhourdownloader.video_link import VideoLink
 from powerhourdownloader.youtube_audio import YoutubeAudio
 from powerhourdownloader.youtube_video import YoutubeVideo
+import powerhourdownloader.debug_variables as ph_vars
 
 
 @dataclass
@@ -72,6 +73,8 @@ class MyTube60Parser(PowerHourParser):
         matches = re.finditer(regex, test_str)
 
         for match_num, match in enumerate(matches, start=1):
+            if ph_vars.debug and (match_num < ph_vars.video_debug[0] or match_num > ph_vars.video_debug[1]):
+                continue
 
             logging.debug(
                 "Match {match_num} was found at {start}-{end}: {match}"

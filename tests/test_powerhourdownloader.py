@@ -5,7 +5,7 @@
 import pytest
 
 
-from powerhourdownloader import powerhourdownloader
+#from powerhourdownloader import powerhourdownloader
 
 
 @pytest.fixture

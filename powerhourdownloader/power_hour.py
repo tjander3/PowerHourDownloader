@@ -14,6 +14,7 @@ from powerhourdownloader.video import Video
 from powerhourdownloader.video_link import VideoLink
 from powerhourdownloader.youtube_audio import YoutubeAudio
 from powerhourdownloader.youtube_video import YoutubeVideo
+import powerhourdownloader.debug_variables as ph_vars
 
 class DownloadStatusEnum(StrEnum):
     WAITING = 'Waiting to start downloading'
@@ -109,9 +110,10 @@ class PowerHour:
         # happen faster.  When committing please make sure this is False
         # TODO would be great if this was set at class level or by some command line argument
         # or some bash variable
-        debug = False
-        if debug:
-            self.videos = self.videos[0:2]
+        if ph_vars.debug:
+            pass
+            # THis will already be taken care of in other location
+            # self.videos = self.videos[ph_vars.video_debug[0]:ph_vars.video_debug[1]]
 
         # TODO make this downloaing its own function
         self.power_hour_status = DownloadStatusEnum.VIDEOS_DOWNLOADING
@@ -121,6 +123,7 @@ class PowerHour:
             logging.debug('Downloading %s', video.name)
             # TODO try catch on video .download, if fail change videos downloaded and totatl _videos appropriately
             video.download()
+            #logging.error('Download Failed')
             self.videos_downloaded += 1
 
         self.combine_videos()
