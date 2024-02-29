@@ -54,6 +54,7 @@ from powerhourdownloader.mytube60_parser import (MyTube60Parser,
                                                  example_mytube60_parser_setup)
 from powerhourdownloader.power_hour import DownloadStatusEnum
 from powerhourdownloader.power_hour_runner import PowerHourRunner
+import powerhourdownloader.debug_variables as ph_vars
 
 # TODO left off here https://python-adv-web-apps.readthedocs.io/en/latest/flask_forms.html
 
@@ -219,6 +220,9 @@ def create_power_hour():
             print("Start Time:", start_time)
             print("End Time:", end_time)
             print('Hello Tyler')
+            if not ph_vars.flask_log:
+                log = logging.getLogger('werkzeug')
+                log.setLevel(logging.ERROR)
             logging.basicConfig()
             logging.getLogger().setLevel(logging.DEBUG)
             # TODO transitions not implemented yet
