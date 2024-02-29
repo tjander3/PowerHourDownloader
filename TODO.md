@@ -65,6 +65,7 @@ Since I am doing small incremental work on this project it would take too much t
     - what to do if video is not found
         - list them and make them anyways
     - after this verify transitions work
+- todo two power hours in a row with same name deal with that
 - TODO cleanup debug messages, only mine not others
 - todo when you do two in arow you get a status bar ful for a bit
 - percentage validating?
