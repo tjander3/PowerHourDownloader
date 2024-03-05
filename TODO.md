@@ -59,16 +59,12 @@ Since I am doing small incremental work on this project it would take too much t
     - make it pretty
 
 - next
-    - test failing video
-    - [ ] verify videos are there when parsing - this is next
-        - do this with threads
-    - what to do if video is not found
-        - list them and make them anyways
-    - after this verify transitions work
+- after this verify transitions work
 - todo two power hours in a row with same name deal with that
 - TODO cleanup debug messages, only mine not others
 - todo when you do two in arow you get a status bar ful for a bit
-- percentage validating?
+- verify videos actually exist do this with threads
+    - percentage validating?
 - bookkeeping
     - document how to build: `pyinstaller --onefile --add-data "templates;templates" .\hello_world.py`
 - core functionality
