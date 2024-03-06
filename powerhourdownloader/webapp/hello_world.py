@@ -49,6 +49,8 @@ from flask_bootstrap import Bootstrap  # TODO fix this
 from flask_wtf import CSRFProtect, FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, Length
+from powerhourdownloader.transition_video import TransitionVideo
+from powerhourdownloader.video_link import VideoLink
 from powerhourdownloader.youtube_video import YoutubeVideo
 
 from powerhourdownloader.mytube60_parser import (MyTube60Parser,
@@ -231,14 +233,16 @@ def create_power_hour():
             mytube60 = MyTube60Parser(link=webpage_link)
             mytube60.parse(audio_only=audio_only)
             # TODO this needs to be gifured out
-            mytube60.power_hour.transitions = Transition(
-                YoutubeVideo(
-                    video_link=transition_link,
+            transition_video = YoutubeVideo(
+                    video_link=VideoLink(video_link=transition_link),
                     name=None,
                     video=None,
                     start_time=None,
                     end_time=None,
-                )
+            )
+            transition_video.download()
+            mytube60.power_hour.transitions = TransitionVideo(
+                video=transition_video.video,
             )
             global power_hour_runner
             power_hour_runner = PowerHourRunner(parser=mytube60)
