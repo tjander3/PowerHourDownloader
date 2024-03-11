@@ -233,17 +233,18 @@ def create_power_hour():
             mytube60 = MyTube60Parser(link=webpage_link)
             mytube60.parse(audio_only=audio_only)
             # TODO this needs to be gifured out
-            transition_video = YoutubeVideo(
-                    video_link=VideoLink(video_link=transition_link),
-                    name=None,
-                    video=None,
-                    start_time=None,
-                    end_time=None,
-            )
-            transition_video.download()
-            mytube60.power_hour.transitions = TransitionVideo(
-                video=transition_video.video,
-            )
+            if transition_link != '':
+                transition_video = YoutubeVideo(
+                        video_link=VideoLink(video_link=transition_link),
+                        name=None,
+                        video=None,
+                        start_time=None,
+                        end_time=None,
+                )
+                transition_video.download()
+                mytube60.power_hour.transitions = TransitionVideo(
+                    video=transition_video.video,
+                )
             global power_hour_runner
             power_hour_runner = PowerHourRunner(parser=mytube60)
             power_hour_runner.run()

@@ -87,6 +87,9 @@ class MyTube60Parser(PowerHourParser):
             if audio_only:
                 video_class = YoutubeAudio
 
+            if ph_vars.main_video_length is not None:
+                end_time = str(float(start_time) + ph_vars.main_video_length)
+
             youtube_video = video_class(
                 video_link=video,
                 name=name,

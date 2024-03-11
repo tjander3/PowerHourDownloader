@@ -8,4 +8,4 @@ flask_log = False
 # If None dont do anything. If an int make them that long.
 # This will be useful to set to 1 or something and then
 # the download process will be much quicker
-main_video_length = 1
+main_video_length = None

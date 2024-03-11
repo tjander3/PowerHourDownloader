@@ -59,6 +59,8 @@ Since I am doing small incremental work on this project it would take too much t
     - make it pretty
 
 - next
+- why are sizes of videos tiny
+- option to download both mp3 and mp4 at same time
 - after this verify transitions work
 - todo two power hours in a row with same name deal with that
 - TODO cleanup debug messages, only mine not others
