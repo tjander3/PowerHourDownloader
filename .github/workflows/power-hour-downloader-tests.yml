@@ -15,4 +15,15 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+          which python
+          pip list
+          python -m venv ph
+          ls ${{ github.workspace }}
+          . ./env/Scripts/activate
+          ls ${{ github.workspace }}
+          python -m pip install -r requirements_dev.txt
+          ls ${{ github.workspace }}
+          pip list
+          pytest
+
       - run: echo "🍏 This job's status is ${{ job.status }}."
