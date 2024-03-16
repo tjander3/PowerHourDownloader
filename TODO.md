@@ -59,6 +59,8 @@ Since I am doing small incremental work on this project it would take too much t
     - make it pretty
 
 - next
+- get github actions working
+- orgnaize this
 - why are sizes of videos tiny
 - option to download both mp3 and mp4 at same time
 - after this verify transitions work
