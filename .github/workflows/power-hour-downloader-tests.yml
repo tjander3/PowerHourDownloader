@@ -27,6 +27,7 @@ jobs:
           ls ${{ github.workspace }}
           pip list
           which python
+          python --version
           pytest
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
