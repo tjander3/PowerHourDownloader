@@ -32,7 +32,13 @@ Python environment
 
 Create a virtual env: `python<version> -m venv <virtual-environment-name>`
 
-Activate environment: `. ./<virtual-environment-name>/Scripts/activate`
+Activate environment:
+
+- Windows
+    - `. ./<virtual-environment-name>/Scripts/activate`
+- Linux
+    - `. ./<virtual-environment-name>/bin/activate`
+
 
 Install packages in environment: `python -m pip install -r requirements_dev.txt`
 
