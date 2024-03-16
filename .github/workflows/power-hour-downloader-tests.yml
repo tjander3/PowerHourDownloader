@@ -19,6 +19,8 @@ jobs:
           pip list
           python -m venv ph
           ls ${{ github.workspace }}
+          ls -l ph
+          ls -l ph/Scripts
           . ./ph/Scripts/activate
           ls ${{ github.workspace }}
           python -m pip install -r requirements_dev.txt
