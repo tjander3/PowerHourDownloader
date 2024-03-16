@@ -26,6 +26,7 @@ jobs:
           python -m pip install -r requirements_dev.txt
           ls ${{ github.workspace }}
           pip list
+          which python
           pytest
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
