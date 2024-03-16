@@ -28,6 +28,7 @@ jobs:
           pip list
           which python
           python --version
+          pip install -e .
           pytest
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
