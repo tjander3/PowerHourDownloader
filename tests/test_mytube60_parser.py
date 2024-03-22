@@ -4,7 +4,7 @@ import pytest
 from powerhourdownloader.mytube60_parser import MyTube60Parser, main
 
 class TestMyTube60Parser:
-    pytest.mark.skip
+    @pytest.mark.skip
     @pytest.mark.parametrize(
         'test_name, link, webpage_path',
         (

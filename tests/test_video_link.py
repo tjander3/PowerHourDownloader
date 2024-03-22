@@ -1,6 +1,6 @@
 import pytest
 
-pytest.mark.skip
+@pytest.mark.skip
 class TestVideoLink:
     def test_video_link(self):
         raise NotImplementedError
