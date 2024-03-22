@@ -89,11 +89,9 @@ Since I am doing small incremental work on this project it would take too much t
 C:\Users\tjand\AppData\Local\Temp\_MEI240322\powerhourdownloader\videos\2000s-Power-Hour.mp4
 uploads=WindowsPath('C:/Users/tjand/AppData/Local/Temp/videos')
 
-
 Get tests working
 
-```
-tests/test_location.py ...                                               [ 12%]
+```txt
 tests/test_mytube60_parser.py FF.                                        [ 25%]
 tests/test_power_hour.py FFFF                                            [ 41%]
 tests/test_power_hour_parser.py FF                                       [ 50%]
@@ -106,3 +104,5 @@ tests/test_transition_video.py F                                         [ 79%]
 tests/test_video_link.py FF                                              [ 87%]
 tests/test_youtube_video.py FFF                                          [100%]
 ```
+
+xfail all failing tests and then go back and fix them all
