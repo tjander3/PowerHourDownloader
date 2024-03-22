@@ -92,15 +92,15 @@ uploads=WindowsPath('C:/Users/tjand/AppData/Local/Temp/videos')
 skip tests
 
 ```txt
-- [ ] tests/test_mytube60_parser.py FF.                                        [ 25%]
-- [ ] tests/test_power_hour.py FFFF                                            [ 41%]
-- [ ] tests/test_power_hour_parser.py FF                                       [ 50%]
-- [ ] tests/test_power_hour_runner.py FF                                       [ 58%]
-- [ ] tests/test_powerhourdownloader.py .                                      [ 62%]
-- [ ] tests/test_text_video_overlay.py F                                       [ 66%]
-- [ ] tests/test_transition.py F                                               [ 70%]
-- [ ] tests/test_transition_image.py F                                         [ 75%]
-- [ ] tests/test_transition_video.py F                                         [ 79%]
-- [ ] tests/test_video_link.py FF                                              [ 87%]
-- [ ] tests/test_youtube_video.py FFF                                          [100%]
+- [x] tests/test_mytube60_parser.py FF.                                        [ 25%]
+- [x] tests/test_power_hour.py FFFF                                            [ 41%]
+- [x] tests/test_power_hour_parser.py FF                                       [ 50%]
+- [x] tests/test_power_hour_runner.py FF                                       [ 58%]
+- [x] tests/test_powerhourdownloader.py .                                      [ 62%]
+- [x] tests/test_text_video_overlay.py F                                       [ 66%]
+- [x] tests/test_transition.py F                                               [ 70%]
+- [x] tests/test_transition_image.py F                                         [ 75%]
+- [x] tests/test_transition_video.py F                                         [ 79%]
+- [x] tests/test_video_link.py FF                                              [ 87%]
+- [x] tests/test_youtube_video.py FFF                                          [100%]
 ```
