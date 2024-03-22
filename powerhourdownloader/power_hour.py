@@ -1,4 +1,8 @@
-from enum import StrEnum
+try:
+    from enum import StrEnum
+except ImportError:
+    import StrEnum
+
 import logging
 from dataclasses import dataclass
 from pathlib import Path
