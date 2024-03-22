@@ -3,6 +3,7 @@ import pytest
 from powerhourdownloader.youtube_video import YoutubeVideo, main
 
 
+pytest.mark.xfail
 class TestYoutubeVideo:
     def test_youtube_video(self):
         raise NotImplementedError

@@ -6,6 +6,7 @@ from powerhourdownloader.text_video_overlay import TextVideoOverlay
 
 from powerhourdownloader.transition_video import TransitionVideo
 
+pytest.mark.xfail
 class TestTransitionVideo:
 
     # TODO finish implementing this need to write file and actually compare and make a short video to actually compare

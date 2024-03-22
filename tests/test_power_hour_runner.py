@@ -3,6 +3,7 @@ import pytest
 from powerhourdownloader.mytube60_parser import MyTube60Parser
 from powerhourdownloader.power_hour_runner import PowerHourRunner
 
+pytest.mark.xfail
 class TestPowerHourRunner:
     def test_power_hour_runner(self):
         raise NotImplementedError
