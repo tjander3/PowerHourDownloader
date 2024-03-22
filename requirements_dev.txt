@@ -38,4 +38,4 @@ pyinstaller
 
 # Used for downloading youtube videos
 # Had to donwload this git repo and install with python setup.py develop
-# youtube-dl
+youtube-dl
