@@ -21,18 +21,6 @@ Since I am doing small incremental work on this project it would take too much t
     - VideoLink
 
 - [ ] Is is possible to not download all of youtube video (just a section)?
-- [x] -nsync is not downloading in webapp
-- [x] add mp3
-    - [x] youtube audio class
-    - [x] need to fix power_hour to reflect this as well
-- [x] Progress for downloading
-    - [x] command line
-    - [>] HTML (moved below)
-- [x] Download options
-    - [x] single mp4
-    - [x] single mp3 (option to keep transitions or not)
-    - [>] multiple mp3 (no transitions)
-- [x] name resulting power hour based on the name of the given power hour... duh
 - webpage
     - [ ] download the power hour
     - [ ] show status
@@ -57,9 +45,11 @@ Since I am doing small incremental work on this project it would take too much t
 - clean up webpage
     - only keep needed menus
     - make it pretty
+- github actions
+    - coverage
+    - documentation building with sphinx
 
 - next
-- get github actions working
 - orgnaize this
 - why are sizes of videos tiny
 - option to download both mp3 and mp4 at same time
@@ -88,19 +78,3 @@ Since I am doing small incremental work on this project it would take too much t
 
 C:\Users\tjand\AppData\Local\Temp\_MEI240322\powerhourdownloader\videos\2000s-Power-Hour.mp4
 uploads=WindowsPath('C:/Users/tjand/AppData/Local/Temp/videos')
-
-skip tests
-
-```txt
-- [x] tests/test_mytube60_parser.py FF.                                        [ 25%]
-- [x] tests/test_power_hour.py FFFF                                            [ 41%]
-- [x] tests/test_power_hour_parser.py FF                                       [ 50%]
-- [x] tests/test_power_hour_runner.py FF                                       [ 58%]
-- [x] tests/test_powerhourdownloader.py .                                      [ 62%]
-- [x] tests/test_text_video_overlay.py F                                       [ 66%]
-- [x] tests/test_transition.py F                                               [ 70%]
-- [x] tests/test_transition_image.py F                                         [ 75%]
-- [x] tests/test_transition_video.py F                                         [ 79%]
-- [x] tests/test_video_link.py FF                                              [ 87%]
-- [x] tests/test_youtube_video.py FFF                                          [100%]
-```
