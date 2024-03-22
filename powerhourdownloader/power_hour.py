@@ -1,7 +1,7 @@
 try:
     from enum import StrEnum
 except ImportError:
-    import StrEnum
+    from StrEnum import StrEnum  # type: ignore
 
 import logging
 from dataclasses import dataclass
