@@ -29,6 +29,9 @@ jobs:
           which python
           python --version
           pip install -e .  # TODO is this needed
+          ls -l ./powerhourdownloader/hello_world.py
+          cat ./powerhourdownloader/hello_world.py
+          python ./powerhourdownloader/hello_world.py
           which pytest
           pytest
 
