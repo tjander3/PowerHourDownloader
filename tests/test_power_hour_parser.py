@@ -1,6 +1,6 @@
 import pytest
 
-pytest.mark.xfail
+pytest.mark.skip
 class TestPowerHourParser:
     def test_power_hour_parser(self):
         raise NotImplementedError

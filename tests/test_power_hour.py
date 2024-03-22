@@ -1,7 +1,7 @@
 import pytest
 from powerhourdownloader.power_hour import main
 
-pytest.mark.xfail
+pytest.mark.skip
 class TestPowerHour:
     def test_power_hour(self):
         raise NotImplementedError
