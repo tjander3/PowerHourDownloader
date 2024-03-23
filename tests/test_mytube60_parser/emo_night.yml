@@ -7,6 +7,10 @@ output: !PowerHour
     video:
     start_time: 0.0
     end_time: 61.02097006484987
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=X9fLbfzCqWw
@@ -14,6 +18,10 @@ output: !PowerHour
     video:
     start_time: 6.85401512588501
     end_time: 68.43581498092651
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=JixFMKqQU5w
@@ -21,6 +29,10 @@ output: !PowerHour
     video:
     start_time: 9.916522040054318
     end_time: 73.20054102479553
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=kXYiU_JCYtU
@@ -28,6 +40,10 @@ output: !PowerHour
     video:
     start_time: 12.376211024795525
     end_time: 70.6388469752045
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=qgtkPKZ2OPk
@@ -35,6 +51,10 @@ output: !PowerHour
     video:
     start_time: 10.731397112533573
     end_time: 84.19888200381472
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=dhZTNgAs4Fc
@@ -42,6 +62,10 @@ output: !PowerHour
     video:
     start_time: 13.431528110626227
     end_time: 74.9351411106262
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=gGdGFtwCNBE
@@ -49,6 +73,10 @@ output: !PowerHour
     video:
     start_time: 26.587969917984008
     end_time: 88.15747301907346
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=y-jC3H_8Dk4
@@ -56,6 +84,10 @@ output: !PowerHour
     video:
     start_time: 10.898972072479246
     end_time: 70.96615086839294
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=sJRPPUr1yic
@@ -63,6 +95,10 @@ output: !PowerHour
     video:
     start_time: 134.4322929904633
     end_time: 196.83968808392328
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=H2M7zo8ZziE
@@ -70,6 +106,10 @@ output: !PowerHour
     video:
     start_time: 0.0
     end_time: 61.39643980735775
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=3dm_5qWWDV8
@@ -77,6 +117,10 @@ output: !PowerHour
     video:
     start_time: 12.905656049591062
     end_time: 73.68544109727478
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=YU4hhNKsPog
@@ -84,6 +128,10 @@ output: !PowerHour
     video:
     start_time: 110.17186806294244
     end_time: 175.09953083406066
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=hUO-sRLotOI
@@ -91,6 +139,10 @@ output: !PowerHour
     video:
     start_time: 23.256311860763553
     end_time: 82.5103659694824
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=Soa3gO7tL-c
@@ -98,6 +150,10 @@ output: !PowerHour
     video:
     start_time: 35.917224009536746
     end_time: 100.25016797329715
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=-3GBJZzPkYQ
@@ -105,6 +161,10 @@ output: !PowerHour
     video:
     start_time: 0.0
     end_time: 62.528596965667745
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=gPDcwjJ8pLg
@@ -112,6 +172,10 @@ output: !PowerHour
     video:
     start_time: 0.0
     end_time: 58.941807022888156
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=GEGieUB4b3c
@@ -119,6 +183,10 @@ output: !PowerHour
     video:
     start_time: 24.024945169754037
     end_time: 89.78253902861019
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=4ldjbjwim4k
@@ -126,6 +194,10 @@ output: !PowerHour
     video:
     start_time: 0.0
     end_time: 55.09193185122682
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=swvjAqCELis
@@ -133,6 +205,10 @@ output: !PowerHour
     video:
     start_time: 160.4940229351502
     end_time: 218.70761614114372
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=6Ux6SlOE9Qk
@@ -140,6 +216,10 @@ output: !PowerHour
     video:
     start_time: 12.910261889373777
     end_time: 71.81842295994568
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=hCL-xcCFVDM
@@ -147,6 +227,10 @@ output: !PowerHour
     video:
     start_time: 7.948357049591064
     end_time: 66.37074320408634
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=AszabgCs6d8
@@ -154,6 +238,10 @@ output: !PowerHour
     video:
     start_time: 5.216957102996828
     end_time: 69.63455584359745
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=2ZGRzdywXqs
@@ -161,6 +249,10 @@ output: !PowerHour
     video:
     start_time: 6.640171832153321
     end_time: 66.80231699809266
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=DrQgUfkYhic
@@ -168,6 +260,10 @@ output: !PowerHour
     video:
     start_time: 3.1532270858306886
     end_time: 73.0016270743866
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=JjPIOuFtWAI
@@ -175,6 +271,10 @@ output: !PowerHour
     video:
     start_time: 6.509480101089477
     end_time: 66.61562404386902
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=S9z3gv3MWaM
@@ -182,6 +282,10 @@ output: !PowerHour
     video:
     start_time: 162.71864104196172
     end_time: 237.37437500190725
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=Ft1lxiWFbDk
@@ -189,6 +293,10 @@ output: !PowerHour
     video:
     start_time: 0.0
     end_time: 60.428027980926515
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=1Yzu-4kJg6g
@@ -196,6 +304,10 @@ output: !PowerHour
     video:
     start_time: 0.0
     end_time: 63.51273904577634
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=e8X3ACToii0
@@ -203,6 +315,10 @@ output: !PowerHour
     video:
     start_time: 26.87904107057191
     end_time: 86.37561698664852
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=lDK9QqIzhwk
@@ -210,6 +326,10 @@ output: !PowerHour
     video:
     start_time: 39.663284101089495
     end_time: 101.47635499809257
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=hPC2Fp7IT7o
@@ -217,6 +337,10 @@ output: !PowerHour
     video:
     start_time: 65.0064309160767
     end_time: 126.42744886839293
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=ONDxTK-aokY
@@ -224,6 +348,10 @@ output: !PowerHour
     video:
     start_time: 0.11104817356872562
     end_time: 57.77434991416933
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=kl4wkIPiTcY
@@ -231,6 +359,10 @@ output: !PowerHour
     video:
     start_time: 21.62189896948243
     end_time: 82.25293590272523
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=zINlfg0aGqw
@@ -238,6 +370,10 @@ output: !PowerHour
     video:
     start_time: 0.0
     end_time: 62.06186703623963
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=aCyGvGEtOwc
@@ -245,6 +381,10 @@ output: !PowerHour
     video:
     start_time: 0.0
     end_time: 64.46979806866455
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=ZEvi_wY53Zo
@@ -252,6 +392,10 @@ output: !PowerHour
     video:
     start_time: 100.40387110490414
     end_time: 169.60528895613098
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=0SbxNQYblY0
@@ -259,6 +403,10 @@ output: !PowerHour
     video:
     start_time: 11.114954104904175
     end_time: 80.37737394277958
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=XleOkGsYgO8
@@ -266,6 +414,10 @@ output: !PowerHour
     video:
     start_time: 8.485694950408936
     end_time: 67.69170508392338
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=uizQVriWp8M
@@ -273,6 +425,10 @@ output: !PowerHour
     video:
     start_time: 101.63209199809265
     end_time: 161.38051503623961
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=0aCJJkR2BvI
@@ -280,6 +436,10 @@ output: !PowerHour
     video:
     start_time: 12.742440059127814
     end_time: 71.77608676539612
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=n0H3RlaQVrM
@@ -287,6 +447,10 @@ output: !PowerHour
     video:
     start_time: 1.4040622340425533
     end_time: 63.78528191226194
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=CYpn8yUnX_c
@@ -294,6 +458,10 @@ output: !PowerHour
     video:
     start_time: 9.19589805722046
     end_time: 67.16975098092647
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=UWvh8gezm_c
@@ -301,6 +469,10 @@ output: !PowerHour
     video:
     start_time: 7.123834053405764
     end_time: 67.4886500591278
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=dqy1jA8-WCQ
@@ -308,6 +480,10 @@ output: !PowerHour
     video:
     start_time: 0.1385451239776612
     end_time: 73.13313910490413
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=0otKD0vL0MU
@@ -315,6 +491,10 @@ output: !PowerHour
     video:
     start_time: 16.994667106811544
     end_time: 72.41434101716611
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=UCCyoocDxBA
@@ -322,6 +502,10 @@ output: !PowerHour
     video:
     start_time: 0.9627379351501467
     end_time: 63.56258683406067
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=yFdLSM8zVVI
@@ -329,6 +513,10 @@ output: !PowerHour
     video:
     start_time: 5.197842841690061
     end_time: 67.727454879837
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=R4sqFmSqrSc
@@ -336,6 +524,10 @@ output: !PowerHour
     video:
     start_time: 5.4249429504089335
     end_time: 64.35042192561343
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=A3x49g2TMxU
@@ -343,6 +535,10 @@ output: !PowerHour
     video:
     start_time: 0.39923010871887193
     end_time: 67.40704009536746
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=lHFIofq6ngo
@@ -350,6 +546,10 @@ output: !PowerHour
     video:
     start_time: 39.85007394277954
     end_time: 106.67108000953674
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=eVTXPUF4Oz4
@@ -357,6 +557,10 @@ output: !PowerHour
     video:
     start_time: 14.966105087738043
     end_time: 74.66882911062622
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=h3YVKTxTOgU
@@ -364,6 +568,10 @@ output: !PowerHour
     video:
     start_time: 8.802222959945682
     end_time: 70.79918103814697
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=Neo-I7U1UfI
@@ -371,6 +579,10 @@ output: !PowerHour
     video:
     start_time: 60.0
     end_time: 138.8780281792907
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=WdW48xSbb9s
@@ -378,6 +590,10 @@ output: !PowerHour
     video:
     start_time: 0.0
     end_time: 59.563364927520766
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=dZLfasMPOU4
@@ -385,6 +601,10 @@ output: !PowerHour
     video:
     start_time: 81.42955897901913
     end_time: 146.52200695231627
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=lL2ZwXj1tXM
@@ -392,6 +612,10 @@ output: !PowerHour
     video:
     start_time: 6.4846370553131125
     end_time: 65.35566600572199
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=lLHPYEieXb0
@@ -399,6 +623,10 @@ output: !PowerHour
     video:
     start_time: 97.8095378855591
     end_time: 157.43228508392335
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=G_sBOsh-vyI
@@ -406,6 +634,10 @@ output: !PowerHour
     video:
     start_time: 91.3768590152588
     end_time: 156.18967778256234
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=cMY5VwfcGdU
@@ -413,6 +645,10 @@ output: !PowerHour
     video:
     start_time: 0.23471915258789053
     end_time: 62.27915598474125
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   - !YoutubeVideo
     video_link: !VideoLink
       video_link: https://www.youtube.com/watch?v=lu9VjpkVYYM
@@ -420,4 +656,13 @@ output: !PowerHour
     video:
     start_time: 4.554694860763548
     end_time: 178.84478381689453
+    ydl_opts:
+      format: bestvideo+bestaudio/best
+      overwrites: true
+      retries: 25
   transitions:
+  output: C:\Users\tjand\git\PowerHourDownloader\powerhourdownloader\videos\EMO-NIGHT.mp4
+  title: EMO-NIGHT
+  videos_downloaded: 0
+  power_hour_status: Waiting to start downloading
+  total_videos:

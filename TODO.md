@@ -6,8 +6,6 @@ Since I am doing small incremental work on this project it would take too much t
 - [ ] .github ci/cd once tests framework is stood up
 - [ ] Is is possible to not download all of youtube video (just a section)?
 - webpage
-    - [x] download the power hour
-    - [x] show status
     - [ ] navigate to other pages while downloading
 - auto upload
     - [ ] google drive

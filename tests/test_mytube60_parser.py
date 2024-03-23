@@ -4,7 +4,6 @@ import pytest
 from powerhourdownloader.mytube60_parser import MyTube60Parser, main
 
 class TestMyTube60Parser:
-    @pytest.mark.skip
     @pytest.mark.parametrize(
         'test_name, link, webpage_path',
         (
@@ -38,6 +37,9 @@ class TestMyTube60Parser:
         mytube60.parse(debug=webpage)
 
         gold = golden.open(f'test_mytube60_parser/{test_name}.yml')
+        # Hack to get golden-test to work
+        mytube60.power_hour.power_hour_status = str(mytube60.power_hour.power_hour_status)
+        mytube60.power_hour.output = str(mytube60.power_hour.output)
         assert mytube60.power_hour == gold.out["output"]
 
     def test_main(self):
