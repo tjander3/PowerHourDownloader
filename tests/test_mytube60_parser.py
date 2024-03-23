@@ -39,7 +39,8 @@ class TestMyTube60Parser:
         gold = golden.open(f'test_mytube60_parser/{test_name}.yml')
         # Hack to get golden-test to work
         mytube60.power_hour.power_hour_status = str(mytube60.power_hour.power_hour_status)
-        mytube60.power_hour.output = str(mytube60.power_hour.output)
+        # Dont keep full path as it will be different on different systems
+        mytube60.power_hour.output = str(mytube60.power_hour.output.name)
         assert mytube60.power_hour == gold.out["output"]
 
     def test_main(self):
