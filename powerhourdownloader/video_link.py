@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 import youtube_dl
 
-from debug_variables import ci_youtube_dl_down
+from powerhourdownloader.debug_variables import ci_youtube_dl_down
 
 
 @dataclass
