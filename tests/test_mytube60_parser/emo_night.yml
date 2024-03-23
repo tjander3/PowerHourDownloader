@@ -661,7 +661,7 @@ output: !PowerHour
       overwrites: true
       retries: 25
   transitions:
-  output: C:\Users\tjand\git\PowerHourDownloader\powerhourdownloader\videos\EMO-NIGHT.mp4
+  output: EMO-NIGHT.mp4
   title: EMO-NIGHT
   videos_downloaded: 0
   power_hour_status: Waiting to start downloading
