@@ -2,6 +2,7 @@
 video_debug = (43, 46)
 debug = True
 debug = False
+ci_youtube_dl_down = True
 flask_log = False
 
 # The length of the power hour videos

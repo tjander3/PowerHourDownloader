@@ -2,6 +2,8 @@ from dataclasses import dataclass
 
 import youtube_dl
 
+from debug_variables import ci_youtube_dl_down
+
 
 @dataclass
 class VideoLink:
@@ -16,6 +18,8 @@ class VideoLink:
         We also check to make sure that the video is possible to downlad to avoid downloading bad videos.
         """
         # Got this from here: <https://stackoverflow.com/questions/61465405/how-to-check-if-a-url-is-valid-that-youtube-dl-supports>
+        if ci_youtube_dl_down:
+            return True
         try:
             youtube_dl.YoutubeDL({'quiet': True}).extract_info(self.video_link, download=False)
             return True
