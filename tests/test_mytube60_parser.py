@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Optional
 import pytest
 
 from powerhourdownloader.mytube60_parser import MyTube60Parser, main
@@ -20,9 +21,12 @@ class TestMyTube60Parser:
             ),
         )
     )
-    def test_mytube60_parser(self, test_name, link, webpage_path, golden):
+    def test_mytube60_parser(self, test_name: str, link: str, webpage_path: Optional[Path], golden):
         # If no internet connection use the pre downloaded file
         if webpage_path:
+            # Title is with - but test_name is with _. just hardcoding here.
+            # If we add anymore tests we will need to rethink this line.
+            test_debug = test_name.upper().replace('_', '-')
             with open(
                 webpage_path,
                 'r',
@@ -30,10 +34,10 @@ class TestMyTube60Parser:
             ) as f:
                 webpage = f.read()
         else:
+            test_debug = None
             webpage = webpage_path
 
-
-        mytube60 = MyTube60Parser(link=link)
+        mytube60 = MyTube60Parser(link=link, test_debug=test_debug)
         mytube60.parse(debug=webpage)
 
         gold = golden.open(f'test_mytube60_parser/{test_name}.yml')

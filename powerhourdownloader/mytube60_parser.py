@@ -32,6 +32,8 @@ class MyTube60Parser(PowerHourParser):
         return webpage_html
 
     def get_webpage_title(self):
+        if self.test_debug:
+            return self.test_debug
         if not self.link:
             raise ValueError('self.link is expected to be set; not None')
 
