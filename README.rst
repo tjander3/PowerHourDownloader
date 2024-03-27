@@ -42,6 +42,20 @@ Activate environment:
 
 Install packages in environment: `python -m pip install -r requirements_dev.txt`
 
+Other environment
+--------
+
+### Windows
+
+Install make
+Install choco
+Install make
+
+Using make with windows
+--------
+
+Use git bash and make should work fine
+
 
 Building
 --------
