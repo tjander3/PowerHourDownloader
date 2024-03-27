@@ -35,5 +35,8 @@ jobs:
           . ./ph/bin/activate
           which pytest
           pytest
-
+      - name: Get coverage  # TODO this is rerunning the tests, instead we should run pytest with coverage
+        run: |
+          . ./ph/bin/activate
+          make coverage
       - run: echo "🍏 This job's status is ${{ job.status }}."
