@@ -36,10 +36,12 @@ jobs:
       - name: Run pytest
         run: |
           . ./ph/bin/activate
+          make env-youtube # TODO only want to do this once
           which pytest
           pytest
       - name: Get coverage  # TODO this is rerunning the tests, instead we should run pytest with coverage
         run: |
           . ./ph/bin/activate
+          make env-youtube # TODO only want to do this once
           make coverage
       - run: echo "🍏 This job's status is ${{ job.status }}."
