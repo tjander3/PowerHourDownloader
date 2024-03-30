@@ -60,6 +60,11 @@ env-youtube:  ## Add youtube-dl
 	#python setup.py develop
 	pip install -e .
 
+install-env-youtube:  ## Add youtube-dl
+	cd included-sw
+	cd youtube-dl
+	pip install -e .
+
 lint/flake8: ## check style with flake8
 	flake8 powerhourdownloader tests
 lint/black: ## check style with black
