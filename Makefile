@@ -57,7 +57,8 @@ env-youtube:  ## Add youtube-dl
 	git clone https://github.com/ytdl-org/youtube-dl.git
 	cd youtube-dl
 	#git checkout aaed4884ed9954b8b69c3ca5254418ec578ed0b9  # TODO is something like this needed
-	python setup.py develop
+	#python setup.py develop
+	pip install -e .
 
 lint/flake8: ## check style with flake8
 	flake8 powerhourdownloader tests
