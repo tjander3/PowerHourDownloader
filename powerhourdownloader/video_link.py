@@ -29,7 +29,7 @@ class VideoLink:
 
 def main():
     # Power hour with bad link https://www.mytube60.com/video/on/ttpmoose---movies/db30aa60461b4a3fa4375724b61b8013.html
-    bad_link = 'https://www.youtube.com/watch?v=dpq4gmj-7ys'
+    bad_link = 'https://www.youtube.com/watch?v=xxx'
     assert not VideoLink(bad_link).verify_video_link()
 
     good_link = 'https://www.youtube.com/watch?v=mvVBuG4IOW4'

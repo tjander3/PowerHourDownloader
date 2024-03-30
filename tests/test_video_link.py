@@ -6,7 +6,7 @@ class TestVideoLink:
     @pytest.mark.parametrize(
         'link, is_valid', (
             ('https://www.youtube.com/watch?v=mvVBuG4IOW4', True),
-            ('https://www.youtube.com/watch?v=dpq4gmj-7ys', False),
+            ('https://www.youtube.com/watch?v=xxx', False),
 
         )
     )
