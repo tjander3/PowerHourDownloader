@@ -47,6 +47,18 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr htmlcov/
 	rm -fr .pytest_cache
 
+# TODO make env will make an evrionemnt for you
+#env: ## Make env need to provide name
+#
+
+env-youtube:  ## Add youtube-dl
+	mkdir included-sw
+	cd included-sw
+	git clone https://github.com/ytdl-org/youtube-dl.git
+	cd youtube-dl
+	git checkout aaed4884ed9954b8b69c3ca5254418ec578ed0b9
+	python setup.py develop
+
 lint/flake8: ## check style with flake8
 	flake8 powerhourdownloader tests
 lint/black: ## check style with black

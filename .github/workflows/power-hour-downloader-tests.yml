@@ -24,6 +24,9 @@ jobs:
           . ./ph/bin/activate
           python -m pip install -r requirements_dev.txt
           pip list
+          echo adding in youtube-dl
+          make env-youtube
+          pip list
           which python
           python --version
           pip install -e .  # TODO is this needed
