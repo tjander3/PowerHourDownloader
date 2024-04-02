@@ -58,6 +58,9 @@ env-youtube:  ## Add youtube-dl
 	cd youtube-dl
 	#git checkout aaed4884ed9954b8b69c3ca5254418ec578ed0b9  # TODO is something like this needed
 	#python setup.py develop
+	# TODO left off here why is it installying phd and not youtbedl
+	ls -l
+	pwd
 	pip install -e .
 
 install-env-youtube:  ## Add youtube-dl
