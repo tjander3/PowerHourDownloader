@@ -59,6 +59,7 @@ env-youtube:  ## Add youtube-dl
 	# TODO left off here why is it installying phd and not youtbedl
 	pip install -e included-sw/youtube-dl
 
+# TODO maybe remove this, it might not be needed anmore since pip intsall youtube-dl is working
 install-env-youtube:  ## Add youtube-dl
 	cd included-sw
 	cd youtube-dl
