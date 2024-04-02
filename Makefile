@@ -53,15 +53,11 @@ clean-test: ## remove test and coverage artifacts
 
 env-youtube:  ## Add youtube-dl
 	mkdir included-sw
-	cd included-sw
-	git clone https://github.com/ytdl-org/youtube-dl.git
-	cd youtube-dl
+	git clone https://github.com/ytdl-org/youtube-dl.git included-sw/youtube-dl
 	#git checkout aaed4884ed9954b8b69c3ca5254418ec578ed0b9  # TODO is something like this needed
 	#python setup.py develop
 	# TODO left off here why is it installying phd and not youtbedl
-	ls -l
-	pwd
-	pip install -e .
+	pip install -e included-sw/youtube-dl
 
 install-env-youtube:  ## Add youtube-dl
 	cd included-sw
