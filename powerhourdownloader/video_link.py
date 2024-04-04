@@ -1,3 +1,4 @@
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 
 import youtube_dl
@@ -26,6 +27,22 @@ class VideoLink:
         except Exception:
             return False
 
+def verify_video_link_concurrently(video_links: list[VideoLink]):
+    """Verify a list of video links concurrently."""
+    from powerhourdownloader.video import Video  # TODO this is terrible practice
+    with ThreadPoolExecutor() as executor:
+        if isinstance(video_links[0], Video):
+            future_to_link = {executor.submit(link.video_link.verify_video_link): link for link in video_links}
+        else:  # Video Link
+            future_to_link = {executor.submit(link.verify_video_link): link for link in video_links}
+
+        for future in as_completed(future_to_link):
+            link = future_to_link[future]
+            try:
+                result = future.result()
+                yield (link, result)
+            except Exception as exc:
+                yield (link, False)
 
 def main():
     # Power hour with bad link https://www.mytube60.com/video/on/ttpmoose---movies/db30aa60461b4a3fa4375724b61b8013.html
@@ -34,6 +51,12 @@ def main():
 
     good_link = 'https://www.youtube.com/watch?v=mvVBuG4IOW4'
     assert VideoLink(good_link).verify_video_link()
+
+    video_links = [VideoLink(good_link), VideoLink(bad_link)]
+    results = list(verify_video_link_concurrently(video_links))
+    assert (VideoLink(good_link), True) in results
+    assert (VideoLink(bad_link), False) in results
+
 
 if __name__ == '__main__':
     main()

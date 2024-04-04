@@ -37,6 +37,7 @@ jobs:
         run: |
           . ./ph/bin/activate
           which pytest
+          # TODO left off speed up pytests
           pytest
       - name: Get coverage  # TODO this is rerunning the tests, instead we should run pytest with coverage
         run: |

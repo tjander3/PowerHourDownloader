@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 from powerhourdownloader.power_hour import PowerHour
 from powerhourdownloader.power_hour_parser import PowerHourParser
 from powerhourdownloader.video import txt2filename
-from powerhourdownloader.video_link import VideoLink
+from powerhourdownloader.video_link import VideoLink, verify_video_link_concurrently
 from powerhourdownloader.youtube_audio import YoutubeAudio
 from powerhourdownloader.youtube_video import YoutubeVideo
 import powerhourdownloader.debug_variables as ph_vars
@@ -73,6 +73,7 @@ class MyTube60Parser(PowerHourParser):
         test_str = powerhour_webpage[start_of_playlist:end_of_playlist]
 
         matches = re.finditer(regex, test_str)
+        unverified_videos = []
 
         for match_num, match in enumerate(matches, start=1):
             if ph_vars.debug and (match_num < ph_vars.video_debug[0] or match_num > ph_vars.video_debug[1]):
@@ -99,15 +100,22 @@ class MyTube60Parser(PowerHourParser):
                 start_time=float(start_time),
                 end_time=float(end_time),
             )
+            unverified_videos.append(youtube_video)
 
-            # Verify that the video exists and is downloadable
-            # TODO is it possible to do this with threads?
-            # TODO need to make sure this actually works
-            video_exists = youtube_video.video_link.verify_video_link()
-            if video_exists:
-                videos.append(youtube_video)
-            else:
-                logging.warning(f'Video, {name}, is not downloadable')
+        # Verify that the video exists and is downloadable
+        # TODO is it possible to do this with threads?
+        # TODO need to make sure this actually works
+
+        results = list(verify_video_link_concurrently(unverified_videos))
+        for link, downloadable in results:
+            if not downloadable:
+                # Iterate over a copy of the list to safely remove items from the original list
+                for obj in unverified_videos[:]:  # my_objects[:] creates a shallow copy of the list
+                    if obj.video_link == link:
+                        print(f'removing {obj}')
+                        unverified_videos.remove(obj)
+
+        videos = unverified_videos
 
         # We do Powerhour instead of a lis of videos here because we may
         # need to parse a video that already has transitions.
