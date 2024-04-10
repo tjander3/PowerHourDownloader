@@ -36,9 +36,12 @@ def verify_video_link_concurrently(video_links: list[VideoLink]):
         else:  # Video Link
             future_to_link = {executor.submit(link.verify_video_link): link for link in video_links}
 
+        video_number = 0
         for future in as_completed(future_to_link):
             link = future_to_link[future]
             try:
+                print(f'verifying video #{video_number}')
+                video_number += 1
                 result = future.result()
                 yield (link, result)
             except Exception as exc:

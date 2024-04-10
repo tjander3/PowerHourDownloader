@@ -106,6 +106,7 @@ class MyTube60Parser(PowerHourParser):
         # TODO is it possible to do this with threads?
         # TODO need to make sure this actually works
 
+        print("verifying videos concurrently")
         results = list(verify_video_link_concurrently(unverified_videos))
         for link, downloadable in results:
             if not downloadable:

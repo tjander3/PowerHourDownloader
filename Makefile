@@ -33,7 +33,7 @@ clean-build: ## remove build artifacts
 	rm -fr dist/
 	rm -fr .eggs/
 	find . -name '*.egg-info' -exec rm -fr {} +
-	find . -name '*.egg' -exec rm -f {} +
+	find . -name '*.egg' -exec rm -rf {} +
 
 clean-pyc: ## remove Python file artifacts
 	find . -name '*.pyc' -exec rm -f {} +
@@ -58,12 +58,6 @@ env-youtube:  ## Add youtube-dl
 	#python setup.py develop
 	# TODO left off here why is it installying phd and not youtbedl
 	pip install -e included-sw/youtube-dl
-
-# TODO maybe remove this, it might not be needed anmore since pip intsall youtube-dl is working
-install-env-youtube:  ## Add youtube-dl
-	cd included-sw
-	cd youtube-dl
-	pip install -e .
 
 lint/flake8: ## check style with flake8
 	flake8 powerhourdownloader tests
@@ -103,5 +97,13 @@ dist: clean ## builds source and wheel package
 	python setup.py bdist_wheel
 	ls -l dist
 
+package: install
+	cd powerhourdownloader/webapp/; pyinstaller --paths . -w -F --add-data "templates;templates" ./hello_world.py
+
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
+
+run: #install
+	. ./test2/Scripts/activate
+	cd powerhourdownloader/webapp/; export FLASK_APP=hello_world.py; flask run
+
