@@ -8,6 +8,7 @@ from moviepy.editor import (AudioFileClip, CompositeAudioClip,
                             CompositeVideoClip, TextClip, VideoFileClip)
 
 from powerhourdownloader.text_video_overlay import TextVideoOverlay
+from powerhourdownloader.debug_variables import target_resolution
 
 
 @dataclass
@@ -32,7 +33,7 @@ class Transition():
         else:
             logging.error(f'video does not exist: {self.video.exists()}')
 
-        video = VideoFileClip(str(self.video))
+        video = VideoFileClip(str(self.video), target_resolution=target_resolution)
 
         # Make the text. Many more options are available.
         txt_clip = (

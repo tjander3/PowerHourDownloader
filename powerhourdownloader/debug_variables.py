@@ -12,6 +12,7 @@ if debug:
     print(f"Debug mode is turned on, using videos {video_debug}")
 ci_youtube_dl_down = False
 flask_log = False
+target_resolution = (1080, 1920)  # TODO find a better place for this
 
 # The length of the power hour videos
 # If None dont do anything. If an int make them that long.

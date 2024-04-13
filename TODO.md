@@ -1,6 +1,8 @@
 # TODO
 
-- [ ] tiny videos???
+- [x] tiny videos???
+- [ ] release
+- [ ] % file write on website
 
 Since I am doing small incremental work on this project it would take too much time to create issues for inital code develpment. Instead I will just add some tasks to this file so I can keep up to date on what I am doing / need to do.
 

@@ -8,6 +8,7 @@ from moviepy.editor import VideoFileClip
 
 from powerhourdownloader.video import Video, txt2filename
 from powerhourdownloader.video_link import VideoLink
+from powerhourdownloader.debug_variables import target_resolution
 
 
 @dataclass
@@ -60,7 +61,7 @@ class YoutubeVideo(Video):
                     subclip.write_audiofile(str(self.video))
 
             else:
-                with VideoFileClip(str(full_video_path)) as video:
+                with VideoFileClip(str(full_video_path), target_resolution=target_resolution) as video:
                     subclip = video.subclip(self.start_time, self.end_time)
                     subclip.write_videofile(str(self.video))
         else:
