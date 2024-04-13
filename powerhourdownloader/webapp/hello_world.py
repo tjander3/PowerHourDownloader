@@ -88,6 +88,7 @@ messages = []
 
 # TODO test tyler
 power_hour_runner = None
+mytube60 = None
 percentage = 0  # TODO remove this
 combine_percentage = 5
 write_percentage = 25
@@ -140,9 +141,13 @@ def create():
 @app.route('/download-status')
 def download_status():
     global power_hour_runner
+    global mytube60
 
     if power_hour_runner is None:
-        status = DownloadStatusEnum.WAITING
+        if mytube60 is not None:
+            status = f'Verifying video #{mytube60.videos_verified}'
+        else:
+            status = DownloadStatusEnum.WAITING
     else:
         status = power_hour_runner.parser.power_hour.power_hour_status
 
@@ -230,6 +235,7 @@ def create_power_hour():
             logging.basicConfig()
             logging.getLogger().setLevel(logging.DEBUG)
             # TODO transitions not implemented yet
+            global mytube60
             mytube60 = MyTube60Parser(link=webpage_link)
             mytube60.parse(audio_only=audio_only)
             # TODO this needs to be gifured out
@@ -238,8 +244,8 @@ def create_power_hour():
                         video_link=VideoLink(video_link=transition_link),
                         name=None,
                         video=None,
-                        start_time=None,
-                        end_time=None,
+                        start_time=start_time,
+                        end_time=end_time,
                 )
                 transition_video.download()
                 mytube60.power_hour.transitions = TransitionVideo(

@@ -107,7 +107,8 @@ class MyTube60Parser(PowerHourParser):
         # TODO need to make sure this actually works
 
         print("verifying videos concurrently")
-        results = list(verify_video_link_concurrently(unverified_videos))
+        results = list(verify_video_link_concurrently(unverified_videos, self))
+        print("Done Verifying Videos")
         for link, downloadable in results:
             if not downloadable:
                 # Iterate over a copy of the list to safely remove items from the original list

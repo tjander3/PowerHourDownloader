@@ -22,6 +22,7 @@ import powerhourdownloader.debug_variables as ph_vars
 
 class DownloadStatusEnum(StrEnum):
     WAITING = 'Waiting to start downloading'
+    VERIFYING_VIDEOS = 'Verifying Videos Exist'
     VIDEOS_DOWNLOADING = 'Videos Downloading'
     VIDEOS_COMBINING = 'Combining videos'
     VIDEOS_WRITING = 'Writing the Videos to file'

@@ -1,5 +1,7 @@
 # TODO
 
+- [ ] tiny videos???
+
 Since I am doing small incremental work on this project it would take too much time to create issues for inital code develpment. Instead I will just add some tasks to this file so I can keep up to date on what I am doing / need to do.
 
 - [ ] Create README.md
@@ -60,3 +62,8 @@ Since I am doing small incremental work on this project it would take too much t
 
 C:\Users\tjand\AppData\Local\Temp\_MEI240322\powerhourdownloader\videos\2000s-Power-Hour.mp4
 uploads=WindowsPath('C:/Users/tjand/AppData/Local/Temp/videos')
+
+## Done
+
+- [x] Verifying video in webapp as progress
+- [x] Verify audio download works
