@@ -59,6 +59,7 @@ from powerhourdownloader.power_hour import DownloadStatusEnum
 from powerhourdownloader.power_hour_runner import PowerHourRunner
 import powerhourdownloader.debug_variables as ph_vars
 from powerhourdownloader.transition import Transition
+from powerhourdownloader import __version__
 
 # TODO left off here https://python-adv-web-apps.readthedocs.io/en/latest/flask_forms.html
 
@@ -121,6 +122,11 @@ def download(filename):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html', messages=messages)
+
+@app.route('/info')
+def info():
+    return render_template('info.html', version=__version__)
+
 
 @app.route('/create/', methods=('GET', 'POST'))
 def create():
