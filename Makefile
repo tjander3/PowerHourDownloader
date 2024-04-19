@@ -1,3 +1,4 @@
+# TODO make clean for package
 .PHONY: clean clean-build clean-pyc clean-test coverage dist docs help install lint lint/flake8 lint/black
 .DEFAULT_GOAL := help
 
@@ -98,7 +99,7 @@ dist: clean ## builds source and wheel package
 	ls -l dist
 
 package: install
-	cd powerhourdownloader/webapp/; pyinstaller --paths . -w -F --add-data "templates;templates" ./hello_world.py
+	. ./test2/Scripts/activate; cd powerhourdownloader/webapp/; pyinstaller --paths . -w -F --add-data "templates;templates" ./hello_world.py
 
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
