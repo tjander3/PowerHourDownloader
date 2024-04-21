@@ -36,30 +36,32 @@ TODO
     - rename this file
 
 """
-import sys
+import hashlib
 import logging
 import os
-from pathlib import Path
 import secrets
-from threading import Timer
+import sys
 import webbrowser
+from pathlib import Path
+from threading import Timer
 
-from flask import Flask, flash, redirect, render_template, request, send_from_directory, url_for
+from flask import (Flask, flash, redirect, render_template, request,
+                   send_from_directory, url_for)
 from flask_bootstrap import Bootstrap  # TODO fix this
 from flask_wtf import CSRFProtect, FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, Length
-from powerhourdownloader.transition_video import TransitionVideo
-from powerhourdownloader.video_link import VideoLink
-from powerhourdownloader.youtube_video import YoutubeVideo
 
+import powerhourdownloader.debug_variables as ph_vars
+from powerhourdownloader import __version__
 from powerhourdownloader.mytube60_parser import (MyTube60Parser,
                                                  example_mytube60_parser_setup)
 from powerhourdownloader.power_hour import DownloadStatusEnum
 from powerhourdownloader.power_hour_runner import PowerHourRunner
-import powerhourdownloader.debug_variables as ph_vars
 from powerhourdownloader.transition import Transition
-from powerhourdownloader import __version__
+from powerhourdownloader.transition_video import TransitionVideo
+from powerhourdownloader.video_link import VideoLink
+from powerhourdownloader.youtube_video import YoutubeVideo
 
 # TODO left off here https://python-adv-web-apps.readthedocs.io/en/latest/flask_forms.html
 
@@ -105,6 +107,28 @@ else:
     # When running app from command line
     app = Flask(__name__)
 
+def hash_file(filename):
+    """Generate SHA-256 hash of the specified file."""
+    hash_sha256 = hashlib.sha256()
+    with open(filename, "rb") as f:
+        # Read and update hash string value in chunks of 4K
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash_sha256.update(chunk)
+    return hash_sha256.hexdigest()
+
+if getattr(sys, 'frozen', False):
+    # The application is frozen
+    exe_path = sys.executable
+else:
+    # The application is not frozen
+    # (e.g., running in a development environment)
+    exe_path = __file__
+
+
+print("Executable Path:", exe_path)
+file_hash = hash_file(exe_path)
+print("SHA-256 Hash:", file_hash)
+
 # @app.route('/')
 # def hello_world():
 #    return 'Hello, World!'
@@ -125,7 +149,7 @@ def index():
 
 @app.route('/info')
 def info():
-    return render_template('info.html', version=__version__)
+    return render_template('info.html', version=__version__, file_hash=file_hash, exe_path=exe_path)
 
 
 @app.route('/create/', methods=('GET', 'POST'))
@@ -285,6 +309,7 @@ class NameForm(FlaskForm):
 
 def open_browser():
     webbrowser.open_new('http://127.0.0.1:5000/')
+
 
 def main():
     Timer(1, open_browser).start()

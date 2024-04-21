@@ -1,10 +1,8 @@
 # TODO
 
-- [x] tiny videos???
-- [x] release and send to andy
-- [x] version info on website
 - [ ] pyinstaller make sure cmd stays up
     - [ ] warning if port is already taken
+- [ ] make sure make package is packaging correct environment
 - [ ] % file write on website
 
 Since I am doing small incremental work on this project it would take too much time to create issues for inital code develpment. Instead I will just add some tasks to this file so I can keep up to date on what I am doing / need to do.
@@ -72,3 +70,7 @@ uploads=WindowsPath('C:/Users/tjand/AppData/Local/Temp/videos')
 
 - [x] Verifying video in webapp as progress
 - [x] Verify audio download works
+- [x] tiny videos???
+- [x] release and send to andy
+- [x] version info on website
+- [x] add build hash to info

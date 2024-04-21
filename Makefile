@@ -49,8 +49,13 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache
 
 # TODO make env will make an evrionemnt for you
-#env: ## Make env need to provide name
-#
+# TODO verify this works in onjucutin with env-youtubedl
+env: ## Make env need to provide name
+	echo hi
+	python -m venv ph
+	#. ./ph/bin/activate
+	. ./ph/Scripts/activate
+	python -m pip install -r requirements_dev.txt
 
 env-youtube:  ## Add youtube-dl
 	mkdir included-sw
@@ -99,16 +104,18 @@ dist: clean ## builds source and wheel package
 	ls -l dist
 
 package: install
-	. ./test2/Scripts/activate; cd powerhourdownloader/webapp/; pyinstaller --paths . -w -F --add-data "templates;templates" ./hello_world.py
+	# Adding -w will remove cmd opening
+	. ./ph/Scripts/activate; cd powerhourdownloader/webapp/; pyinstaller --paths . --paths ../../included-sw/youtube-dl -F --add-data "templates;templates" ./power_hour_downloader.py
 
 install: clean ## install the package to the active Python's site-packages
+	. ./ph/Scripts/activate
 	python setup.py install
 
 run: #install
-	. ./test2/Scripts/activate
-	cd powerhourdownloader/webapp/; export FLASK_APP=hello_world.py; flask run
+	. ./ph/Scripts/activate
+	cd powerhourdownloader/webapp/; export FLASK_APP=power_hour_downloader.py; flask run
 
 debug: #install
 	. ./test2/Scripts/activate
-	cd powerhourdownloader/webapp/; export DEBUG=True;export FLASK_APP=hello_world.py; flask run
+	cd powerhourdownloader/webapp/; export DEBUG=True;export FLASK_APP=power_hour_downloader.py; flask run
 
