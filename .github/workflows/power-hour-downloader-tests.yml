@@ -1,4 +1,7 @@
 # TODO go through this: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+# TODO split this up into multiple jobs
+# jobs should be create env, tests, analysis (coverage, others?)
+
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
