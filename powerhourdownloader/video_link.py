@@ -27,7 +27,7 @@ class VideoLink:
         except Exception:
             return False
 
-def verify_video_link_concurrently(video_links: list[VideoLink], parser: 'PowerHourParser'):
+def verify_video_link_concurrently(video_links: list[VideoLink], parser: 'PowerHourParser' = None):
     """Verify a list of video links concurrently."""
     from powerhourdownloader.video import Video  # TODO this is terrible practice
     with ThreadPoolExecutor() as executor:
@@ -42,7 +42,8 @@ def verify_video_link_concurrently(video_links: list[VideoLink], parser: 'PowerH
             try:
                 print(f'verifying video #{video_number}')
                 video_number += 1
-                parser.videos_verified += 1
+                if parser:
+                    parser.videos_verified += 1
                 result = future.result()
                 yield (link, result)
             except Exception as exc:
