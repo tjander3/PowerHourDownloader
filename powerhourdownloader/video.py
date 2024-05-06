@@ -3,6 +3,7 @@ import re
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from pathlib import Path
+import string
 from typing import Optional
 
 from powerhourdownloader.video_link import VideoLink
@@ -24,6 +25,9 @@ def txt2filename(txt, chr_set='printable'):
     FILLER = '-'
     START_FILLER = 'x'
     MAX_LEN = 255  # Maximum length of filename is 255 bytes in Windows and some *nix flavors.
+
+    # Step 0: Remove Unicode characters if specified.
+    txt = ''.join(filter(lambda x: x in string.printable, txt))
 
     # Step 1: Remove excluded characters.
     BLACK_LIST = set(chr(127) + r'<>:"/\|?*')                           # 127 is unprintable, the rest are illegal in Windows.

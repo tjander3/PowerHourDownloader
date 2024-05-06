@@ -116,6 +116,6 @@ run: #install
 	cd powerhourdownloader/webapp/; export FLASK_APP=power_hour_downloader.py; flask run
 
 debug: #install
-	. ./test2/Scripts/activate
+	. ./ph/Scripts/activate
 	cd powerhourdownloader/webapp/; export DEBUG=True;export FLASK_APP=power_hour_downloader.py; flask run
 

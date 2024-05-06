@@ -15,7 +15,7 @@ from powerhourdownloader.debug_variables import target_resolution
 class YoutubeVideo(Video):
 
     def __post_init__(self):
-        self.ydl_opts = {'format': 'bestvideo+bestaudio/best', 'overwrites': True, 'retries': 25}
+        self.ydl_opts = {'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best', 'overwrites': True, 'retries': 25}
         if self.name is None:
             with youtube_dl.YoutubeDL() as ydl:
                   info_dict = ydl.extract_info(self.video_link.video_link, download=False)
