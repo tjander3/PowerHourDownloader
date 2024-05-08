@@ -49,8 +49,18 @@ class YoutubeVideo(Video):
         # add to download parameters:
         self.ydl_opts['outtmpl'] = str(full_video_path)
 
-        with youtube_dl.YoutubeDL(self.ydl_opts) as ydl:
-            ydl.download([self.video_link.video_link])
+        attempts = 3
+        attempt_num = 0
+        downloaded = False
+        while not downloaded and attempt_num < attempts:
+            try:
+                with youtube_dl.YoutubeDL(self.ydl_opts) as ydl:
+                    ydl.download([self.video_link.video_link])
+                downloaded = True
+            except Exception:
+                logging.debug("unable to download trying again")
+                attempt_num += 1
+
 
         # extract the relevant subclip:
         if self.start_time is not None:
