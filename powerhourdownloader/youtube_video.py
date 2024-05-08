@@ -52,6 +52,7 @@ class YoutubeVideo(Video):
         attempts = 3
         attempt_num = 0
         downloaded = False
+        # TODO clean this up
         while not downloaded and attempt_num < attempts:
             try:
                 with youtube_dl.YoutubeDL(self.ydl_opts) as ydl:

@@ -77,6 +77,11 @@ class PowerHour:
 
         self._set_transitions()
 
+        # TODO fix this up to actually use ffmpeg and merge in with laptop
+        for video in self.videos:
+            print(f"file: '{video.video}'")
+            print(f"file: '{self.transitions[0].video}'")
+        exit()
         clip_type = VideoFileClip
         if isinstance(self.videos[0], YoutubeAudio):
             clip_type = AudioFileClip
