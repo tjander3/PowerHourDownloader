@@ -50,12 +50,18 @@ clean-test: ## remove test and coverage artifacts
 
 # TODO make env will make an evrionemnt for you
 # TODO verify this works in onjucutin with env-youtubedl
-env: ## Make env need to provide name
-	echo hi
-	python -m venv ph
-	#. ./ph/bin/activate
-	. ./ph/Scripts/activate
-	python -m pip install -r requirements_dev.txt
+# TODO give env need a name
+
+#. ./ph/bin/activate
+.PHONY: env
+
+env: ## Create Conda environment
+ifeq ($(strip $(ENV_NAME)),)
+	$(error ENV_NAME is not defined. Usage: make env ENV_NAME=<name>)
+endif
+	set PYTHONWARNINGS="ignore:RequestsDependencyWarning" && conda create -n $(ENV_NAME) python --yes
+	set PYTHONWARNINGS="ignore:RequestsDependencyWarning" && conda run -n $(ENV_NAME) conda install pip --yes
+	set PYTHONWARNINGS="ignore:RequestsDependencyWarning" && conda run -n $(ENV_NAME) pip install -r requirements_dev.txt
 
 env-youtube:  ## Add youtube-dl
 	mkdir included-sw
@@ -108,11 +114,11 @@ package: install
 	. ./ph/Scripts/activate; cd powerhourdownloader/webapp/; pyinstaller --paths . --paths ../../included-sw/youtube-dl -F --add-data "templates;templates" ./power_hour_downloader.py
 
 install: clean ## install the package to the active Python's site-packages
-	. ./ph/Scripts/activate
+	#. ./ph/Scripts/activate
 	python setup.py install
 
 run: #install
-	. ./ph/Scripts/activate
+	#. ./ph/Scripts/activate
 	cd powerhourdownloader/webapp/; export FLASK_APP=power_hour_downloader.py; flask run
 
 debug: #install
