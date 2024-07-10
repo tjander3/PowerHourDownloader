@@ -105,17 +105,20 @@ class MyTube60Parser(PowerHourParser):
         # Verify that the video exists and is downloadable
         # TODO is it possible to do this with threads?
         # TODO need to make sure this actually works
+        if len(unverified_videos) == 0:
+            logging.info("No videos found")
+        else:
 
-        print("verifying videos concurrently")
-        results = list(verify_video_link_concurrently(unverified_videos, self))
-        print("Done Verifying Videos")
-        for link, downloadable in results:
-            if not downloadable:
-                # Iterate over a copy of the list to safely remove items from the original list
-                for obj in unverified_videos[:]:  # my_objects[:] creates a shallow copy of the list
-                    if obj.video_link == link:
-                        print(f'removing {obj}')
-                        unverified_videos.remove(obj)
+            print("verifying videos concurrently")
+            results = list(verify_video_link_concurrently(unverified_videos, self))
+            print("Done Verifying Videos")
+            for link, downloadable in results:
+                if not downloadable:
+                    # Iterate over a copy of the list to safely remove items from the original list
+                    for obj in unverified_videos[:]:  # my_objects[:] creates a shallow copy of the list
+                        if obj.video_link == link:
+                            print(f'removing {obj}')
+                            unverified_videos.remove(obj)
 
         videos = unverified_videos
 

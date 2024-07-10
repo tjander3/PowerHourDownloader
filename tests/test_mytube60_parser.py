@@ -3,6 +3,7 @@ from typing import Optional
 import pytest
 
 from powerhourdownloader.mytube60_parser import MyTube60Parser, main
+from powerhourdownloader.power_hour import DownloadStatusEnum
 
 class TestMyTube60Parser:
     @pytest.mark.parametrize(
@@ -51,3 +52,19 @@ class TestMyTube60Parser:
     def test_main(self):
         # We just want to verify main runs without any errors
         main()
+
+    def test_parse_empty_webpage(self):
+        mytube60 = MyTube60Parser(link='https://www.google.com')
+        mytube60.parse(debug='')
+        assert mytube60.power_hour.power_hour_status == DownloadStatusEnum.FAILED
+
+    def test_parse_invalid_webpage(self):
+        mytube60 = MyTube60Parser(link='https://www.mytube60.com/video/on/emo-night/b664367fb7ee40799dccbe693015d6f6.html')
+        mytube60.parse(debug='invalid webpage')
+        assert mytube60.power_hour.power_hour_status == 'failed'
+
+    def test_parse_webpage_with_no_power_hour(self):
+        mytube60 = MyTube60Parser(link='https://www.mytube60.com/video/on/emo-night/b664367fb7ee40799dccbe693015d6f6.html')
+        mytube60.parse(debug='<html><body></body></html>')
+        assert mytube60.power_hour.power_hour_status == DownloadStatusEnum.FAILED
+

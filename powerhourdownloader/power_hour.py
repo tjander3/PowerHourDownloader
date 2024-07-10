@@ -27,6 +27,7 @@ class DownloadStatusEnum(StrEnum):
     VIDEOS_COMBINING = 'Combining videos'
     VIDEOS_WRITING = 'Writing the Videos to file'
     VIDEOS_DONE = 'Done with the power hour'
+    FAILED = 'Failed to create power hour'
 
 
 @dataclass
@@ -48,6 +49,9 @@ class PowerHour:
             # of current output
             file_extension = self.output.suffix
             self.output = self.output.resolve().parent / f'{self.title}{file_extension}'
+
+        if len(self.videos) == 0:
+            self.power_hour_status = DownloadStatusEnum.FAILED
 
     def combine_serially(self):
         for video, transition in zip(self.videos, self.transitions):
