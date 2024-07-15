@@ -36,6 +36,7 @@ wtforms
 
 pyinstaller
 
+yt_dlp
 # Used for downloading youtube videos
 # Had to donwload this git repo and install with python setup.py develop
 # mkdir included-sw
@@ -45,3 +46,5 @@ pyinstaller
 # git checkout aaed4884ed9954b8b69c3ca5254418ec578ed0b9
 # python setup.py develop
 #youtube-dl==2021.12.17  # TODO this might not work
+
+# TODO ffmpeg, I used choco

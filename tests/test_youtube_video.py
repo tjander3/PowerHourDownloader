@@ -1,9 +1,32 @@
+import os
 import pytest
 from unittest.mock import patch, MagicMock
 from pathlib import Path
 
 from powerhourdownloader.youtube_video import YoutubeVideo, main
 from powerhourdownloader.video_link import VideoLink
+
+
+def get_file_size(file_path):
+    return os.path.getsize(file_path)
+
+
+def compare_file_sizes(video1_path, video2_path, tolerance=0.01):
+    size1 = get_file_size(video1_path)
+    size2 = get_file_size(video2_path)
+
+    size_diff = abs(size1 - size2)
+    avg_size = (size1 + size2) / 2
+
+    percentage_diff = size_diff / avg_size
+
+    if percentage_diff <= tolerance:
+        print("File sizes are within 1% of each other.")
+        return True
+    else:
+        print(f"File sizes differ by more than 1%: {percentage_diff * 100:.2f}%")
+        return False
+
 
 class TestYoutubeVideo:
     @pytest.fixture
@@ -26,10 +49,12 @@ class TestYoutubeVideo:
         assert youtube_video.end_time == 10
 
     #@patch('powerhourdownloader.youtube_video.youtube_dl.YoutubeDL')
-    def test_download(self, youtube_video):
+    def test_download(self, youtube_video: YoutubeVideo):
         """Test downloading a YouTube video."""
         youtube_video.download()
-        assert youtube_video.name.exists()
+        video_path = Path(youtube_video.video)
+        assert video_path.exists()
         print(youtube_video.name)
         print(type(youtube_video))
-        assert False
+        pre_downloaded_video = Path(__file__).parent / 'videos' / 'Rick Astley - Never Gonna Give You Up.mp4'
+        assert compare_file_sizes(video_path, pre_downloaded_video)

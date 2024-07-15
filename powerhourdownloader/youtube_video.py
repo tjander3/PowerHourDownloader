@@ -3,7 +3,8 @@ import logging
 from pathlib import Path
 from typing import Optional
 
-import youtube_dl
+# import youtube_dl
+import yt_dlp as youtube_dl
 from moviepy.editor import VideoFileClip
 
 from powerhourdownloader.video import Video, txt2filename
@@ -61,7 +62,6 @@ class YoutubeVideo(Video):
             except Exception:
                 logging.debug("unable to download trying again")
                 attempt_num += 1
-
 
         # extract the relevant subclip:
         if self.start_time is not None:
