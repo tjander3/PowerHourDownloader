@@ -48,13 +48,10 @@ class TestYoutubeVideo:
         assert youtube_video.start_time == 0
         assert youtube_video.end_time == 10
 
-    #@patch('powerhourdownloader.youtube_video.youtube_dl.YoutubeDL')
     def test_download(self, youtube_video: YoutubeVideo):
         """Test downloading a YouTube video."""
         youtube_video.download()
         video_path = Path(youtube_video.video)
         assert video_path.exists()
-        print(youtube_video.name)
-        print(type(youtube_video))
         pre_downloaded_video = Path(__file__).parent / 'videos' / 'Rick Astley - Never Gonna Give You Up.mp4'
         assert compare_file_sizes(video_path, pre_downloaded_video)
