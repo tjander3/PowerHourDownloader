@@ -1,4 +1,3 @@
-import os
 import pytest
 from unittest.mock import patch, MagicMock
 from pathlib import Path
@@ -34,4 +33,4 @@ class TestYoutubeVideo:
         video_path = Path(youtube_video.video)
         assert video_path.exists()
         pre_downloaded_video = Path(__file__).parent / 'videos' / 'Rick Astley - Never Gonna Give You Up.mp4'
-        assert compare_file_sizes(video_path, pre_downloaded_video)
+        assert compare_file_sizes(video_path, pre_downloaded_video, tolerance=0)
