@@ -3,7 +3,7 @@ import logging
 from pathlib import Path
 from typing import Optional
 
-import youtube_dl
+import yt_dlp as youtube_dl
 from moviepy.editor import VideoFileClip
 
 from powerhourdownloader.video import Video, txt2filename
