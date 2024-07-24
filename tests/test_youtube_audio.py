@@ -37,3 +37,4 @@ class TestYoutubeVideo:
         assert video_path.exists()
         pre_downloaded_video = Path(__file__).parent / 'videos' / 'Rick Astley - Never Gonna Give You Up.mp3'
         assert compare_file_sizes(video_path, pre_downloaded_video, tolerance=0)
+        # TODO add a function to compare to make sure every bit is equal
